@@ -562,39 +562,37 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
           </div>
 
           <div class="col-lg-7">
-            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
-              <div class="row gy-4">
+            <form id="contact-form" action="<?= base_url('contact/submit') ?>" method="post" class="form-contact" data-aos="fade-up" data-aos-delay="200">
+  <div class="row gy-4">
 
-                <div class="col-md-6">
-                  <label for="name-field" class="pb-2">Your Name</label>
-                  <input type="text" name="name" id="name-field" class="form-control" required="">
-                </div>
+    <div class="col-md-6">
+      <label for="name-field">Your Name</label>
+      <input type="text" name="name" id="name-field" class="form-control" required>
+    </div>
 
-                <div class="col-md-6">
-                  <label for="email-field" class="pb-2">Your Email</label>
-                  <input type="email" class="form-control" name="email" id="email-field" required="">
-                </div>
+    <div class="col-md-6">
+      <label for="email-field">Your Email</label>
+      <input type="email" name="email" id="email-field" class="form-control" required>
+    </div>
 
-                <div class="col-md-12">
-                  <label for="subject-field" class="pb-2">Subject</label>
-                  <input type="text" class="form-control" name="subject" id="subject-field" required="">
-                </div>
+    <div class="col-md-12">
+      <label for="subject-field">Subject</label>
+      <input type="text" name="subject" id="subject-field" class="form-control" required>
+    </div>
 
-                <div class="col-md-12">
-                  <label for="message-field" class="pb-2">Message</label>
-                  <textarea class="form-control" name="message" rows="10" id="message-field" required=""></textarea>
-                </div>
+    <div class="col-md-12">
+      <label for="message-field">Message</label>
+      <textarea name="message" id="message-field" class="form-control" rows="6" required></textarea>
+    </div>
 
-                <div class="col-md-12 text-center">
-                  <div class="loading">Loading</div>
-                  <div class="error-message"></div>
-                  <div class="sent-message">Your message has been sent. Thank you!</div>
+    <div class="col-md-12 text-center">
+      <div class="loading" style="display:none;">Loading...</div>
+      <button type="submit">Send Message</button>
+    </div>
 
-                  <button type="submit">Send Message</button>
-                </div>
+  </div>
+</form>
 
-              </div>
-            </form>
           </div><!-- End Contact Form -->
 
         </div>

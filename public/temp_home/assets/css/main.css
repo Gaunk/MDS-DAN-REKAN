@@ -1513,3 +1513,108 @@ section,
 .starter-section {
   /* Add your styles here */
 }
+
+/**/
+.form-contact {
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-contact label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 6px;
+    color: #333;
+    font-size: 14px;
+}
+
+.form-contact input[type="text"],
+.form-contact input[type="email"],
+.form-contact textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 14px;
+    color: #333;
+    background-color: #f9f9f9;
+    transition: all 0.3s ease;
+}
+
+.form-contact input[type="text"]:focus,
+.form-contact input[type="email"]:focus,
+.form-contact textarea:focus {
+    border-color: #4CAF50;
+    background-color: #fff;
+    outline: none;
+    box-shadow: 0 0 8px rgba(76, 175, 80, 0.2);
+}
+
+.form-contact textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-contact button[type="submit"] {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #eb5d1e; /* Warna oranye utama */
+    color: #fff; /* Teks putih untuk kontras */
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.form-contact button[type="submit"]:hover {
+    background: #d14b19; /* Sedikit lebih gelap saat hover */
+    transform: translateY(-2px);
+}
+
+
+.form-contact .loading {
+    display: none;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #4CAF50;
+}
+
+.form-contact .error-message {
+    color: #e74c3c;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.form-contact .success-message {
+    color: #4CAF50;
+    font-size: 13px;
+    margin-bottom: 10px;
+}
+
+.form-contact .row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.form-contact .col-md-6 {
+    flex: 0 0 48%;
+}
+
+.form-contact .col-md-12 {
+    flex: 0 0 100%;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .form-contact .col-md-6 {
+        flex: 0 0 100%;
+    }
+}

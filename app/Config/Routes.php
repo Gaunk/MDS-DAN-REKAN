@@ -4,6 +4,7 @@ use CodeIgniter\Router\RouteCollection;
 
 /** @var RouteCollection $routes */
 $routes->get('/', 'Home::index');
+$routes->post('/contact/submit', 'Home::submit');
 
 
 // ============================
@@ -104,6 +105,7 @@ $routes->group('admin', [
     //
     $routes->get('pengaturansistem', 'Admin::pengaturanSistem');
     $routes->post('proses_pengaturansistem', 'Admin::proses_pengaturanSistem');
+    // 
 
 });
 
