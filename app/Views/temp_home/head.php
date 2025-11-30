@@ -8,7 +8,7 @@
     <meta name="keywords" content="<?= esc($pengaturan['keyword'] ?? '') ?>">
     <meta name="author" content="<?= esc($pengaturan['nama_perusahaan'] ?? 'Nama Perusahaan') ?>">
 
-    <link rel="icon" href="<?= base_url('temp_home/assets/img/icon.png') ?>">
+    <link rel="icon" href="<?= base_url('temp_home/assets/img/icon-1.png') ?>">
     <link rel="apple-touch-icon" href="<?= base_url('temp_home/assets/img/apple-touch-icon.png') ?>">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
