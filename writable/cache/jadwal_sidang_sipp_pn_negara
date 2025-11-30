@@ -1,0 +1,275 @@
+a:3:{s:4:"time";i:1763959697;s:3:"ttl";i:600;s:4:"data";s:17848:"<html>
+<head>
+	<link rel="shortcut icon" href="https://sipp.pn-negara.go.id/resources/img/favicon.ico" type="image/png">
+	<title>SIPP</title>
+	<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/style.css">
+	<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/table.css">
+	<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/date-css.css" />
+	<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/simplePagination.css">
+	<script type="text/javascript" src="https://sipp.pn-negara.go.id/resources/js/jquery-1.7.1.min.js"></script>
+	<script type="text/javascript" src="https://sipp.pn-negara.go.id/resources/js/jquery-sipp.js"></script>
+	<script type="text/javascript" src="https://sipp.pn-negara.go.id/resources/js/jquery-ui-1.8.18.custom.min.js"></script>
+	<script src="https://sipp.pn-negara.go.id/resources/js/Modernizr.js"></script>
+	<script type="text/javascript" src="https://sipp.pn-negara.go.id/resources/js/jquery.idTabs.min.js"></script>
+
+	<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/bootstrap.css">
+</head>
+<div id="loading" class="popup_loading">
+	<div style="margin: 0px auto;margin-left: 40%;margin-top: 15%;width:0;">
+		<img src="https://sipp.pn-negara.go.id/resources/img/loading_ma.gif">
+	</div>
+</div>
+<body>
+	<script type="text/javascript">
+		$("body").css({overflow: 'hidden'});
+		$('#loading').fadeIn();
+	</script>
+	<div id="wrapper">
+		<div id="atas">		
+			<div class="logo">
+				<a href="https://sipp.pn-negara.go.id/">
+				<img src="https://sipp.pn-negara.go.id/resources/img/logo.png"></a>
+			</div>
+			<div class="front">
+				<font><b>Sistem Informasi Penelusuran Perkara</b><span><br><strong>PENGADILAN NEGERI NEGARA</strong></br></span></font>
+			</div>
+			<div class="h_right">
+			</div>
+			<div class="version_shading">
+				<label>600</label>
+			</div>
+		</div>
+		<div class="clear"></div>
+	</div>
+	<style type="text/css">
+	.has-sub i{
+		font-weight: bold;
+		color:#defc3b;
+		position: absolute;
+		top:10px;
+		left:7px;
+	}
+</style>
+<div class="cssmenu"><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara">Beranda</a><ul></ul></li><li class="has-sub"><a href="#">Perdata Umum</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/cGZUUVQwUnRjM0VBamZvT0MzL20rYXhVRlZwR1pROGJZaVZ4bEhXUm9ZalBjR1hKa1pOR3o1SGpVaXJOLzRzQit6ZnY3Z21qQm14U2F2Q0sySE9hTnc9PQ==">Perdata Gugatan</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/ZXJZclFhTm1wNHlIbTBaNm8rM2o4eUcvU0xRZlV0WlVFLzk0WDh1SVUydHE0SitZK3NsajZhNjJIZjRyUWRHQnBzTzI5SVFCS1FxQUpmdWc2Z2J1ekE9PQ==">Perdata Gugatan Sederhana</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/Q3Z1OHdoUTF6UXIyeVpMUFN5bnNMc1paaDE5RkprOGdEWWw4SHFPekMzbWZiQjRtTFlSMndBNDFFM25ha05IeDVYMTFDWDk4Z01kQnRobkZFRUxES2c9PQ==">Perdata Gugatan Bantahan</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/ZjFjMDd0NW5hVk80bHJRUnFCN2tOaFFVaDNOYmpTT0xUb3B1bEtzYWZjRndENFZFdHIraThSTlJoc1IvRUhFZmFjR21zZ2Nnd0tiTmU1SUZhL2VDY0E9PQ==">Perdata Permohonan</a><ul></ul></li></ul></li><li class="has-sub"><a href="#">Perdata Khusus</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/Lzh4dGh0OUZpQ2pMZ3UzYzBvcU5IeUxJZDNqQXdpbmRiU25yU1FxWVA2dnVrOWphMUV0eWtocStEblhKOTByZ2sreFoxNDg3Smo3WDZnMUl0a1dWUWc9PQ==">Hak Kekayaan Intelektual (HKI)</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/ZHZYMEFJbFh5VHJjNXVBWUlwS1FwUDlnVTIxTDZpMWlNUGxzdWJwNE1hWnBwb1BzQm9XWTNsV2J3N001MC9xa0FlRUtqOXRuREFKRDJXZUl1UXpaNkE9PQ==">Kepailitan & PKPU</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/Q2hPaEd6RGFYV2UyYU12Z2t4aGsyRFlzaEI4Nmd3TmNQNmRoUTZXZU94K2JpK3RDQzlFb2RMVjRreUJkSU5FZnl0TThRQWtFQ3hYc1UwT0tqNnRzdkE9PQ==">Pengadilan Hubungan Industrial (PHI)</a><ul></ul></li></ul></li><li class="has-sub"><a href="#">Pidana</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/Vlpid3NCMExSVGhCekFrK0hkWFhuSU1ZZERidnB1cGVjdldPZk9RY2Y5WmgxT1d2cW9JWHpEdklpc3pvbXErbkszMkVPb1JnZ3UxWkpEeWhFcm1IMWc9PQ==">Pidana Biasa</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/bGlOU1hsL3FvK2N4K05CZHdEZTM0Rms4UlVuSGpBNGZvL1ZucXJHb2dXckg5Y1JYdGlsMHJSbE0vTldZcE0wZE45aWxiL3hrUUJxWTZuVFZlTnNpOWc9PQ==">Pidana Singkat</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/MXZrU08vWWRIOUFqbDF1aGJaWTBieFpYODhNTEZiWlFWYmQxbkVLMW1jeEpvSlJTbjJGL2lra2VBaHJLMTdhMDkxWkNLZVpEb1dEaENjell5TE5IeWc9PQ==">Pidana Cepat</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/MnlQRVp0LzRpZHRuemVyN3NvY0VjRnJJZDNpL2ZyMk1lRFFJalEySGZhWUxoUDBYWFNLMDl5NU1rSVBnTkpuWFRFMSt5aC9rU2NrU3h1MzRGZDk2TlE9PQ==">Pidana Pra Peradilan</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/VnM2dFRvYTR3RlkrS1B2R3lXSkFMUEFUWXczSCtzN2ZRdDVUSEpSV2VUbytUa1ZRVXpaUTA4eWNPU2tKdkpXbmF2ZitpcVpYbW14T2k1Ty8xY0tUTlE9PQ==">Perkara Lalu Lintas</a><ul></ul></li></ul></li><li class="has-sub"><a href="#">Pidana Khusus</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/TFVCUVAzdXd4MlNRY2RPZE85MEcwMVQrejdRYkc0bWRXaHNBNFFoWjhTQVc4d2VmdXdLSkQ2bXg5dTFZaDBOOFNEaHAyZ1p5OXI4VlJlekIyMStvSGc9PQ==">Pidana Anak</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/OGZSajVsaFN6VkU5ZjdrODludk51SUZLN1RrRFRxTGVPaFNJQXVpalpqdnZ6bndHalg5U1E2ZEEwYlNMVVhWZFhFL2dydWJ4MGttUG5DamhrTW1CTkE9PQ==">Tindak Pidana Korupsi</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/TyszUXFvOEtmZDhXalVBb1dQWFVleit6NlJOQS9sNldBWjBsaVpGSFpjT3dvRlNENWRDK1JlUklETE1wTmw2REZlK29hc2ozeWhkU2NjbXBoRVc0bmc9PQ==">Pidana Perikanan</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_perkara/type/TTBSZU5wcWVuQ2QxOHRqNTVIOGRHV2VDZ1hsUkxNak44MWFodzRRN0FpK0lMVTY5UGpUYWdzczBpTWpEcmxTYTZhRE16bWV6LzY2OWUvRnpNRjRoV0E9PQ==">Hak Asasi Manusia</a><ul></ul></li></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_jadwal_sidang">Jadwal Sidang</a><ul></ul></li><li class="has-sub"><a href="#">Laporan</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/statistik_perkara">Statistik Perkara</a><ul></ul></li></ul></li><li class="has-sub"><a href="#">Delegasi</a><ul><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_delegasi/type/MDVYR3F2T3hnL1I4Um9lNTJjZEZQaU1mWFpmRk9rN2M3NjVGaWVrbFRWbURsMncweTZCN1k3K2hoYnVvTDluMm5JS0trcmpBMi8xYjBTTWc2OWhXNlE9PQ==">Delegasi Keluar</a><ul></ul></li><li class="has-sub"><a href="https://sipp.pn-negara.go.id/list_delegasi/type/OGw3eEZ4MkxoNnI4TmxSdHcwSkthS2pjWC9iRm45RyszeU9pYW1JcGlBd1N4SmpGOEx2bFVMWmJWejZkTnF3YU9oa05ic085Z3ptMHBmbEVnVElGTWc9PQ==">Delegasi Masuk</a><ul></ul></li></ul></li></ul></div>
+<script type="text/javascript">
+$()
+  $(window).bind("scroll", function() {
+  if ($(window).scrollTop() + 50 > 110) {
+    $(".cssmenu").addClass("menufixed");
+    $(".cssmenu").removeClass("has-sub");
+    
+  } else {
+    $(".cssmenu").removeClass("menufixed");
+  }
+  
+});
+
+</script>
+	<div id="content"><div id="konten">
+	<div id="pageTitle">
+		<b>JADWAL SIDANG - Senin, 24 Nov. 2025</b>
+	</div>
+	<div id="right">
+    	<div class="total_perkara">
+        	Pembaharuan Data : Senin, 24 Nov. 2025 12:18:01 WITA 
+            , Total : 10 Perkara
+    	</div>
+	</div>
+    <br>
+<link rel="stylesheet" type="text/css" href="https://sipp.pn-negara.go.id/resources/css/simplePagination.css">
+<hr class="thick-line" style="clear:both;">
+<div id="left" style="width:80%;text-align:left;padding:0px;padding-left:5px;min-height:50px">
+	<tr style="padding:0px;padding-left:5px;"
+		<td>Cari tanggal sidang :</td>
+		<td>
+		<input style="padding:0px;padding-left:5px;min-height:30px" id="tgl_sidang" name="tgl_sidang" value="" class="datepicker" maxlength="10" placeholder="tgl/bln/tahun">
+		<input type="hidden" id="tgl_sidang_value" name="tgl_sidang_value" value="">
+		</td>
+		<td>
+		<input id="cari_sidang" onClick="cari()" type="submit" value="cari" class="btn"></input>
+		</td>
+		<td>
+		<input id="sidang_hari_ini" onClick="cariHariIni('24/11/2025')" type="submit" value="Sidang Hari Ini" class="btn"></input>
+		</td>
+	</tr>
+</div>
+<div id="pages">
+    <div id="selector"></div>
+</div>
+<div class="cssTable">
+	<table id="tablePerkaraAll">
+		<col  width="3%" />
+        <col  width="10%" />
+        <col  width="20%" />
+        <col  width="8%" />
+        <col  width="10%" />
+        <col  width="20%" />
+        <col  width="4%" />
+		<tbody>
+			<tr>
+				<td>No</td>
+				<td onclick="sorting(2)">Tanggal Sidang</td>
+				<td onclick="sorting(1)">Nomor Perkara</td>
+				<td onclick="sorting(3)">Sidang Keliling</td>
+				<td onclick="sorting(4)">Ruangan</td>
+				<td onclick="sorting(5)">Agenda</td>
+				<td onclick="sorting(8)">Detil</td>
+			</tr>
+			<tr><td>1</td><td align="center">Senin, 24 Nov. 2025</td><td>312/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Candra</td><td>SIDANG PERTAMA</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('WG85WUhDNG5ZazV2T1BVcFJQRTVOVzlRSjVPMXEyeE82MXF3bEtuQ1ZuUTgyd3JrVXpQcE5oUWRuUGVUY01SUEw1Nm5RdlQydytoZ2RZTm9FalQ4VXc9PQ==')" >Detil</a>]</td></tr><tr><td>2</td><td align="center">Senin, 24 Nov. 2025</td><td>311/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Candra</td><td>Sidang pertama</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('Z1d0M0NaNFc2TGhOSW9SanUzL1I4SHc1ODlQWUF1UFVVOFdhYXdkMkhxaFRFdUJqME03QVQzZjdaNjdyT0l1ZTJEQysxSUZIdlhpbWFSZERMdFEvMHc9PQ==')" >Detil</a>]</td></tr><tr><td>3</td><td align="center">Senin, 24 Nov. 2025</td><td>310/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Candra</td><td>SIDANG PERTAMA</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('TVdYMDAzYTRrNlNBM3Vrc21ma01sSC9uL2h0NUkyQTFVdXFGNU1iMXJwQTl6TVVkSUYvbE82WmFxRkJ3NEU1NVhQc2dQMVV1Y2NoMlVxYlY5dkdwUEE9PQ==')" >Detil</a>]</td></tr><tr><td>4</td><td align="center">Senin, 24 Nov. 2025</td><td>300/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Cakra</td><td>pembuktian dari penggugat</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('cVhud1B0bTZmejJwS05ocXNDM2s0dFJFRXMzVGlnWkhGM0VhU0V4bUo1MG1FZkdRS0Fhd1BsVVR3NlR6dW9qWWpVd1R1S28vN3lDTW5pMmNKd29xOWc9PQ==')" >Detil</a>]</td></tr><tr><td>5</td><td align="center">Senin, 24 Nov. 2025</td><td>297/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Cakra</td><td>pembuktian dari penggugat</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('UFE1WFh2Y0xvL0NYU3FDK3FxdExuenQ0OXVXd0VBdHpSQTZlWXlWa3JSSHllMFhpVElEZnhuc3hIdGFFMXNQZFJGOW42Yk1mMkVOM2xPVkVTMkZ2Z2c9PQ==')" >Detil</a>]</td></tr><tr><td>6</td><td align="center">Senin, 24 Nov. 2025</td><td>296/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Cakra</td><td>Pembuktian dari Penggugat</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('M0YrUkVMT3g3NDBlUlJlU3RnQlhWcFlHUjRQWUw4V0Roa0dxZWl2UlFQMXMvdHFzYUxLMlhqWEFDQ1hTUFRiZTNvcWFnaVh3OGxKcU55SXdFRHBka0E9PQ==')" >Detil</a>]</td></tr><tr><td>7</td><td align="center">Senin, 24 Nov. 2025</td><td>278/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Candra</td><td>Sidang ketiga</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('aFZPUzZ3aGlrQzhUUUc3cUtWdzI5dVdSMnhzSU13c1VZV21CUlJCMi9zdkJreVo1bnBjMlNjVFJYZGNjRk5FenhxSXBBNnlqaVVkdHZNQWRyN0wrN0E9PQ==')" >Detil</a>]</td></tr><tr><td>8</td><td align="center">Senin, 24 Nov. 2025</td><td>274/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Candra</td><td>Pembuktian dari Penggugat</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('M1lFUmc0L3NKdHRKSm5sK0cydDBrSUZ6bFJlYlpIVU9ZczQxczVzRGw0dGtzSEptWVptb3hkbi9xbzZhNXp1M3J3RkY3aXN5NFQxTnd0WHJmOTg1V0E9PQ==')" >Detil</a>]</td></tr><tr><td>9</td><td align="center">Senin, 24 Nov. 2025</td><td>269/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Cakra</td><td>pembuktian dari para pihak</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('NU9uV2RKK0RtVkphRFZuaXpHYk9yWXE5ZFlkSllpckJ6RlIrSXlIbVU2STl6emUrUWJvM3JvcG0rN2xrbjZucjVOcUpTbDc2VS9sbEJFNjVhL21pVXc9PQ==')" >Detil</a>]</td></tr><tr><td>10</td><td align="center">Senin, 24 Nov. 2025</td><td>202/Pdt.G/2025/PN Nga</td><td>TIDAK</td><td>Ruang Sidang Cakra</td><td>pembuktian dari tergugat</td><td align="center">[<a id="detilJadwalSidang" href="#" onClick="detilSidang('emtMaTNPOG1QYlB0R2tqL3lXOEtST0wrczhLQlZJV0tFYkdSdHhKem5TSUkyZWVweVFaUktVQ053VnVSNG14SEVoblZ0Q2dHaXJ0MDEzOFNOUnhEaGc9PQ==')" >Detil</a>]</td></tr>		</tbody>
+	</table>
+</div>
+<div id="pages_bottom" style="width:100%;padding-left:5px;padding-top:5px;">
+    <div id="selector_bottom"></div>
+</div>
+<script type="text/javascript">
+$('.datepicker').keyup(function(e){
+	if( (e.keyCode<8 || e.keyCode>57)){
+		return;
+	}
+
+    if(e.keyCode != '8'){
+    	if(e.target.value.length == 1){
+    		if(e.target.value>3){
+    			alert('Input Tidak Benar Format, Tanggal tidak boleh lebih dari 30')
+    			e.target.value = '';
+    		}
+    	}
+
+    	if(e.target.value.length == 4 && e.keyCode!='13'){
+    		if(e.keyCode!=49 && e.keyCode!=48){
+    			alert('Input Tidak Benar Format, Bulan Tidak Boleh dari 12')
+    			var val = e.target.value;
+    			val = val.substring(0, val.length - 1);
+    			e.target.value = val;
+    		}
+    	}
+
+    	if(e.target.value.length == 5){
+    		var val = e.target.value;
+    		var bln = val.substr(val.length -2);
+    		if(bln>12){
+    			alert('Input Tidak Benar Format, Bulan Tidak Boleh dari 12')
+    			val = val.substring(0, val.length - 1);
+    			e.target.value = val;
+    		}
+    	}
+    	if(e.target.value.length == 7 && e.keyCode!='13'){
+    		if( e.keyCode>50 && e.keyCode!=48){
+    			alert('Anda Yakin dengan Tahun yang anda masukan?')
+    			var val = e.target.value;
+    			val = val.substring(0, val.length - 1);
+    			e.target.value = val;
+    		}
+    	}
+    	if(e.target.value.length == 10){
+			if(isDateValid(e.target.value)==false){
+				var val = e.target.value;
+    			val = val.substring(0, val.length - 1);
+    			e.target.value = val;
+			}
+		}
+        if (e.target.value.length == 2) e.target.value = e.target.value + "/";
+        if (e.target.value.length == 5) e.target.value = e.target.value + "/";
+    }
+})
+
+$( document ).ready(function() {
+    $( function() {
+        $('#tgl_sidang').datepicker({
+            inline: true,
+            showOtherMonths: true,
+            dateFormat: 'dd/mm/yy',
+            dayNamesMin: ['Ming', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'],
+            beforeShowDay: $.datepicker.noWeekends,
+        });
+    });
+    
+});
+
+$("#tgl_sidang").change(function() {
+	var tgl=$("#tgl_sidang").val();
+	$('#tgl_sidang_value').val(tgl);
+	// cari(tgl); 
+});
+
+function cari(){
+		var key=$('#tgl_sidang_value').val();
+		// console.log(key);
+		window.open('https://sipp.pn-negara.go.id/list_jadwal_sidang/search/'+'1'+'/'+key,'_self')
+}
+
+function detilSidang(IDperkara){	
+	popup_form('https://sipp.pn-negara.go.id/detil_jadwal_sidang/'+IDperkara)
+}
+
+function cariHariIni(tgl){
+		var key=tgl;
+		window.open('https://sipp.pn-negara.go.id/list_jadwal_sidang/search/'+'1'+'/'+key,'_self')
+}
+
+</script>
+ 
+<script type="text/javascript" src="https://sipp.pn-negara.go.id/resources/js/jquery.simplePagination.js"></script>
+
+
+<script type="text/javascript">
+$(function() {
+    var totalPage = '10';
+    var page = '1';
+    $('#selector').pagination({
+        items: totalPage,
+        itemsOnPage: 20,
+        displayedPages: 3,
+        cssStyle: 'light-theme',
+        currentPage:page,
+        onPageClick: function(pageNumber){
+            window.open('https://sipp.pn-negara.go.id/list_jadwal_sidang/page/'+pageNumber+'/UXBFU0N0SkhwRldKcjR4eEV1c2YzaHdRZzdrSWQ5MHozeFZYSWVCQ2ZHbkQwY2Z3YlRGVndueUNRdTR1OVVEa0VjSkxIYnUwS3E4aCtENUVDZXNqYVE9PQ==/key/col/2','_self')
+        	}
+        });
+    $('#selector_bottom').pagination({
+        items: totalPage,
+        itemsOnPage: 20,
+        displayedPages: 3,
+        cssStyle: 'light-theme',
+        currentPage:page,
+        onPageClick: function(pageNumber){
+            window.open('https://sipp.pn-negara.go.id/list_jadwal_sidang/page/'+pageNumber+'/UXBFU0N0SkhwRldKcjR4eEV1c2YzaHdRZzdrSWQ5MHozeFZYSWVCQ2ZHbkQwY2Z3YlRGVndueUNRdTR1OVVEa0VjSkxIYnUwS3E4aCtENUVDZXNqYVE9PQ==/key/col/2','_self')
+        	}
+        });
+    });
+</script>
+</div>
+	<div id="footer">
+		<table width="100%">
+			<tr>
+				<td width="90%" align="center" style="font-size: 12px;vertical-align:middle;">Hak Cipta &copy; Mahkamah Agung Republik Indonesia 2025</td>
+			    <td width="10%" align="right" style="font-size: 12px;padding-right:30px;vertical-align:middle;padding-right:10px;">SIPP Lokal Versi 6.0.1</td>
+			</tr>
+		</table>
+	</div>
+	</div>
+</body>
+<script type="text/javascript">
+$( document ).ready(function() {
+    $("body").css({ overflow: 'inherit' })
+	$('#loading').fadeOut();
+	$('a').click(function(event){
+		var id = $(this).attr('id');
+		if($(this).attr('href')!='#' && $(this).attr('href').substring(1,0)!='#' && id !='noLoading'){
+			openLoadingDialog()
+		}
+	});
+});
+
+function closeLoading(){
+    $("body").css({ overflow: 'inherit' })
+    $('#loading').fadeOut();
+}
+
+function openLoadingDialog(){
+	$("body").css({overflow: 'hidden'});
+	$('#loading').fadeIn();
+}
+
+</script>
+</html>";}
