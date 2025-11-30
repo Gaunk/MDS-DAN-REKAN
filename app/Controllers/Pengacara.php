@@ -340,6 +340,84 @@ class Pengacara extends BaseController
         return redirect()->back()->with('success', 'Perkara berhasil dihapus!');
     }
 
+    // JADWAL SIDANG
+public function jadwalSidang()
+{
+    $url = 'https://sipp.pn-negara.go.id/list_jadwal_sidang';
+
+    // --- Ambil HTML dari SIPP ---
+    $html = @file_get_contents($url);
+    if ($html === false) {
+        return "Gagal mengambil data dari SIPP PN Negara.";
+    }
+
+    // --- Parsing HTML ---
+    libxml_use_internal_errors(true);
+    $dom = new \DOMDocument();
+    $dom->loadHTML($html);
+    libxml_clear_errors();
+
+    $xpath = new \DOMXPath($dom);
+    $rows  = $xpath->query('//table//tr');
+
+    $jadwals = [];
+
+    foreach ($rows as $i => $tr) {
+
+        // Lewati header tabel
+        if ($i === 0) {
+            continue;
+        }
+
+        $cols = $tr->getElementsByTagName('td');
+
+        // Pastikan jumlah kolom cukup
+        if ($cols->length < 6) {
+            continue;
+        }
+
+        $jadwal = [
+            'no'               => trim($cols->item(0)->textContent),
+            'tanggal_sidang'   => trim($cols->item(1)->textContent),
+            'nomor_perkara'    => trim($cols->item(2)->textContent),
+            'sidang_keliling'  => trim($cols->item(3)->textContent),
+            'ruangan'          => trim($cols->item(4)->textContent),
+            'agenda'           => trim($cols->item(5)->textContent),
+            'detil'            => null
+        ];
+
+        // Tambahkan link detil jika ada
+        if ($cols->length > 6) {
+            $aTags = $cols->item(6)->getElementsByTagName('a');
+            if ($aTags->length > 0) {
+                $jadwal['detil'] = $aTags->item(0)->getAttribute('href');
+            }
+        }
+
+        $jadwals[] = $jadwal;
+    }
+
+    // --- Ambil Data tabel_pengguna ---
+    $adminModel = new \App\Models\AdminModel();
+    $admin      = $adminModel->first();
+
+    $data = [
+        'jadwals'  => $jadwals,
+        'username' => $this->username,
+        'email'    => $this->email,
+        'peran'    => $this->peran,
+    ];
+
+    // --- Tampilkan ke view ---
+    return 
+        view('temp_pengacara/head', $data)
+      . view('temp_pengacara/header', $data)
+      . view('temp_pengacara/nav', $data)
+      . view('temp_pengacara/jadwalsidang/list', $data)
+      . view('temp_pengacara/footer', $data);
+}
+
+
     // ============================================
     // LOGIN
     // ============================================

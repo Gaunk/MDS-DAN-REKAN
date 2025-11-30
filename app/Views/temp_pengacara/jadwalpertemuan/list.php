@@ -41,38 +41,38 @@
                             </thead>
                             <tbody>
                                 <?php $no = 1; foreach($jadwal as $j): ?>
-                    <tr>
-                        <td><?= $no++; ?></td>
-                        <td><?= esc($j['nama_klien']); ?></td>
-                        <td><?= esc($j['nama_pengacara']); ?></td>
-                        <td><?= esc($j['tanggal_waktu']); ?></td>
-                        <td><?= esc($j['waktu']); ?></td>
-                        <td><?= esc($j['lokasi']); ?></td>
-                        <td><?= esc($j['catatan']); ?></td>
-                        <td class="text-end">
-                            <!-- Tombol Edit -->
-                            <button class="btn btn-warning btn-sm text-white btnEditPertemuan"
-                                data-id="<?= esc($j['id']); ?>"
-                                data-klien="<?= esc($j['id_klien']); ?>"
-                                data-pengacara="<?= esc($j['id_pengguna']); ?>"
-                                data-tanggal_waktu="<?= esc($j['tanggal_waktu']); ?>"
-                                data-waktu="<?= esc($j['waktu']); ?>"
-                                data-lokasi="<?= esc($j['lokasi']); ?>"
-                                data-catatan="<?= esc($j['catatan']); ?>"
-                                data-bs-toggle="modal"
-                                data-bs-target="#modalEditPertemuan">
-                                <i class="bi bi-pencil-square"></i>
-                            </button>
+                                <tr>
+                                    <td><?= $no++; ?></td>
+                                    <td><?= esc($j['nama_klien']); ?></td>
+                                    <td><?= esc($j['nama_pengacara']); ?></td>
+                                    <td><?= esc($j['tanggal_waktu']); ?></td>
+                                    <td><?= esc($j['waktu']); ?></td>
+                                    <td><?= esc($j['lokasi']); ?></td>
+                                    <td><?= esc($j['catatan']); ?></td>
+                                    <td class="text-end">
+                                        <!-- Tombol Edit -->
+                                        <button class="btn btn-warning btn-sm text-white btnEditPertemuan"
+                                            data-id="<?= esc($j['id']); ?>"
+                                            data-klien="<?= esc($j['id_klien']); ?>"
+                                            data-pengacara="<?= esc($j['id_pengguna']); ?>"
+                                            data-tanggal_waktu="<?= esc($j['tanggal_waktu']); ?>"
+                                            data-waktu="<?= esc($j['waktu']); ?>"
+                                            data-lokasi="<?= esc($j['lokasi']); ?>"
+                                            data-catatan="<?= esc($j['catatan']); ?>"
+                                            data-bs-toggle="modal"
+                                            data-bs-target="#modalEditPertemuan">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </button>
 
-                            <!-- Tombol Delete -->
-                            <button class="btn btn-danger btn-sm deletePertemuanBtn"
-                                data-id="<?= esc($j['id']); ?>"
-                                data-klien="<?= esc($j['nama_klien']); ?>">
-                                <i class="bi bi-trash"></i>
-                            </button>
-                        </td>
-                    </tr>
-                    <?php endforeach; ?>
+                                        <!-- Tombol Delete -->
+                                        <button class="btn btn-danger btn-sm deletePertemuanBtn"
+                                            data-id="<?= esc($j['id']); ?>"
+                                            data-klien="<?= esc($j['nama_klien']); ?>">
+                                            <i class="bi bi-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
                             </tbody>
                         </table>
                     </div>
