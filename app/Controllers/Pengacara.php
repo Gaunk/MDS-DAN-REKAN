@@ -114,58 +114,86 @@ class Pengacara extends BaseController
     // ============================================
     // JADWAL PERTEMUAN
     // ============================================
-    public function jadwalpertemuan()
-    {
-        $jadwalModel = new JadwalPertemuanModel();
-        $klienModel  = new KlienModel();
+   public function jadwalpertemuan()
+{
+    $jadwalModelPertemuan = new JadwalPertemuanModel();
+    $klienModel  = new KlienModel();
+    $pengacaraModel = new PengacaraModel();
 
-        $jadwal = $jadwalModel
-            ->select('tabel_jadwal_pertemuan.*, tabel_klien.nama AS nama_klien, tabel_pengacara.nama AS nama_pengacara')
-            ->join('tabel_klien', 'tabel_klien.id = tabel_jadwal_pertemuan.id_klien', 'left')
-            ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_jadwal_pertemuan.id_pengguna', 'left')
-            ->where('tabel_jadwal_pertemuan.id_pengguna', $this->id_pengacara)
-            ->orderBy('tanggal_waktu', 'ASC')
-            ->findAll();
 
-        $data = [
-            'jadwal'   => $jadwal,
-            'klien'    => $klienModel->where('id_pengacara', $this->id_pengacara)->findAll(),
-            'pengacara'=> [$this->id_pengacara],
-            'username' => $this->username,
-            'email'    => $this->email,
-            'peran'    => $this->peran
-        ];
+    // Ambil data jadwal pertemuan
+    $jadwal = $jadwalModelPertemuan
+    ->select('
+        tabel_jadwal_pertemuan.*, 
+        tabel_klien.nama AS nama_klien, 
+        tabel_pengacara.nama AS nama_pengacara
+    ')
+    ->join('tabel_klien', 'tabel_klien.id = tabel_jadwal_pertemuan.id_klien', 'left')
+    ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_jadwal_pertemuan.id_pengguna', 'left')
+    ->orderBy('tanggal_waktu', 'ASC')
+    ->findAll();
 
-        return view('temp_pengacara/head', $data)
-            . view('temp_pengacara/header', $data)
-            . view('temp_pengacara/nav', $data)
-            . view('temp_pengacara/jadwalpertemuan/list', $data)
-            . view('temp_pengacara/footer');
+
+    // Siapkan data yang dikirim ke view
+    $data = [
+        'jadwal'    => $jadwal,
+        'klien'     => $klienModel->where('id_pengacara', $this->id_pengacara)->findAll(),
+        'pengacara' => [$this->id_pengacara],
+        'username'  => $this->username,
+        'email'     => $this->email,
+        'peran'     => $this->peran,
+        'pengacara' => $pengacaraModel->findAll(),
+    ];
+
+    return view('temp_pengacara/head', $data)
+        . view('temp_pengacara/header', $data)
+        . view('temp_pengacara/nav', $data)
+        . view('temp_pengacara/jadwalpertemuan/list', $data)
+        . view('temp_pengacara/footer');
+}
+
+
+ public function savepertemuan()
+{
+    $post = $this->request->getPost();
+    $jadwalModel = new JadwalPertemuanModel();
+
+    // Validasi input
+    if (empty($post['id_klien'])) {
+        return redirect()->back()->with('error', 'Klien harus dipilih.');
     }
 
-    public function savepertemuan()
-    {
-        $post = $this->request->getPost();
-        $jadwalModel = new JadwalPertemuanModel();
-
-        $jadwalModel->insert([
-            'id_klien'      => $post['id_klien'],
-            'id_pengguna'   => $this->id_pengacara,
-            'tanggal_waktu' => $post['tanggal_waktu'],
-            'waktu'         => $post['waktu'],
-            'lokasi'        => $post['lokasi'],
-            'catatan'       => $post['catatan'],
-        ]);
-
-        return redirect()->to('/pengacara/jadwalpertemuan')->with('success', 'Pertemuan berhasil disimpan.');
+    if (empty($post['id_pengguna'])) {
+        return redirect()->back()->with('error', 'Pengacara harus dipilih.');
     }
+
+    if (empty($post['tanggal_waktu'])) {
+        return redirect()->back()->with('error', 'Tanggal dan waktu wajib diisi.');
+    }
+
+    // Insert ke database
+    $jadwalModel->insert([
+        'id_klien'      => $post['id_klien'],
+        'id_pengguna'   => $post['id_pengguna'], // ambil dari form
+        'tanggal_waktu' => $post['tanggal_waktu'],
+        'waktu'         => $post['waktu'] ?? null,
+        'lokasi'        => $post['lokasi'] ?? null,
+        'catatan'       => $post['catatan'] ?? null,
+    ]);
+
+    return redirect()->to('/pengacara/jadwalpertemuan')->with('success', 'Pertemuan berhasil disimpan.');
+}
+
+
+
+
 
     public function updatepertemuan()
     {
         $post = $this->request->getPost();
-        $jadwalModel = new JadwalPertemuanModel();
+        $jadwalModelPertemuan = new JadwalPertemuanModel();
 
-        $jadwalModel->update($post['id'], [
+        $jadwalModelPertemuan->update($post['id'], [
             'id_klien'      => $post['id_klien'],
             'tanggal_waktu' => $post['tanggal_waktu'],
             'waktu'         => $post['waktu'],
@@ -178,8 +206,8 @@ class Pengacara extends BaseController
 
     public function deletepertemuan($id)
     {
-        $jadwalModel = new JadwalPertemuanModel();
-        $jadwalModel->delete($id);
+        $jadwalModelPertemuan = new JadwalPertemuanModel();
+        $jadwalModelPertemuan->delete($id);
 
         return redirect()->to('/pengacara/jadwalpertemuan')->with('success', 'Pertemuan berhasil dihapus!');
     }

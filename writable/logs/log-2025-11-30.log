@@ -4770,3 +4770,909 @@ WARNING - 2025-11-30 11:33:47 --> [DEPRECATED] Creation of dynamic property App\
  5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
  6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
  7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:46:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:46:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:47:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:47:16 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:47:16 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:47:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:47:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:51:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:51:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:51:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:51:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:51:52 --> ErrorException: Undefined variable $pertemuan
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 43.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pertemuan', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(142): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:53:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:53:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:53:46 --> ErrorException: Undefined variable $pertemuan
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 43.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pertemuan', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(142): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:54:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:54:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:54:07 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 115.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 115)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(143): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:55:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:55:34 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:55:34 --> ErrorException: Undefined variable $pertemuan
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 43.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(43): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $pertemuan', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 43)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(144): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:56:01 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:56:01 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:56:01 --> ErrorException: Trying to access array offset on value of type null
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 115.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 115)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(144): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:58:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:58:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:58:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:58:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+ERROR - 2025-11-30 14:58:56 --> mysqli_sql_exception: Column 'id_pengguna' cannot be null in C:\xampp\htdocs\mds\system\Database\MySQLi\Connection.php:327
+Stack trace:
+#0 C:\xampp\htdocs\mds\system\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `ta...', 0)
+#1 C:\xampp\htdocs\mds\system\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `ta...')
+#2 C:\xampp\htdocs\mds\system\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `ta...')
+#3 C:\xampp\htdocs\mds\system\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `ta...', Array, false)
+#4 C:\xampp\htdocs\mds\system\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+#5 C:\xampp\htdocs\mds\system\BaseModel.php(838): CodeIgniter\Model->doInsert(Array)
+#6 C:\xampp\htdocs\mds\system\Model.php(797): CodeIgniter\BaseModel->insert(Array, true)
+#7 C:\xampp\htdocs\mds\app\Controllers\Pengacara.php(157): CodeIgniter\Model->insert(Array)
+#8 C:\xampp\htdocs\mds\system\CodeIgniter.php(933): App\Controllers\Pengacara->savepertemuan()
+#9 C:\xampp\htdocs\mds\system\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+#10 C:\xampp\htdocs\mds\system\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#11 C:\xampp\htdocs\mds\system\Boot.php(363): CodeIgniter\CodeIgniter->run()
+#12 C:\xampp\htdocs\mds\system\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+#13 C:\xampp\htdocs\mds\public\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+#14 C:\xampp\htdocs\mds\system\rewrite.php(44): require_once('C:\\xampp\\htdocs...')
+#15 {main}
+CRITICAL - 2025-11-30 14:58:56 --> CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_pengguna' cannot be null
+[Method: POST, Route: pengacara/savepertemuan]
+in SYSTEMPATH\Database\BaseConnection.php on line 684.
+ 1 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (:id_klien:, :id_pengguna:, :tanggal_waktu:, :waktu:, :lokasi:, :catatan:, :dibuat_pada:, :update_at:)', [...], false)
+ 2 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 3 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 4 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 5 APPPATH\Controllers\Pengacara.php(157): CodeIgniter\Model->insert([...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->savepertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:58:56 --> [Caused by] CodeIgniter\Database\Exceptions\DatabaseException: Column 'id_pengguna' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 332.
+ 1 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (\'2\', NULL, \'2025-11-30\', \'23:00\', \'citaheng\', \'awe\', \'2025-11-30 14:58:56\', \'2025-11-30 14:58:56\')')
+ 2 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (\'2\', NULL, \'2025-11-30\', \'23:00\', \'citaheng\', \'awe\', \'2025-11-30 14:58:56\', \'2025-11-30 14:58:56\')')
+ 3 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (:id_klien:, :id_pengguna:, :tanggal_waktu:, :waktu:, :lokasi:, :catatan:, :dibuat_pada:, :update_at:)', [...], false)
+ 4 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 5 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 6 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 7 APPPATH\Controllers\Pengacara.php(157): CodeIgniter\Model->insert([...])
+ 8 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->savepertemuan()
+ 9 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+10 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+13 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+14 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 14:58:56 --> [Caused by] mysqli_sql_exception: Column 'id_pengguna' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 327.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(327): mysqli->query('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (\'2\', NULL, \'2025-11-30\', \'23:00\', \'citaheng\', \'awe\', \'2025-11-30 14:58:56\', \'2025-11-30 14:58:56\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(729): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (\'2\', NULL, \'2025-11-30\', \'23:00\', \'citaheng\', \'awe\', \'2025-11-30 14:58:56\', \'2025-11-30 14:58:56\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(646): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (\'2\', NULL, \'2025-11-30\', \'23:00\', \'citaheng\', \'awe\', \'2025-11-30 14:58:56\', \'2025-11-30 14:58:56\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2345): CodeIgniter\Database\BaseConnection->query('INSERT INTO `tabel_jadwal_pertemuan` (`id_klien`, `id_pengguna`, `tanggal_waktu`, `waktu`, `lokasi`, `catatan`, `dibuat_pada`, `update_at`) VALUES (:id_klien:, :id_pengguna:, :tanggal_waktu:, :waktu:, :lokasi:, :catatan:, :dibuat_pada:, :update_at:)', [...], false)
+ 5 SYSTEMPATH\Model.php(394): CodeIgniter\Database\BaseBuilder->insert()
+ 6 SYSTEMPATH\BaseModel.php(838): CodeIgniter\Model->doInsert([...])
+ 7 SYSTEMPATH\Model.php(797): CodeIgniter\BaseModel->insert([...], true)
+ 8 APPPATH\Controllers\Pengacara.php(157): CodeIgniter\Model->insert([...])
+ 9 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->savepertemuan()
+10 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+11 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+12 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+13 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+14 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+15 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:59:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 14:59:59 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 14:59:59 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:01:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:01:24 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:01:24 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:02:49 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:02:49 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:10 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:10 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:17 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:17 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:18 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:18 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:25 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:25 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:36 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:36 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:44 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:44 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:03:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:03:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:04:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:04:15 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:04:15 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:05:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:05:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:05:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:05:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:05:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:11:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:11:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:12:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:12:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:12:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:12:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:12:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:12:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:12:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:16:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:16:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:16:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:16:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:16:47 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:16:47 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:19:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:19:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:19:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:19:56 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:19:56 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:22:40 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:22:40 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:22:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:22:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:22:55 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:22:55 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:23:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:23:33 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:23:33 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:24:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:24:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:24:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:26:46 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:26:46 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:27:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:27:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 15:27:39 --> ErrorException: Undefined array key "id_pengacara"
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 115.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(115): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id_pengacara"', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 115)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(147): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:27:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:27:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:28:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:28:08 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:28:08 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:32:48 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:32:48 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:33:05 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:33:05 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:33:06 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:33:06 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:34:50 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:34:50 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:35:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:35:07 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:35:07 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:36:34 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:36:35 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:36:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:36:54 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:36:54 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:38:38 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:38:38 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:40:30 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:40:30 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:41:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:41:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:42:23 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:42:23 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:43:26 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:43:26 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 15:43:26 --> ErrorException: Undefined variable $klien
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 104.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(104): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $klien', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 104)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(133): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:44:14 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:44:14 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:44:32 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:44:32 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:44:58 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:44:58 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:45:42 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:45:43 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+CRITICAL - 2025-11-30 15:45:43 --> ErrorException: Undefined array key "nama"
+[Method: GET, Route: pengacara/jadwalpertemuan]
+in APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php on line 46.
+ 1 APPPATH\Views\temp_pengacara\jadwalpertemuan\list.php(46): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "nama"', 'C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php', 46)
+ 2 SYSTEMPATH\View\View.php(226): include('C:\\xampp\\htdocs\\mds\\app\\Views\\temp_pengacara\\jadwalpertemuan\\list.php')
+ 3 SYSTEMPATH\View\View.php(229): CodeIgniter\View\View->CodeIgniter\View\{closure}()
+ 4 SYSTEMPATH\Common.php(1167): CodeIgniter\View\View->render('temp_pengacara/jadwalpertemuan/list', [], true)
+ 5 APPPATH\Controllers\Pengacara.php(151): view('temp_pengacara/jadwalpertemuan/list', [...])
+ 6 SYSTEMPATH\CodeIgniter.php(933): App\Controllers\Pengacara->jadwalpertemuan()
+ 7 SYSTEMPATH\CodeIgniter.php(507): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Pengacara))
+ 8 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+11 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+12 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:46:03 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:46:03 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:46:39 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:46:39 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:46:51 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:46:51 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:46:52 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:46:52 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')
+DEBUG - 2025-11-30 15:47:02 --> Session: Class initialized using 'CodeIgniter\Session\Handlers\FileHandler' driver.
+WARNING - 2025-11-30 15:47:02 --> [DEPRECATED] Creation of dynamic property App\Controllers\Pengacara::$id_pengguna is deprecated in APPPATH\Controllers\Pengacara.php on line 26.
+ 1 SYSTEMPATH\CodeIgniter.php(903): App\Controllers\Pengacara->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(498): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(354): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 SYSTEMPATH\Boot.php(363): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH\Boot.php(68): CodeIgniter\Boot::runCodeIgniter(Object(CodeIgniter\CodeIgniter))
+ 6 FCPATH\index.php(59): CodeIgniter\Boot::bootWeb(Object(Config\Paths))
+ 7 SYSTEMPATH\rewrite.php(44): require_once('C:\\xampp\\htdocs\\mds\\public\\index.php')

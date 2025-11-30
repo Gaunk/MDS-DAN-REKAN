@@ -17,14 +17,6 @@
                                     <a href="<?= base_url('pengacara/listklien') ?>"> Klien</a>
                                 </li>
                                 <li>
-                                    <a href="forget-pass.html">Riwayat Klien</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Kontak & Dokumen Klien</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Penjadwalan Meeting</a>
-                                </li>
                             </ul>
                         </li>
                         <li class="has-sub">
@@ -49,74 +41,15 @@
                                 <li>
                                     <a href="<?= base_url('pengacara/jadwalpertemuan') ?>">Jadwal Pertemuan</a>
                                 </li>
-                                <li>
-                                    <a href="forget-pass.html">Reminder Otomatis</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Kalender Aktivitas</a>
-                                </li>
                             </ul>
                         </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Dokumen & Arsip</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Upload Dokumen</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Surat Kuasa</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Draft Gugatan</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Notulen Rapat</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">E-Arsip</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Template Dokumen Hukum</a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li class="has-sub">
-                            <a class="js-arrow" href="#">
-                                <i class="fas fa-copy"></i>Laporan</a>
-                            <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
-                                    <a href="login.html">Laporan Kasus</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Laporan Klien</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Laporan Keuangan</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Laporan Kinerja Pengacara</a>
-                                </li>
-                            </ul>
-                        </li>
+                        
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-copy"></i>Pengaturan</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
                                 <li>
-                                    <a href="login.html">Profil Perusahaan</a>
-                                </li>
-                                <li>
-                                    <a href="register.html">Tandatangan Digital</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Manajemen Template Surat</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Backup & Restore Data</a>
-                                </li>
-                                <li>
-                                    <a href="forget-pass.html">Pengaturan Sistem</a>
+                                    <a href="<?= base_url('pengacara/account') ?>">Profil Akun</a>
                                 </li>
                             </ul>
                         </li>
@@ -264,30 +197,21 @@
                                         <div class="account-dropdown js-dropdown">
                                             <div class="info clearfix">
                                                 <div class="image">
-                                                    <a href="#">
+                                                    <!-- <a href="#">
                                                         <img src="images/icon/avatar-01.jpg" alt="John Doe" />
-                                                    </a>
+                                                    </a> -->
                                                 </div>
                                                 <div class="content">
                                                     <h5 class="name">
                                                     <a href="#"> <?= esc($username); ?></a>
                                                 </h5>
                                                 <span class="email"><?= esc($email); ?></span>
-
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__body">
                                                 <div class="account-dropdown__item">
-                                                    <a href="#">
+                                                    <a href="<?= base_url('pengacara/account') ?>">
                                                         <i class="zmdi zmdi-account"></i>Account</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-settings"></i>Setting</a>
-                                                </div>
-                                                <div class="account-dropdown__item">
-                                                    <a href="#">
-                                                        <i class="zmdi zmdi-money-box"></i>Billing</a>
                                                 </div>
                                             </div>
                                             <div class="account-dropdown__footer">
