@@ -1,3 +1,20 @@
+<!-- CSS PRINT -->
+<style>
+@media print {
+    /* Pastikan warna teks dan latar tetap */
+    #printArea table th,
+    #printArea table td {
+        -webkit-print-color-adjust: exact !important; 
+        print-color-adjust: exact !important;
+    }
+
+    /* Sembunyikan elemen lain */
+    body * { visibility: hidden; }
+    #printArea, #printArea * { visibility: visible; }
+
+    #printArea { position: absolute; left:0; top:0; width:100%; }
+}
+</style>
 <!-- MAIN CONTENT -->
 <div class="main-content">
     <div class="section__content section__content--p30">
@@ -10,10 +27,11 @@
                 </div>
 
                 <div class="col-md-6 text-end">
-                    <button class="btn btn-primary" onclick="printMutasi()">
-                        <i class="fa fa-print"></i> Print Mutasi
-                    </button>
-                </div>
+                <button class="btn btn-primary btn-print-top" onclick="printMutasi()">
+                    <i class="fa fa-print"></i> Print Mutasi
+                </button>
+            </div>
+
             </div>
 
             <!-- FILTER TANGGAL -->
@@ -50,32 +68,15 @@
                             <th class="text-end">Saldo</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody id="mutasiBody">
                         <?php foreach ($mutasi as $m): ?>
                         <tr>
-                            <!-- Tanggal -->
                             <td><?= date('d-m-Y', strtotime($m['tanggal'])) ?></td>
-
-                            <!-- Uraian Transfer -->
                             <td><?= esc($m['nama_klien'] ?? '-') ?></td>
-
-                            <!-- Deskripsi -->
                             <td><?= esc($m['deskripsi']) ?></td>
-
-                            <!-- Pemasukan -->
-                            <td class="text-end text-success">
-                                <?= ($m['jenis'] === 'pemasukan') ? number_format($m['jumlah'], 2) : '-' ?>
-                            </td>
-
-                            <!-- Pengeluaran -->
-                            <td class="text-end text-danger">
-                                <?= ($m['jenis'] === 'pengeluaran') ? number_format($m['jumlah'], 2) : '-' ?>
-                            </td>
-
-                            <!-- Saldo Berjalan -->
-                            <td class="text-end fw-bold">
-                                <?= number_format($m['saldo'], 2) ?>
-                            </td>
+                            <td class="text-end text-success"><?= ($m['jenis'] === 'pemasukan') ? number_format($m['jumlah'], 2) : '-' ?></td>
+                            <td class="text-end text-danger"><?= ($m['jenis'] === 'pengeluaran') ? number_format($m['jumlah'], 2) : '-' ?></td>
+                            <td class="text-end fw-bold"><?= number_format($m['saldo'], 2) ?></td>
                         </tr>
                         <?php endforeach; ?>
                     </tbody>
@@ -90,44 +91,54 @@
                     </tfoot>
                 </table>
 
+                <!-- Pagination dengan panah -->
+                <nav class="mt-4">
+                    <ul class="pagination justify-content-center" id="mutasiPagination"></ul>
+                </nav>
             </div>
 
-        </div>
-    </div>
-</div>
+            <!-- PRINT AREA HIDDEN -->
+            <div id="printArea" class="d-none">
+                <h3 style="text-align:center;">MDS DAN REKAN</h3>
+                <h4 style="text-align:center;">LAPORAN MUTASI KEUANGAN</h4>
+                <hr>
 
-
-<!-- PRINT AREA HIDDEN -->
-<div id="printArea" class="d-none">
-    <h3 style="text-align:center;">MDS DAN REKAN</h3>
-    <h4 style="text-align:center;">LAPORAN MUTASI KEUANGAN</h4>
-    <hr>
-
-    <table width="100%" border="1" cellspacing="0" cellpadding="5" style="border-collapse: collapse; font-size:14px;">
-        <thead>
-            <tr style="background:#e5e5e5;">
-                <th>Tanggal</th>
-                <th>Uraian Trasnfer</th>
-                <th>Deskripsi</th>
-                <th>Pemasukan</th>
-                <th>Pengeluaran</th>
-                <th>Saldo</th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($mutasi as $m): ?>
-            <tr>
-                <td><?= date('d-m-Y', strtotime($m['tanggal'])) ?></td>
-                <td><?= esc($m['nama_klien']) ?></td>
-                <td><?= esc($m['deskripsi']) ?></td>
-                <td><?= ($m['jenis'] === 'pemasukan') ? number_format($m['jumlah'], 2) : '-' ?></td>
-                <td><?= ($m['jenis'] === 'pengeluaran') ? number_format($m['jumlah'], 2) : '-' ?></td>
-                <td><?= number_format($m['saldo'], 2) ?></td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-</div>
+                <table width="100%" cellspacing="0" cellpadding="5" style="border-collapse: collapse; font-size:14px; font-family: Arial, sans-serif;">
+                    <thead>
+                        <tr style="background-color:#007BFF; color:white;">
+                            <th style="text-align:left; padding:6px; border:1px solid #ccc;">Tanggal</th>
+                            <th style="text-align:left; padding:6px; border:1px solid #ccc;">Uraian Transfer</th>
+                            <th style="text-align:left; padding:6px; border:1px solid #ccc;">Deskripsi</th>
+                            <th style="text-align:right; padding:6px; border:1px solid #ccc;">Pemasukan</th>
+                            <th style="text-align:right; padding:6px; border:1px solid #ccc;">Pengeluaran</th>
+                            <th style="text-align:right; padding:6px; border:1px solid #ccc;">Saldo</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <?php foreach ($mutasi as $index => $m): ?>
+                        <?php 
+                            $bg = ($index % 2 == 0) ? '#f9f9f9' : '#ffffff'; // zebra stripe dengan warna sangat terang
+                        ?>
+                        <tr style="background-color: <?= $bg ?>;">
+                            <td style="padding:5px; border:1px solid #ccc;"><?= date('d-m-Y', strtotime($m['tanggal'])) ?></td>
+                            <td style="padding:5px; border:1px solid #ccc;"><?= esc($m['nama_klien']) ?></td>
+                            <td style="padding:5px; border:1px solid #ccc;"><?= esc($m['deskripsi']) ?></td>
+                            <td style="text-align:right; color:green; padding:5px; border:1px solid #ccc;"><?= ($m['jenis'] === 'pemasukan') ? number_format($m['jumlah'], 2) : '-' ?></td>
+                            <td style="text-align:right; color:red; padding:5px; border:1px solid #ccc;"><?= ($m['jenis'] === 'pengeluaran') ? number_format($m['jumlah'], 2) : '-' ?></td>
+                            <td style="text-align:right; font-weight:bold; padding:5px; border:1px solid #ccc;"><?= number_format($m['saldo'], 2) ?></td>
+                        </tr>
+                        <?php endforeach; ?>
+                    </tbody>
+                    <tfoot>
+                        <tr style="background-color:#e0e0e0; font-weight:bold;">
+                            <td colspan="3" style="padding:5px; border:1px solid #ccc;">TOTAL</td>
+                            <td style="text-align:right; color:green; padding:5px; border:1px solid #ccc;"><?= number_format($total_pemasukan, 2) ?></td>
+                            <td style="text-align:right; color:red; padding:5px; border:1px solid #ccc;"><?= number_format($total_pengeluaran, 2) ?></td>
+                            <td style="text-align:right; padding:5px; border:1px solid #ccc;"><?= number_format($saldo_akhir, 2) ?></td>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
 
 
 <!-- SEARCH SCRIPT -->
@@ -152,5 +163,66 @@ function printMutasi() {
     document.body.innerHTML = printContent;
     window.print();
     document.body.innerHTML = original;
+    location.reload();
 }
+</script>
+
+<script>
+const rowsPerPage = 10;
+const tbody = document.getElementById('mutasiBody');
+const pagination = document.getElementById('mutasiPagination');
+const rows = Array.from(tbody.querySelectorAll('tr'));
+const pageCount = Math.ceil(rows.length / rowsPerPage);
+let currentPage = 1;
+
+function showPage(page = 1) {
+    currentPage = page;
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    rows.forEach((row, index) => {
+        row.style.display = (index >= start && index < end) ? '' : 'none';
+    });
+
+    renderPagination();
+}
+
+function renderPagination() {
+    pagination.innerHTML = '';
+
+    // Tombol Previous
+    const prevLi = document.createElement('li');
+    prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+    prevLi.innerHTML = `<a href="#" class="page-link">&laquo; Previous</a>`;
+    prevLi.addEventListener('click', function(e) {
+        e.preventDefault();
+        if(currentPage > 1) showPage(currentPage - 1);
+    });
+    pagination.appendChild(prevLi);
+
+    // Nomor halaman
+    for(let i = 1; i <= pageCount; i++) {
+        const li = document.createElement('li');
+        li.className = `page-item ${i === currentPage ? 'active' : ''}`;
+        li.innerHTML = `<a href="#" class="page-link">${i}</a>`;
+        li.addEventListener('click', function(e){
+            e.preventDefault();
+            showPage(i);
+        });
+        pagination.appendChild(li);
+    }
+
+    // Tombol Next
+    const nextLi = document.createElement('li');
+    nextLi.className = `page-item ${currentPage === pageCount ? 'disabled' : ''}`;
+    nextLi.innerHTML = `<a href="#" class="page-link">Next &raquo;</a>`;
+    nextLi.addEventListener('click', function(e) {
+        e.preventDefault();
+        if(currentPage < pageCount) showPage(currentPage + 1);
+    });
+    pagination.appendChild(nextLi);
+}
+
+// Init
+showPage(1);
 </script>
