@@ -86,51 +86,74 @@
             <!-- CARDS PENGELUARAN -->
             <div class="row" id="pengeluaranCards">
                 <?php foreach($listPengeluaran as $p): ?>
-                    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-                        <aside class="profile-nav alt">
-                            <section class="card border-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?>">
-                                <div class="card-header bg-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?> text-light d-flex justify-content-between align-items-center">
-                                    <div>
-                                        <i class="fas <?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'fa-arrow-down' : 'fa-arrow-up'; ?> me-2"></i>
-                                        <?= esc($p['kategori']); ?>
-                                    </div>
-                                    <!-- Tombol Print -->
-                                    <button class="btn btn-light btn-sm" onclick="printFaktur(<?= $p['id']; ?>)">
-                                        <i class="fas fa-print"></i>
-                                    </button>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <aside class="profile-nav alt">
+                        <section class="card border-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?>">
+                            <div class="card-header bg-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?> text-light d-flex justify-content-between align-items-center">
+                                <div>
+                                    <i class="fas <?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'fa-arrow-down' : 'fa-arrow-up'; ?> me-2"></i>
+                                    <?= esc($p['kategori']); ?>
                                 </div>
-                                <ul class="list-group list-group-flush">
-                                    <li class="list-group-item">
-                                        <i class="far fa-calendar-alt"></i> Tanggal: <?= esc($p['tanggal']); ?>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="fas fa-file-alt"></i> Keterangan: <?= esc($p['keterangan']); ?>
-                                    </li>
-                                    <li class="list-group-item">
-                                        <i class="fas fa-dollar-sign"></i> Jumlah: <?= number_format($p['jumlah'], 2); ?>
-                                    </li>
-                                </ul>
-                                <!-- Layout Faktur Mini -->
-                                <div id="faktur-<?= $p['id']; ?>" class="d-none">
-                                    <div style="width: 300px; padding: 15px; font-family: Arial, sans-serif;">
-                                        <h4 style="text-align:center;">FAKTUR PENGELUARAN</h4>
-                                        <hr>
-                                        <p><strong>Kategori:</strong> <?= esc($p['kategori']); ?></p>
-                                        <p><strong>Tanggal:</strong> <?= esc($p['tanggal']); ?></p>
-                                        <p><strong>Keterangan:</strong> <?= esc($p['keterangan']); ?></p>
-                                        <p><strong>Jumlah:</strong> $ <?= number_format($p['jumlah'], 2); ?></p>
-                                        <?php if(isset($p['total_bayar'])): ?>
-                                            <p><strong>Total Pembayaran:</strong> $ <?= number_format($p['total_bayar'], 2); ?></p>
-                                        <?php endif; ?>
-                                        <hr>
-                                        <p style="text-align:center; font-size:12px;">Terima kasih telah melakukan transaksi</p>
-                                    </div>
-                                </div>
-                            </section>
-                        </aside>
-                    </div>
-                    <?php endforeach; ?>
+                                <!-- Tombol Print -->
+                                <button class="btn btn-light btn-sm" onclick="printFaktur(<?= $p['id']; ?>)">
+                                    <i class="fas fa-print"></i>
+                                </button>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="fas fa-file-alt"></i> Keterangan: <?= esc($p['keterangan']); ?>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-dollar-sign"></i> Jumlah: <?= number_format($p['jumlah'], 2); ?>
+                                </li>
+                            </ul>
 
+                            <!-- Layout Faktur untuk Print -->
+                            <div id="faktur-<?= $p['id']; ?>" class="d-none">
+                                <div style="width: 300px; padding: 15px; font-family: Arial, sans-serif; border:1px solid #000;">
+                                    <h3 style="text-align:center; margin-bottom:5px;">MDS DAN REKAN</h3>
+                                    <h4 style="text-align:center; margin-bottom:10px;">FAKTUR PENGELUARAN</h4>
+                                    <hr>
+
+                                    <table style="width:100%; border-collapse: collapse; font-size: 14px;">
+                                        <tr>
+                                            <td style="width:40%;"><strong>Tanggal</strong></td>
+                                            <td style="width:5%;">:</td>
+                                            <td style="width:55%;"><?= esc($p['tanggal']); ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Kategori</strong></td>
+                                            <td>:</td>
+                                            <td><?= esc($p['kategori']); ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Keterangan</strong></td>
+                                            <td>:</td>
+                                            <td><?= esc($p['keterangan']); ?></td>
+                                        </tr>
+                                        <tr>
+                                            <td><strong>Jumlah</strong></td>
+                                            <td>:</td>
+                                            <td>$ <?= number_format($p['jumlah'], 2); ?></td>
+                                        </tr>
+                                        <?php if(isset($p['total_bayar'])): ?>
+                                        <tr>
+                                            <td><strong>Total Pembayaran</strong></td>
+                                            <td>:</td>
+                                            <td>$ <?= number_format($p['total_bayar'], 2); ?></td>
+                                        </tr>
+                                        <?php endif; ?>
+                                    </table>
+
+                                    <hr>
+                                    <p style="text-align:center; font-size:12px;">Terima kasih atas transaksi Anda</p>
+                                </div>
+                            </div>
+
+                        </section>
+                    </aside>
+                </div>
+                <?php endforeach; ?>
             </div>
 
         </div>
