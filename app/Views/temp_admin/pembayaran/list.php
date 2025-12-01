@@ -23,6 +23,67 @@
 
             <!-- TABLE -->
             <div class="row">
+                <!-- Pemasukan -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c1">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon text-primary">
+                                    <i class="zmdi zmdi-arrow-up"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>
+                                        <img width="45" height="45" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/45/external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3.png" alt="external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3"/> <?= number_format($totalPemasukan ?? 0, 2); ?></h2>
+                                    <span>Pemasukan</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pengeluaran -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item overview-item--c3">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon text-warning">
+                                    <i class="zmdi zmdi-arrow-down"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>
+                                        <img width="45" height="45" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/45/external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3.png" alt="external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3"/>
+                                     <?= number_format($totalPengeluaran ?? 0, 2); ?></h2>
+                                    <span>Pengeluaran</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sisa Uang -->
+                <div class="col-sm-6 col-lg-4">
+                    <div class="overview-item <?= ($sisaUang < 0) ? 'overview-item--c2' : 'overview-item--c1'; ?>">
+                        <div class="overview__inner">
+                            <div class="overview-box clearfix">
+                                <div class="icon <?= ($sisaUang < 0) ? 'text-danger' : 'text-success'; ?>">
+                                    <i class="zmdi <?= ($sisaUang < 0) ? 'zmdi-arrow-down' : 'zmdi-arrow-up'; ?>"></i>
+                                </div>
+                                <div class="text">
+                                    <h2>
+                                        <img width="45" height="45" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/45/external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3.png" alt="external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3"/>
+                                     <?= number_format($sisaUang ?? 0, 2); ?></h2>
+                                    <span>
+                                        <?php if($sisaUang < 0): ?>
+                                            <strong class="text-white">Minus Uang</strong>
+                                        <?php else: ?>
+                                            <strong>Sisa saldo</strong>
+                                        <?php endif; ?>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="col-md-12">
                     <table class="table table-bordered" id="pembayaranTable">
                         <thead class="table-dark">

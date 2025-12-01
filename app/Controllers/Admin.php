@@ -673,6 +673,26 @@ public function pembayaran()
     $model = new \App\Models\PembayaranModel();
     $adminModel = new \App\Models\AdminModel();
     $tagihanModel = new \App\Models\TagihanModel();
+    $pengeluaranModel = new \App\Models\PengeluaranUangModel();
+    $pembayaranModel = new \App\Models\PembayaranModel();
+
+    // Hitung total pemasukan
+    $totalPemasukanData = $pembayaranModel->selectSum('jumlah')->first();
+    $totalPemasukan = $totalPemasukanData['jumlah'] ?? 0;
+
+    // Hitung total pengeluaran
+    $totalPengeluaranData = $pengeluaranModel->selectSum('jumlah')->first();
+    $totalPengeluaran = $totalPengeluaranData['jumlah'] ?? 0;
+
+    // Sisa uang = total pemasukan - total pengeluaran
+    $sisaUang = $totalPemasukan - $totalPengeluaran;
+
+    // Ambil semua data pengeluaran beserta total pembayaran per pengeluaran
+    $listPengeluaran = $pengeluaranModel
+        ->select('tabel_pengeluaran_uang.*, SUM(tabel_pembayaran.jumlah) as total_bayar')
+        ->join('tabel_pembayaran', 'tabel_pembayaran.jumlah = tabel_pengeluaran_uang.id', 'left')
+        ->groupBy('tabel_pengeluaran_uang.id')
+        ->findAll();
 
     // Ambil semua pengguna
     $users = $adminModel->findAll();
@@ -709,7 +729,11 @@ public function pembayaran()
         'username' => $username,
         'email'    => $email,
         'peran'    => $peran,
-        'tagihan'   => $tagihan
+        'tagihan'   => $tagihan,
+        'totalPemasukan'    => $totalPemasukan,
+        'totalPengeluaran'  => $totalPengeluaran,
+        'sisaUang'          => $sisaUang,
+        'listPengeluaran'   => $listPengeluaran,
     ];
 
     return view('temp_admin/head', $data)
@@ -824,52 +848,76 @@ public function laporanKeuangan()
     $db = \Config\Database::connect();
     $adminModel = new \App\Models\AdminModel();
 
-    // Ambil pengguna pertama
+    // Admin Data
     $admin = $adminModel->first(); 
-    $username = $admin['username'] ?? 'Admin';
-    $email    = $admin['email'] ?? '-';
-    $peran    = $admin['peran'] ?? '-';
+    $data['username'] = $admin['username'] ?? 'Admin';
+    $data['email']    = $admin['email'] ?? '-';
+    $data['peran']    = $admin['peran'] ?? '-';
 
-    // Ambil input tanggal (opsional)
-    $tanggal_mulai = $this->request->getGet('mulai');
-    $tanggal_selesai = $this->request->getGet('selesai');
+    // Filter tanggal
+    $mulai   = $this->request->getGet('mulai');
+    $selesai = $this->request->getGet('selesai');
 
-    $builder = $db->table('tabel_pembayaran');
-    $builder->select("
-        tabel_pembayaran.id,
-        tabel_pembayaran.jumlah,
-        tabel_pembayaran.tanggal_pembayaran,
-        tabel_klien.nama AS nama_klien,
-        tabel_tagihan.deskripsi
-    ");
-    $builder->join('tabel_tagihan', 'tabel_tagihan.id = tabel_pembayaran.id_tagihan', 'left');
-    $builder->join('tabel_klien', 'tabel_klien.id = tabel_tagihan.id_klien', 'left');
+    // --------- PEMASUKAN ----------
+$builderPemasukan = $db->table('tabel_pembayaran');
+$builderPemasukan->select("
+    tabel_pembayaran.tanggal_pembayaran AS tanggal,
+    tabel_pembayaran.jumlah,
+    tabel_klien.nama AS nama_klien,
+    tabel_tagihan.deskripsi,
+    'pemasukan' AS jenis
+");
+$builderPemasukan->join('tabel_tagihan', 'tabel_tagihan.id = tabel_pembayaran.id_tagihan', 'left');
+$builderPemasukan->join('tabel_klien', 'tabel_klien.id = tabel_tagihan.id_klien', 'left');
 
-    if ($tanggal_mulai && $tanggal_selesai) {
-        $builder->where("DATE(tabel_pembayaran.tanggal_pembayaran) >=", $tanggal_mulai);
-        $builder->where("DATE(tabel_pembayaran.tanggal_pembayaran) <=", $tanggal_selesai);
+if ($mulai && $selesai) {
+    $builderPemasukan->where("DATE(tabel_pembayaran.tanggal_pembayaran) >=", $mulai);
+    $builderPemasukan->where("DATE(tabel_pembayaran.tanggal_pembayaran) <=", $selesai);
+}
+
+$pemasukan = $builderPemasukan->get()->getResultArray();
+
+// --------- PENGELUARAN ----------
+$builderPengeluaran = $db->table('tabel_pengeluaran_uang');
+$builderPengeluaran->select("
+    tabel_pengeluaran_uang.tanggal AS tanggal,
+    tabel_pengeluaran_uang.jumlah,
+    tabel_pengeluaran_uang.kategori AS nama_klien,
+    tabel_pengeluaran_uang.keterangan AS deskripsi,
+    'pengeluaran' AS jenis
+");
+
+if ($mulai && $selesai) {
+    $builderPengeluaran->where("DATE(tabel_pengeluaran_uang.tanggal) >=", $mulai);
+    $builderPengeluaran->where("DATE(tabel_pengeluaran_uang.tanggal) <=", $selesai);
+}
+
+$pengeluaran = $builderPengeluaran->get()->getResultArray();
+
+// --------- GABUNGKAN MUTASI ----------
+$mutasi = array_merge($pemasukan, $pengeluaran);
+
+// Sort by tanggal
+usort($mutasi, function ($a, $b) {
+    return strtotime($a['tanggal']) - strtotime($b['tanggal']);
+});
+
+
+    // SALDO BERJALAN
+    $saldo = 0;
+    foreach ($mutasi as $key => $row) {
+        $saldo += ($row['jenis'] == 'pemasukan') ? $row['jumlah'] : -$row['jumlah'];
+        $mutasi[$key]['saldo'] = $saldo;
     }
 
-    $builder->orderBy('tabel_pembayaran.tanggal_pembayaran', 'ASC');
-    $pembayaran = $builder->get()->getResultArray();
-
-    // Hitung total pemasukan
-    $total_pemasukan = 0;
-    foreach ($pembayaran as $row) {
-        $total_pemasukan += $row['jumlah'];
-    }
-
-    // Gabungkan semua data ke satu array
-    $data = [
-        'judul' => 'MDS | Laporan Keuangan',
-        'username' => $username,
-        'email'    => $email,
-        'peran'    => $peran,
-        'pembayaran' => $pembayaran,
-        'total_pemasukan' => $total_pemasukan,
-        'mulai' => $tanggal_mulai,
-        'selesai' => $tanggal_selesai,
-    ];
+    // DATA VIEW
+    $data['judul']  = "MDS | Laporan Keuangan";
+    $data['mutasi'] = $mutasi;
+    $data['mulai']  = $mulai;
+    $data['selesai'] = $selesai;
+    $data['total_pemasukan'] = array_sum(array_column($pemasukan, 'jumlah'));
+    $data['total_pengeluaran'] = array_sum(array_column($pengeluaran, 'jumlah'));
+    $data['saldo_akhir'] = $saldo;
 
     return view('temp_admin/head', $data)
         . view('temp_admin/header', $data)
@@ -877,7 +925,6 @@ public function laporanKeuangan()
         . view('temp_admin/keuangan/list', $data)
         . view('temp_admin/footer');
 }
-
 
 
 
