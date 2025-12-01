@@ -722,27 +722,50 @@ public function pembayaran()
 
 public function tambahPembayaran()
 {
-    $model = new \App\Models\PembayaranModel();
+    $pembayaranModel = new \App\Models\PembayaranModel();
+    $tagihanModel    = new \App\Models\TagihanModel();
 
     // Ambil data dari form
+    $idTagihan = $this->request->getPost('id_tagihan');
+    $jumlahPembayaran = $this->request->getPost('jumlah');
+
     $data = [
-        'id_tagihan'        => $this->request->getPost('id_tagihan'),
-        'jumlah'            => $this->request->getPost('jumlah'),
+        'id_tagihan'        => $idTagihan,
+        'jumlah'            => $jumlahPembayaran,
         'metode_pembayaran' => $this->request->getPost('metode_pembayaran'),
         'tanggal_pembayaran'=> $this->request->getPost('tanggal_pembayaran'),
         'dibuat_pada'       => date('Y-m-d H:i:s')
     ];
 
     // Validasi sederhana
-    if(empty($data['id_tagihan']) || empty($data['jumlah']) || empty($data['tanggal_pembayaran'])) {
+    if (empty($data['id_tagihan']) || empty($data['jumlah']) || empty($data['tanggal_pembayaran'])) {
         return redirect()->back()->with('error', 'Data pembayaran tidak lengkap!');
     }
 
-    // Simpan data
-    $model->insert($data);
+    // --- Ambil jumlah tagihan saat ini ---
+    $tagihan = $tagihanModel->find($idTagihan);
 
-    return redirect()->to(base_url('admin/pembayaran'))->with('success', 'Pembayaran berhasil ditambahkan!');
+    if (!$tagihan) {
+        return redirect()->back()->with('error', 'Tagihan tidak ditemukan!');
+    }
+
+    $totalTagihan = $tagihan['jumlah'];
+
+    // --- Kurangi tagihan dengan pembayaran ---
+    $sisaTagihan = $totalTagihan - $jumlahPembayaran;
+
+    // --- Simpan pembayaran ---
+    $pembayaranModel->insert($data);
+
+    // --- Update nilai tagihan ---
+    $tagihanModel->update($idTagihan, [
+        'jumlah' => $sisaTagihan
+    ]);
+
+    return redirect()->to(base_url('admin/pembayaran'))
+        ->with('success', 'Pembayaran berhasil ditambahkan & tagihan diperbarui!');
 }
+
 
 public function updatePembayaran()
 {

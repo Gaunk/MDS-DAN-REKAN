@@ -125,7 +125,7 @@
 <!-- =============================================================== -->
 <!-- MODAL UPDATE HONORARIUM -->
 <!-- =============================================================== -->
-<div class="modal fade" id="updateHonorModal" tabindex="-1">
+<div class="modal fade" id="updateHonorModal" tabindex="-1" aria-hidden="true">
   <div class="modal-dialog">
     <form action="<?= base_url('admin/updatehonorariumpengacara') ?>" method="POST">
       <input type="hidden" name="id" id="update_id">
@@ -133,7 +133,8 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Update Honorarium</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
+          <!-- Tombol Close -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
@@ -170,8 +171,8 @@
         </div>
 
         <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button class="btn btn-success">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-success">Update</button>
         </div>
 
       </div>
