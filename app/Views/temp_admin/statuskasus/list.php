@@ -18,50 +18,50 @@
             </div>
 
             <!-- TABLE -->
-            <div class="row">
-      <div class="row">
-    <?php foreach($perkara as $p): ?>
-        <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
-            <aside class="profile-nav alt">
-                <section class="card">
-                    <div class="card-header user-header alt bg-dark">
-                        <div class="media">
-                            <a href="#">
-                                <img class="align-self-center rounded-circle me-3" 
-                                     style="width:85px; height:85px;" 
-                                     alt="" 
-                                     src="<?= esc($p['avatar_pengacara'] ?? 'images/icon/avatar-01.jpg'); ?>">
-                            </a>
-                            <div class="media-body">
-                                <!-- Nama Klien -->
-                                <h6 class="text-light mb-1"><?= esc($p['nama_klien'] ?? '-'); ?></h6>
+                    <div class="row">
+              <div class="row">
+            <?php foreach($perkara as $p): ?>
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <aside class="profile-nav alt">
+                        <section class="card">
+                            <div class="card-header user-header alt bg-dark">
+                                <div class="media">
+                                    <a href="#">
+                                        <img class="align-self-center rounded-circle me-3" 
+                                             style="width:85px; height:85px;" 
+                                             alt="" 
+                                             src="<?= esc($p['avatar_pengacara'] ?? 'images/icon/avatar-01.jpg'); ?>">
+                                    </a>
+                                    <div class="media-body">
+                                        <!-- Nama Klien -->
+                                        <h6 class="text-light mb-1"><?= esc($p['nama_klien'] ?? '-'); ?></h6>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
 
-                    <ul class="list-group list-group-flush">
-                        <li class="list-group-item">
-                            <i class="far fa-id-card"></i> SKK: <?= esc($p['nomor_perkara']); ?>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-user"></i> Adv: <?= esc($p['nama_pengacara'] ?? '-'); ?>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="fas fa-info-circle text-info"></i> Status: <span class="text-primary"><?= esc($p['nama_status'] ?? '-'); ?></span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="far fa-calendar-alt"></i> Tanggal Mulai: <span class="text-success">
-                                            <?= esc($p['tanggal_mulai'] ?? '-'); ?></span>
-                        </li>
-                        <li class="list-group-item">
-                            <i class="far fa-calendar-check"></i> Tanggal Selesai: <?= esc($p['tanggal_selesai'] ?? '-'); ?>
-                        </li>
-                    </ul>
-                </section>
-            </aside>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <i class="far fa-id-card"></i> SKK: <?= esc($p['nomor_perkara']); ?>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-user"></i> Adv: <?= esc($p['nama_pengacara'] ?? '-'); ?>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="fas fa-info-circle text-info"></i> Status: <span class="text-primary"><?= esc($p['nama_status'] ?? '-'); ?></span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="far fa-calendar-alt"></i> Tanggal Mulai: <span class="text-success">
+                                                    <?= esc($p['tanggal_mulai'] ?? '-'); ?></span>
+                                </li>
+                                <li class="list-group-item">
+                                    <i class="far fa-calendar-check"></i> Tanggal Selesai: <?= esc($p['tanggal_selesai'] ?? '-'); ?>
+                                </li>
+                            </ul>
+                        </section>
+                    </aside>
+                </div>
+            <?php endforeach; ?>
         </div>
-    <?php endforeach; ?>
-</div>
 
 
             </div>

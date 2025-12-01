@@ -45,6 +45,7 @@ class Admin extends BaseController
         
         $adminModel = new \App\Models\AdminModel();
         $pembayaranModel = new \App\Models\PembayaranModel();
+        $perkaraModel = new \App\Models\PerkaraModel();
 
 
         // Ambil semua pengguna (untuk keperluan lain, misal list dropdown)
@@ -60,6 +61,21 @@ class Admin extends BaseController
         // Total data transaksi pembayaran
         $totalPembayaran = $pembayaranModel->countAll();
         $totalNominal = $pembayaranModel->selectSum('jumlah')->first()['jumlah'] ?? 0;
+        // 
+        $totalPerkara = $perkaraModel->countAll();
+        $listPerkara = $perkaraModel
+        ->select('
+            tabel_perkara.*, 
+            tabel_klien.nama as nama_klien, 
+            tabel_jenis_perkara.nama_jenis as jenis_kasus, 
+            tabel_pengacara.nama as nama_pengacara,
+            tabel_status_perkara.nama_status as status
+        ')
+        ->join('tabel_klien', 'tabel_klien.id = tabel_perkara.id_klien')
+        ->join('tabel_jenis_perkara', 'tabel_jenis_perkara.id = tabel_perkara.jenis_kasus')
+        ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_perkara.id_pengacara')
+        ->join('tabel_status_perkara', 'tabel_status_perkara.id = tabel_perkara.status')
+        ->findAll();
 
 
         $data = [
@@ -68,7 +84,9 @@ class Admin extends BaseController
             'peran'    => $peran,
             'totalAkun' => $totalAkun,
             'totalPembayaran' =>$totalPembayaran,
-            'totalNominal'  => $totalNominal
+            'totalNominal'  => $totalNominal,
+            'totalPerkara' => $totalPerkara,
+            'listPerkara'   => $listPerkara
         ];
 
         echo view('temp_admin/head', $data);
@@ -1561,6 +1579,23 @@ public function updatePerkara()
     return redirect()->to('admin/listperkara')->with('success', 'Perkara berhasil diupdate!');
 }
 
+
+public function deletePerkara($id)
+{
+    $tagihanModel = new \App\Models\TagihanModel();
+    $perkaraModel = new \App\Models\PerkaraModel();
+
+    // hapus semua tagihan terkait perkara
+    $tagihanModel->where('id_perkara', $id)->delete();
+
+    // hapus perkara
+    $perkaraModel->delete($id);
+
+    return redirect()->back()->with('success', 'Perkara berhasil dihapus!');
+}
+
+//
+
     public function statusKasus()
 {
     $perkaraModel = new \App\Models\PerkaraModel();
@@ -1609,14 +1644,6 @@ public function updatePerkara()
 
 
 
-
-    public function deletePerkara($id)
-    {
-        $perkaraModel = new PerkaraModel();
-        $perkaraModel->delete($id);
-
-        return redirect()->back()->with('success', 'Perkara berhasil dihapus!');
-    }
 
 // JADWAL SIDANG
 public function jadwalSidang()
