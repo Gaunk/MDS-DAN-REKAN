@@ -22,8 +22,8 @@
                                                 <i class="zmdi zmdi-account-o"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>10368</h2>
-                                                <span>members online</span>
+                                                <h2><?= $totalAkun ?></h2>
+                                                <span>members</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -59,7 +59,7 @@
                                             </div>
                                             <div class="text">
                                                 <h2>1,086</h2>
-                                                <span>this week</span>
+                                                <span>total kasus</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -76,8 +76,8 @@
                                                 <i class="zmdi zmdi-money"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>$1,060,386</h2>
-                                                <span>total earnings</span>
+                                                <h4><?= 'Rp ' . number_format($totalNominal, 0, ',', '.') ?></h4>
+                                                <span>total pemasukan</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">

@@ -44,6 +44,8 @@ class Admin extends BaseController
     {
         
         $adminModel = new \App\Models\AdminModel();
+        $pembayaranModel = new \App\Models\PembayaranModel();
+
 
         // Ambil semua pengguna (untuk keperluan lain, misal list dropdown)
         $users = $adminModel->findAll();
@@ -54,10 +56,19 @@ class Admin extends BaseController
         $email    = $admin['email'] ?? '-';
         $peran    = $admin['peran'] ?? '-';
 
+        $totalAkun = $adminModel->countAll();
+        // Total data transaksi pembayaran
+        $totalPembayaran = $pembayaranModel->countAll();
+        $totalNominal = $pembayaranModel->selectSum('jumlah')->first()['jumlah'] ?? 0;
+
+
         $data = [
             'username' => $username,
             'email'    => $email,
-            'peran'    => $peran
+            'peran'    => $peran,
+            'totalAkun' => $totalAkun,
+            'totalPembayaran' =>$totalPembayaran,
+            'totalNominal'  => $totalNominal
         ];
 
         echo view('temp_admin/head', $data);
