@@ -89,9 +89,15 @@
                     <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
                         <aside class="profile-nav alt">
                             <section class="card border-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?>">
-                                <div class="card-header bg-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?> text-light">
-                                    <i class="fas <?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'fa-arrow-down' : 'fa-arrow-up'; ?> me-2"></i>
-                                    <?= esc($p['kategori']); ?>
+                                <div class="card-header bg-<?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'danger' : 'success'; ?> text-light d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <i class="fas <?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'fa-arrow-down' : 'fa-arrow-up'; ?> me-2"></i>
+                                        <?= esc($p['kategori']); ?>
+                                    </div>
+                                    <!-- Tombol Print per kartu -->
+                                    <button class="btn btn-light btn-sm" onclick="printPengeluaran(<?= $p['id']; ?>)">
+                                        <i class="fas fa-print"></i>
+                                    </button>
                                 </div>
                                 <ul class="list-group list-group-flush">
                                     <li class="list-group-item">
@@ -108,6 +114,7 @@
                         </aside>
                     </div>
                 <?php endforeach; ?>
+
             </div>
 
         </div>
@@ -168,4 +175,16 @@ document.getElementById('searchInput').addEventListener('keyup', function () {
         card.style.display = cardText.includes(keyword) ? "" : "none";
     });
 });
+</script>
+<!-- SCRIPT PRINT PER PENGELUARAN -->
+<script>
+function printPengeluaran(id) {
+    // Ambil data pengeluaran berdasarkan ID (bisa ambil dari PHP via hidden div atau AJAX)
+    let card = document.querySelector(`[onclick='printPengeluaran(${id})']`).closest('.card');
+    let printContents = card.innerHTML;
+    let originalContents = document.body.innerHTML;
+    document.body.innerHTML = printContents;
+    window.print();
+    document.body.innerHTML = originalContents;
+}
 </script>
