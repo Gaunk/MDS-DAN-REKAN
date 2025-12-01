@@ -84,7 +84,7 @@
         <div class="modal-content">
             <form action="<?= base_url('admin/tambahtagihan') ?>" method="post">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="tambahTagihanLabel">Tambah Tagihan</h5>
+                    <h5 class="modal-title" id="tambahTagihanLabel">Tambah Tagihan PPJH</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -150,7 +150,7 @@
             <form action="<?= base_url('admin/updatetagihan') ?>" method="post">
                 <input type="hidden" name="id" id="updateId">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="updateTagihanLabel">Update Tagihan</h5>
+                    <h5 class="modal-title" id="updateTagihanLabel">Update Tagihan PPJH</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">

@@ -2,6 +2,10 @@
 
 namespace App\Controllers;
 
+use App\Libraries\SuratWordService; // pastikan namespace benar
+
+use PhpOffice\PhpWord\PhpWord;
+use PhpOffice\PhpWord\IOFactory;
 use App\Models\AdminModel;
 use App\Models\KlienModel;
 use App\Models\PerkaraModel;
@@ -25,6 +29,8 @@ class Admin extends BaseController
     protected $perkaraModel;
     protected $DokumenPerkaraModel;
     protected $AdminModel;
+    protected $suratWordService; // ✅ deklarasikan property
+
 
 
      public function __construct()
@@ -36,6 +42,8 @@ class Admin extends BaseController
         $this->klienModel      = new KlienModel();
         $this->perkaraModel      = new PerkaraModel();
         $this->dokumenPerkaraModel = new DokumenPerkaraModel();
+        $this->suratWordService = new SuratWordService();
+
 
     }
     // ==========================
@@ -368,7 +376,23 @@ public function updateHonorariumPengacara()
     return redirect()->back()->with('success', 'Honorarium pengacara berhasil diperbarui.');
 }
 
-// SURAT KUASA
+public function suratKuasaWord($id)
+{
+    // Bersihkan semua buffer output
+    while (ob_get_level()) {
+        ob_end_clean();
+    }
+
+    $suratData = $this->suratKuasaModel->getSuratWithDetails($id);
+    if (!$suratData) {
+        throw new \CodeIgniter\Exceptions\PageNotFoundException("Data surat tidak ditemukan");
+    }
+
+    // Kirim seluruh data ke service
+    $this->suratWordService->generate($suratData);
+}
+
+
 public function suratKuasa()
 {
     $suratModel    = new \App\Models\SuratKuasaModel();
@@ -420,9 +444,20 @@ public function proses_suratKuasa()
 {
     $post = $this->request->getPost();
 
-    $id_klien    = $post['id_klien'] ?? null;
-    $id_perkara  = $post['id_perkara'] ?? null;
-    $deskripsi   = $post['deskripsi'] ?? null;
+    // Ambil input dengan fallback null jika tidak ada
+    $id_klien      = isset($post['id_klien']) ? (int)$post['id_klien'] : null;
+    $id_perkara    = isset($post['id_perkara']) ? (int)$post['id_perkara'] : null;
+    $deskripsi     = $post['deskripsi'] ?? null;
+    $tanggal       = $post['tanggal'] ?? date('Y-m-d');
+
+    // Field tambahan
+    $nik           = $post['nik'] ?? null;
+    $ttl           = $post['ttl'] ?? null;
+    $jenis_kelamin = $post['jenis_kelamin'] ?? null;
+    $pekerjaan     = $post['pekerjaan'] ?? null;
+    $alamat        = $post['alamat'] ?? null;
+    $penerima      = $post['penerima'] ?? null;
+    $alamat_kantor = $post['alamat_kantor'] ?? null;
 
     // Validasi sederhana
     if (!$id_klien || !$id_perkara) {
@@ -437,14 +472,22 @@ public function proses_suratKuasa()
         return redirect()->back()->with('error', 'Data Klien atau Perkara tidak ditemukan.');
     }
 
+    // Siapkan data untuk insert
     $data = [
         'id_klien'      => $id_klien,
         'id_perkara'    => $id_perkara,
         'deskripsi'     => $deskripsi,
-        'tanggal'       => date('Y-m-d'), // hanya tanggal, tanpa jam
-        'created_at'    => date('Y-m-d H:i:s')
+        'tanggal'       => $tanggal,
+        'nik'           => $nik,
+        'ttl'           => $ttl,
+        'jenis_kelamin' => $jenis_kelamin,
+        'pekerjaan'     => $pekerjaan,
+        'alamat'        => $alamat,
+        'penerima'      => $penerima,
+        'alamat_kantor' => $alamat_kantor
     ];
 
+    // Insert ke database, timestamps otomatis akan di-handle oleh model
     $this->suratKuasaModel->insert($data);
 
     return redirect()->back()->with('success', 'Surat kuasa berhasil disimpan.');

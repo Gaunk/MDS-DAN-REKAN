@@ -47,6 +47,10 @@
                                             onclick="hapusSurat(<?= $s['id'] ?>)">
                                         <i class="fa fa-trash"></i>
                                     </button>
+                                    <a href="<?= base_url('admin/suratkuasaword/' . $s['id']) ?>" class="btn btn-success btn-sm">
+                                        Download Word
+                                    </a>
+
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -59,13 +63,13 @@
         </div>
     </div>
 </div>
-
 <!-- =============================================================== -->
 <!-- MODAL TAMBAH SURAT KUASA -->
 <!-- =============================================================== -->
 <div class="modal fade" id="tambahSuratModal" tabindex="-1">
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-lg">
     <form action="<?= base_url('admin/proses_suratkuasa') ?>" method="POST">
+        <input type="hidden" name="id_surat">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Tambah Surat Kuasa</h5>
@@ -73,37 +77,89 @@
         </div>
 
         <div class="modal-body">
+          <div class="row g-3">
 
-            <div class="mb-3">
-                <label>Nama Klien</label>
-                <select name="id_klien" class="form-select" required>
-                    <option value="">-- Pilih Klien --</option>
-                    <?php foreach($klien as $k): ?>
-                        <option value="<?= $k['id'] ?>"><?= esc($k['nama']) ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <!-- Nama Klien -->
+            <div class="col-md-4">
+              <label>Nama Klien</label>
+              <select name="id_klien" class="form-select" required>
+                  <option value="">-- Pilih Klien --</option>
+                  <?php foreach($klien as $k): ?>
+                      <option value="<?= $k['id'] ?>"><?= esc($k['nama']) ?></option>
+                  <?php endforeach; ?>
+              </select>
             </div>
 
-            <div class="mb-3">
-                <label>Nomor Perkara</label>
-                <select name="id_perkara" class="form-select" required>
-                    <option value="">-- Pilih Perkara --</option>
-                    <?php foreach($perkara as $p): ?>
-                        <option value="<?= $p['id'] ?>"><?= esc($p['nomor_perkara']) ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <!-- NIK -->
+            <div class="col-md-4">
+              <label>NIK</label>
+              <input type="text" name="nik" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label>Deskripsi</label>
-                <textarea name="deskripsi" class="form-control" required></textarea>
+            <!-- TTL -->
+            <div class="col-md-4">
+              <label>Tempat, Tanggal Lahir</label>
+              <input type="text" name="ttl" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label>Tanggal Surat</label>
-                <input type="date" name="tanggal" class="form-control" required>
+            <!-- Jenis Kelamin -->
+            <div class="col-md-4">
+              <label>Jenis Kelamin</label>
+              <select name="jenis_kelamin" class="form-select" required>
+                <option value="">-- Pilih --</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
             </div>
 
+            <!-- Pekerjaan -->
+            <div class="col-md-4">
+              <label>Pekerjaan</label>
+              <input type="text" name="pekerjaan" class="form-control" required>
+            </div>
+
+            <!-- Tanggal Surat -->
+            <div class="col-md-4">
+              <label>Tanggal Surat</label>
+              <input type="date" name="tanggal" class="form-control" required>
+            </div>
+
+            <!-- Nomor Perkara -->
+            <div class="col-md-4">
+              <label>Nomor Perkara</label>
+              <select name="id_perkara" class="form-select" required>
+                  <option value="">-- Pilih Perkara --</option>
+                  <?php foreach($perkara as $p): ?>
+                      <option value="<?= $p['id'] ?>"><?= esc($p['nomor_perkara']) ?></option>
+                  <?php endforeach; ?>
+              </select>
+            </div>
+
+            <!-- Deskripsi (full width) -->
+            <div class="col-12">
+              <label>Deskripsi</label>
+              <textarea name="deskripsi" class="form-control" required></textarea>
+            </div>
+
+            <!-- Alamat -->
+            <div class="col-md-6">
+              <label>Alamat Klien</label>
+              <textarea name="alamat" class="form-control" required></textarea>
+            </div>
+
+            <!-- Penerima Kuasa -->
+            <div class="col-md-6">
+              <label>Penerima Kuasa</label>
+              <textarea name="penerima" class="form-control" placeholder="Nama advokat atau penerima kuasa" required></textarea>
+            </div>
+
+            <!-- Alamat Kantor -->
+            <div class="col-12">
+              <label>Alamat Kantor</label>
+              <textarea name="alamat_kantor" class="form-control" required></textarea>
+            </div>
+
+          </div>
         </div>
 
         <div class="modal-footer">
@@ -116,24 +172,26 @@
   </div>
 </div>
 
+
 <!-- =============================================================== -->
 <!-- MODAL UPDATE SURAT KUASA -->
 <!-- =============================================================== -->
-<div class="modal fade" id="updateSuratModal" tabindex="-1">
+<div class="modal fade" id="updateSuratModal" tabindex="-1" aria-labelledby="updateSuratModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <form action="<?= base_url('admin/updatesuratkuasa') ?>" method="POST">
       <input type="hidden" name="id" id="update_id">
 
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title">Update Surat Kuasa</h5>
-          <button class="btn-close" data-bs-dismiss="modal"></button>
+          <h5 class="modal-title" id="updateSuratModalLabel">Update Surat Kuasa</h5>
+          <!-- Tombol close yang diperbaiki -->
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
 
         <div class="modal-body">
 
             <div class="mb-3">
-                <label>Nama Klien</label>
+                <label for="update_klien" class="form-label">Nama Klien</label>
                 <select name="id_klien" id="update_klien" class="form-select" required>
                     <?php foreach($klien as $k): ?>
                         <option value="<?= $k['id'] ?>"><?= esc($k['nama']) ?></option>
@@ -142,7 +200,7 @@
             </div>
 
             <div class="mb-3">
-                <label>Nomor Perkara</label>
+                <label for="update_perkara" class="form-label">Nomor Perkara</label>
                 <select name="id_perkara" id="update_perkara" class="form-select" required>
                     <?php foreach($perkara as $p): ?>
                         <option value="<?= $p['id'] ?>"><?= esc($p['nomor_perkara']) ?></option>
@@ -151,20 +209,20 @@
             </div>
 
             <div class="mb-3">
-                <label>Deskripsi</label>
+                <label for="update_deskripsi" class="form-label">Deskripsi</label>
                 <textarea name="deskripsi" id="update_deskripsi" class="form-control" required></textarea>
             </div>
 
             <div class="mb-3">
-                <label>Tanggal Surat</label>
+                <label for="update_tanggal" class="form-label">Tanggal Surat</label>
                 <input type="date" name="tanggal" id="update_tanggal" class="form-control" required>
             </div>
 
         </div>
 
         <div class="modal-footer">
-          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button class="btn btn-success">Update</button>
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="submit" class="btn btn-success">Update</button>
         </div>
 
       </div>

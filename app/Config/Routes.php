@@ -6,6 +6,8 @@ use CodeIgniter\Router\RouteCollection;
 $routes->get('/', 'Home::index');
 $routes->post('/contact/submit', 'Home::submit');
 
+$routes->get('word/create', 'Word::create');
+
 
 // ============================
 // ROUTE PROTECTED (Wajib Login & Role SESUAI)
@@ -97,6 +99,9 @@ $routes->group('admin', [
     $routes->post('proses_suratkuasa', 'Admin::proses_suratKuasa');
     $routes->post('updatesuratkuasa', 'Admin::updatesuratKuasa');
     $routes->get('deletesuratkuasa/(:num)', 'Admin::deleteSuratKuasa/$1');
+    $routes->get('suratkuasaword/(:num)', 'Admin::suratKuasaWord/$1');
+
+
     // 
     $routes->get('dokumenperkara', 'Admin::dokumenPerkara');
     $routes->post('proses_dokumenperkara', 'Admin::proses_dokumenPerkara');
