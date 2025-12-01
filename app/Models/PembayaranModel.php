@@ -13,6 +13,7 @@ class PembayaranModel extends Model
         'id_tagihan',
         'jumlah',
         'metode_pembayaran',
+        'bukti_transfer',
         'tanggal_pembayaran',
         'dibuat_pada'
     ];

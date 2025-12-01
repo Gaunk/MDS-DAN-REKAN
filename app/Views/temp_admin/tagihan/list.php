@@ -6,7 +6,7 @@
             <!-- HEADER -->
             <div class="row mb-3">
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
-                    <h2 class="title-1">Daftar Tagihan</h2>
+                    <h2 class="title-1">Daftar Tagihan PPJH</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahTagihanModal">Tambah Tagihan</button>
                 </div>
             </div>

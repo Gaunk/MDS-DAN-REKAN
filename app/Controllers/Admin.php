@@ -706,6 +706,7 @@ public function pembayaran()
     // Ambil data pembayaran dengan join tabel_tagihan, tabel_perkara, tabel_klien
     $pembayaran = $model->select('
         tabel_pembayaran.*,
+        tabel_pembayaran.bukti_transfer as bukti_transaksi,
         tabel_tagihan.id_perkara,
         tabel_tagihan.jumlah AS total_tagihan,
         tabel_tagihan.deskripsi,
@@ -752,39 +753,46 @@ public function tambahPembayaran()
     // Ambil data dari form
     $idTagihan = $this->request->getPost('id_tagihan');
     $jumlahPembayaran = $this->request->getPost('jumlah');
-
-    $data = [
-        'id_tagihan'        => $idTagihan,
-        'jumlah'            => $jumlahPembayaran,
-        'metode_pembayaran' => $this->request->getPost('metode_pembayaran'),
-        'tanggal_pembayaran'=> $this->request->getPost('tanggal_pembayaran'),
-        'dibuat_pada'       => date('Y-m-d H:i:s')
-    ];
+    $metodePembayaran = $this->request->getPost('metode_pembayaran');
+    $tanggalPembayaran = $this->request->getPost('tanggal_pembayaran');
 
     // Validasi sederhana
-    if (empty($data['id_tagihan']) || empty($data['jumlah']) || empty($data['tanggal_pembayaran'])) {
+    if (empty($idTagihan) || empty($jumlahPembayaran) || empty($tanggalPembayaran)) {
         return redirect()->back()->with('error', 'Data pembayaran tidak lengkap!');
     }
 
-    // --- Ambil jumlah tagihan saat ini ---
+    // Ambil data tagihan
     $tagihan = $tagihanModel->find($idTagihan);
-
     if (!$tagihan) {
         return redirect()->back()->with('error', 'Tagihan tidak ditemukan!');
     }
 
     $totalTagihan = $tagihan['jumlah'];
+    $sisaTagihan  = max($totalTagihan - $jumlahPembayaran, 0); // tidak boleh negatif
 
-    // --- Kurangi tagihan dengan pembayaran ---
-    $sisaTagihan = $totalTagihan - $jumlahPembayaran;
+    // Siapkan data pembayaran
+    $data = [
+        'id_tagihan'        => $idTagihan,
+        'jumlah'            => $jumlahPembayaran,
+        'metode_pembayaran' => $metodePembayaran,
+        'tanggal_pembayaran'=> $tanggalPembayaran,
+        'dibuat_pada'       => date('Y-m-d H:i:s'),
+    ];
 
-    // --- Simpan pembayaran ---
+    // Upload bukti transfer jika ada
+    if ($file = $this->request->getFile('bukti_transfer')) {
+        if ($file->isValid() && !$file->hasMoved()) {
+            $newName = $file->getRandomName();
+            $file->move(FCPATH . 'uploads/bukti_transfer/', $newName);
+            $data['bukti_transfer'] = $newName;
+        }
+    }
+
+    // Simpan pembayaran
     $pembayaranModel->insert($data);
 
-    // --- Update nilai tagihan ---
-    $tagihanModel->update($idTagihan, [
-        'jumlah' => $sisaTagihan
-    ]);
+    // Update sisa tagihan
+    $tagihanModel->update($idTagihan, ['jumlah' => $sisaTagihan]);
 
     return redirect()->to(base_url('admin/pembayaran'))
         ->with('success', 'Pembayaran berhasil ditambahkan & tagihan diperbarui!');
@@ -801,13 +809,18 @@ public function updatePembayaran()
         return redirect()->back()->with('error', 'ID pembayaran tidak ditemukan.');
     }
 
+    $id = $post['id'];
+
+    // Ambil data pembayaran lama
+    $oldData = $pembayaranModel->find($id);
+    $oldBukti = $oldData['bukti_transfer'] ?? null;
+
     // Pastikan semua field ada agar tidak error undefined index
     $id_tagihan         = $post['id_tagihan']          ?? null;
     $jumlah             = $post['jumlah']             ?? null;
     $metode_pembayaran  = $post['metode_pembayaran']  ?? null;
     $tanggal_pembayaran = $post['tanggal_pembayaran'] ?? null;
 
-    // Data yang akan diupdate
     $updateData = [
         'id_tagihan'         => $id_tagihan,
         'jumlah'             => $jumlah,
@@ -815,8 +828,23 @@ public function updatePembayaran()
         'tanggal_pembayaran' => $tanggal_pembayaran,
     ];
 
+    // Cek apakah ada file bukti_transfer baru
+    if($file = $this->request->getFile('bukti_transfer')){
+        if($file->isValid() && !$file->hasMoved()){
+            // Hapus file lama jika ada
+            if($oldBukti && file_exists(FCPATH . 'uploads/bukti_transfer/' . $oldBukti)){
+                unlink(FCPATH . 'uploads/bukti_transfer/' . $oldBukti);
+            }
+
+            // Pindahkan file baru
+            $newName = $file->getRandomName();
+            $file->move(FCPATH . 'uploads/bukti_transfer', $newName);
+            $updateData['bukti_transfer'] = $newName;
+        }
+    }
+
     // Jalankan update
-    if (!$pembayaranModel->update($post['id'], $updateData)) {
+    if (!$pembayaranModel->update($id, $updateData)) {
         return redirect()->back()
                          ->with('error', 'Gagal memperbarui pembayaran!')
                          ->withInput();

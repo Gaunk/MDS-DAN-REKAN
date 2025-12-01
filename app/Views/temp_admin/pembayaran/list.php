@@ -92,6 +92,7 @@
                                 <th>Klien</th>
                                 <th>Nomor Perkara</th>
                                 <th>Jumlah Bayar</th>
+                                <th>Bukti Transaksi</th>
                                 <th>Metode Pembayaran</th>
                                 <th>Tanggal Bayar</th>
                                 <th>Aksi</th>
@@ -109,6 +110,21 @@
                                         : '-' 
                                     ?>
                                 </td>
+                                <td class="text-center">
+                                <?php if(!empty($p['bukti_transaksi'])): ?>
+
+                                    <!-- Tombol Download -->
+                                    <a href="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" download class="btn btn-sm btn-success" title="Download">
+                                        <i class="bi bi-download"></i>
+                                    </a>
+                                    <!-- Tombol View -->
+                                    <a href="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" target="_blank" class="btn btn-sm btn-info" title="View">
+                                        <i class="bi bi-eye"></i>
+                                    </a>
+                                <?php else: ?>
+                                    <span class="text-muted">Tidak ada bukti</span>
+                                <?php endif; ?>
+                            </td>
 
                                 <td>
                                     <?php if($p['metode_pembayaran'] == 'Tunai'): ?>
@@ -151,7 +167,8 @@
 <!-- =============================================================== -->
 <div class="modal fade" id="tambahPembayaranModal" tabindex="-1" aria-labelledby="tambahPembayaranLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form id="formTambahPembayaran" action="<?= base_url('admin/tambahpembayaran') ?>" method="POST">
+    <!-- enctype="multipart/form-data" penting untuk upload file -->
+    <form id="formTambahPembayaran" action="<?= base_url('admin/tambahpembayaran') ?>" method="POST" enctype="multipart/form-data">
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title" id="tambahPembayaranLabel">Tambah Pembayaran</h5>
@@ -186,6 +203,12 @@
                 <label for="tanggal_pembayaran" class="form-label">Tanggal Bayar</label>
                 <input type="date" name="tanggal_pembayaran" id="tanggal_pembayaran" class="form-control" required>
             </div>
+            <!-- Upload Bukti Transfer -->
+            <div class="mb-3">
+                <label for="bukti_transfer" class="form-label">Bukti Transfer (Opsional)</label>
+                <input type="file" name="bukti_transfer" id="bukti_transfer" class="form-control" accept="image/*,application/pdf">
+                <small class="text-muted">Format: JPG, PNG, PDF. Maks: 2MB</small>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -201,7 +224,7 @@
 <!-- =============================================================== -->
 <div class="modal fade" id="updatePembayaranModal" tabindex="-1" aria-labelledby="updatePembayaranLabel" aria-hidden="true">
   <div class="modal-dialog">
-    <form id="formUpdatePembayaran" action="<?= base_url('admin/updatepembayaran') ?>" method="POST">
+    <form id="formUpdatePembayaran" action="<?= base_url('admin/updatepembayaran') ?>" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="id" id="update_id">
       <div class="modal-content">
         <div class="modal-header">
@@ -237,6 +260,13 @@
                 <label for="update_tanggal_pembayaran" class="form-label">Tanggal Bayar</label>
                 <input type="date" name="tanggal_pembayaran" id="update_tanggal_pembayaran" class="form-control" required>
             </div>
+            <!-- Bukti Transfer -->
+            <div class="mb-3">
+                <label for="update_bukti_transfer" class="form-label">Bukti Transfer</label>
+                <input type="file" name="bukti_transfer" id="update_bukti_transfer" class="form-control">
+                <small class="text-muted">Kosongkan jika tidak ingin mengubah file</small>
+                <div id="currentBukti" class="mt-2"></div>
+            </div>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
@@ -246,6 +276,10 @@
     </form>
   </div>
 </div>
+
+<!-- =============================================================== -->
+<!-- MODAL KWITANSI PEMBAYARAN -->
+<!-- =============================================================== -->
 <?php foreach($pembayaran as $p): ?>
 <div class="modal fade" id="modalKwitansi<?= $p['id'] ?>" tabindex="-1" aria-labelledby="modalLabel<?= $p['id'] ?>" aria-hidden="true">
   <div class="modal-dialog modal-lg">
@@ -276,10 +310,8 @@
         </div>
 
         <div style="position: absolute; top: 235px; left: 290px; font-weight: bold; color: #262460;">
-            Rp. <?= 'Rp. ' . number_format($t['jumlah'],0,',','.') ?>
-
+            Rp. <?= number_format($p['jumlah'],0,',','.') ?>
         </div>
-
 
         <div style="position: absolute; top: 285px; left: 290px; font-weight: bold; color: #262460;">
             <?= esc($p['deskripsi']) ?>
@@ -296,13 +328,20 @@
         <button class="btn btn-primary print-btn" data-id="<?= $p['id'] ?>">
             <i class="bi bi-printer"></i> Print
         </button>
+        <?php if($p['bukti_transfer']): ?>
+        <a href="<?= base_url('uploads/bukti_transfer/'.$p['bukti_transfer']) ?>" target="_blank" class="btn btn-info">
+            <i class="bi bi-eye"></i> View
+        </a>
+        <a href="<?= base_url('uploads/bukti_transfer/'.$p['bukti_transfer']) ?>" download class="btn btn-success">
+            <i class="bi bi-download"></i> Download
+        </a>
+        <?php endif; ?>
       </div>
 
     </div>
   </div>
 </div>
 <?php endforeach; ?>
-
 
 
 <!-- =============================================================== -->
@@ -435,7 +474,23 @@ function editPembayaran(data) {
     document.getElementById('update_metode_pembayaran').value = data.metode_pembayaran;
     document.getElementById('update_tanggal_pembayaran').value = data.tanggal_pembayaran;
 
+    // Tampilkan bukti transfer jika ada
+    var currentBukti = document.getElementById('currentBukti');
+    if(data.bukti_transfer){
+        currentBukti.innerHTML = `
+            <a href="uploads/bukti_transfer/${data.bukti_transfer}" target="_blank" class="btn btn-sm btn-info mb-1">
+                <i class="bi bi-eye"></i> View
+            </a>
+            <a href="uploads/bukti_transfer/${data.bukti_transfer}" download class="btn btn-sm btn-success mb-1">
+                <i class="bi bi-download"></i> Download
+            </a>
+        `;
+    } else {
+        currentBukti.innerHTML = '<span class="text-muted">Belum ada bukti transfer</span>';
+    }
+
     var updateModal = new bootstrap.Modal(document.getElementById('updatePembayaranModal'));
     updateModal.show();
 }
+
 </script>
