@@ -94,8 +94,8 @@
                                         <i class="fas <?= $p['kategori'] === 'Pembelian' || $p['kategori'] === 'Operasional' ? 'fa-arrow-down' : 'fa-arrow-up'; ?> me-2"></i>
                                         <?= esc($p['kategori']); ?>
                                     </div>
-                                    <!-- Tombol Print per kartu -->
-                                    <button class="btn btn-light btn-sm" onclick="printPengeluaran(<?= $p['id']; ?>)">
+                                    <!-- Tombol Print -->
+                                    <button class="btn btn-light btn-sm" onclick="printFaktur(<?= $p['id']; ?>)">
                                         <i class="fas fa-print"></i>
                                     </button>
                                 </div>
@@ -110,10 +110,26 @@
                                         <i class="fas fa-dollar-sign"></i> Jumlah: <?= number_format($p['jumlah'], 2); ?>
                                     </li>
                                 </ul>
+                                <!-- Layout Faktur Mini -->
+                                <div id="faktur-<?= $p['id']; ?>" class="d-none">
+                                    <div style="width: 300px; padding: 15px; font-family: Arial, sans-serif;">
+                                        <h4 style="text-align:center;">FAKTUR PENGELUARAN</h4>
+                                        <hr>
+                                        <p><strong>Kategori:</strong> <?= esc($p['kategori']); ?></p>
+                                        <p><strong>Tanggal:</strong> <?= esc($p['tanggal']); ?></p>
+                                        <p><strong>Keterangan:</strong> <?= esc($p['keterangan']); ?></p>
+                                        <p><strong>Jumlah:</strong> $ <?= number_format($p['jumlah'], 2); ?></p>
+                                        <?php if(isset($p['total_bayar'])): ?>
+                                            <p><strong>Total Pembayaran:</strong> $ <?= number_format($p['total_bayar'], 2); ?></p>
+                                        <?php endif; ?>
+                                        <hr>
+                                        <p style="text-align:center; font-size:12px;">Terima kasih telah melakukan transaksi</p>
+                                    </div>
+                                </div>
                             </section>
                         </aside>
                     </div>
-                <?php endforeach; ?>
+                    <?php endforeach; ?>
 
             </div>
 
@@ -176,14 +192,11 @@ document.getElementById('searchInput').addEventListener('keyup', function () {
     });
 });
 </script>
-<!-- SCRIPT PRINT PER PENGELUARAN -->
 <script>
-function printPengeluaran(id) {
-    // Ambil data pengeluaran berdasarkan ID (bisa ambil dari PHP via hidden div atau AJAX)
-    let card = document.querySelector(`[onclick='printPengeluaran(${id})']`).closest('.card');
-    let printContents = card.innerHTML;
+function printFaktur(id) {
+    let faktur = document.getElementById('faktur-' + id).innerHTML;
     let originalContents = document.body.innerHTML;
-    document.body.innerHTML = printContents;
+    document.body.innerHTML = faktur;
     window.print();
     document.body.innerHTML = originalContents;
 }
