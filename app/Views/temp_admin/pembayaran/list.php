@@ -118,9 +118,10 @@
                                         <i class="bi bi-download"></i>
                                     </a>
                                     <!-- Tombol View -->
-                                    <a href="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" target="_blank" class="btn btn-sm btn-info" title="View">
+                                    <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewBuktiModal<?= $p['id'] ?>" title="View">
                                         <i class="bi bi-eye"></i>
-                                    </a>
+                                    </button>
+
                                 <?php else: ?>
                                     <span class="text-muted">Tidak ada bukti</span>
                                 <?php endif; ?>
@@ -162,6 +163,32 @@
     </div>
 </div>
 
+<?php foreach($pembayaran as $p): ?>
+<!-- Modal untuk menampilkan bukti transfer -->
+<div class="modal fade" id="viewBuktiModal<?= $p['id'] ?>" tabindex="-1" aria-labelledby="viewBuktiLabel<?= $p['id'] ?>" aria-hidden="true">
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="viewBuktiLabel<?= $p['id'] ?>">Bukti Transfer #<?= esc($p['id']) ?></h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body" style="height:80vh;">
+        <?php if(pathinfo($p['bukti_transaksi'], PATHINFO_EXTENSION) == 'pdf'): ?>
+            <iframe src="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" style="width:100%; height:100%;" frameborder="0"></iframe>
+        <?php else: ?>
+            <img src="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" alt="Bukti Transfer" style="width:100%; height:auto;">
+        <?php endif; ?>
+      </div>
+      <div class="modal-footer">
+        <a href="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" class="btn btn-primary" download>
+            <i class="bi bi-download"></i> Download
+        </a>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+<?php endforeach ?>
 <!-- =============================================================== -->
 <!-- MODAL TAMBAH PEMBAYARAN -->
 <!-- =============================================================== -->
@@ -475,19 +502,26 @@ function editPembayaran(data) {
     document.getElementById('update_tanggal_pembayaran').value = data.tanggal_pembayaran;
 
     // Tampilkan bukti transfer jika ada
-    var currentBukti = document.getElementById('currentBukti');
-    if(data.bukti_transfer){
-        currentBukti.innerHTML = `
-            <a href="uploads/bukti_transfer/${data.bukti_transfer}" target="_blank" class="btn btn-sm btn-info mb-1">
-                <i class="bi bi-eye"></i> View
-            </a>
-            <a href="uploads/bukti_transfer/${data.bukti_transfer}" download class="btn btn-sm btn-success mb-1">
-                <i class="bi bi-download"></i> Download
-            </a>
-        `;
-    } else {
-        currentBukti.innerHTML = '<span class="text-muted">Belum ada bukti transfer</span>';
-    }
+var currentBukti = document.getElementById('currentBukti');
+
+if (data.bukti_transfer) {
+    currentBukti.innerHTML = `
+        <a href="/uploads/bukti_transfer/${data.bukti_transfer}" 
+           target="_blank" 
+           rel="noopener noreferrer" 
+           class="btn btn-sm btn-info mb-1">
+            <i class="bi bi-eye"></i> View
+        </a>
+        <a href="/uploads/bukti_transfer/${data.bukti_transfer}" 
+           download 
+           class="btn btn-sm btn-success mb-1">
+            <i class="bi bi-download"></i> Download
+        </a>
+    `;
+} else {
+    currentBukti.innerHTML = '<span class="text-muted">Belum ada bukti transfer</span>';
+}
+
 
     var updateModal = new bootstrap.Modal(document.getElementById('updatePembayaranModal'));
     updateModal.show();
