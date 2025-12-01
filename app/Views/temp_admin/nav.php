@@ -92,10 +92,13 @@
                                     <a href="<?= base_url('admin/tagihan') ?>">Invoice / Tagihan</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/laporankeuangan') ?>">Laporan Keuangan</a>
+                                    <a href="<?= base_url('admin/honorariumpengacara') ?>">Honorarium Pengacara</a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/honorariumpengacara') ?>">Honorarium Pengacara</a>
+                                    <a href="<?= base_url('admin/pengeluaranuang') ?>">Pengeluaran Keuangan</a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('admin/laporankeuangan') ?>">Laporan Keuangan</a>
                                 </li>
                             </ul>
                         </li>

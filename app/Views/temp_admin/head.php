@@ -29,5 +29,6 @@
 
     <!-- Main CSS-->
     <link href="<?= base_url('temp_admin/')?>css/theme.css" rel="stylesheet" media="all">
-
+        <!-- DataTables CSS -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>

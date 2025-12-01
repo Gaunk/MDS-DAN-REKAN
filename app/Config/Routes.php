@@ -73,6 +73,11 @@ $routes->group('admin', [
     $routes->post('updatepembayaran', 'Admin::updatePembayaran');
     $routes->get('deletepembayaran/(:num)', 'Admin::deletepembayaran/$1');
     //
+    $routes->get('pengeluaranuang', 'Admin::pengeluaranUang');
+    $routes->post('savepengeluaran', 'Admin::savePengeluaran');
+    $routes->get('updatepengeluaranuang', 'Admin::updatePengeluaranUang');
+    $routes->get('deletepengeluaranuang/(:num)', 'Admin::deletePengeluaranUang/$1');
+    // 
     $routes->get('laporankeuangan', 'Admin::laporankeuangan');
     $routes->post('tambahpembayaran', 'Admin::tambahpembayaran');
     $routes->post('updatepembayaran', 'Admin::updatePembayaran');

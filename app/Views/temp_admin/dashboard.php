@@ -7,9 +7,9 @@
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="overview-wrap">
-                                    <h2 class="title-1">overview</h2>
-                                    <button class="au-btn au-btn-icon au-btn--blue">
-                                        <i class="zmdi zmdi-plus"></i>add item</button>
+                                    <h2 class="title-1">Dashboard</h2>
+                                    <!-- <button class="au-btn au-btn-icon au-btn--blue">
+                                        <i class="zmdi zmdi-plus"></i>add item</button> -->
                                 </div>
                             </div>
                         </div>
@@ -41,7 +41,7 @@
                                             </div>
                                             <div class="text">
                                                 <h2>388,688</h2>
-                                                <span>items solid</span>
+                                                <span>Pengeluaran</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
@@ -90,8 +90,14 @@
                         <div class="row">
                             <div class="col-lg-9">
                                 <h2 class="title-1 m-b-25">Daftar Nomor SKK</h2>
+
+                                <!-- Form Pencarian -->
+                                <div class="mb-3">
+                                    <label for="searchInput">Cari Perkara:</label>
+                                    <input type="text" id="searchInput" class="form-control" placeholder="Ketik nama klien, jenis kasus, status, dsb...">
+                                </div>
                                 <div class="table-responsive table--no-card m-b-40">
-                                    <table class="table table-borderless table-striped table-earning">
+                                    <table id="perkaraTable" class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
                                                 <th>No. SKK</th>
@@ -103,7 +109,7 @@
                                         </thead>
                                         <tbody>
                                             <?php foreach ($listPerkara as $p): ?>
-                                                <tr>
+                                            <tr>
                                                 <td><?= esc($p['nomor_perkara']) ?></td>
                                                 <td><?= esc($p['nama_klien']) ?></td>
                                                 <td><?= esc($p['jenis_kasus']) ?></td>

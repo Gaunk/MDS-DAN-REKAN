@@ -11,6 +11,7 @@ use App\Models\JadwalModel;
 use App\Models\HonorModel;
 use App\Models\SuratKuasaModel;
 use App\Models\DokumenPerkaraModel;
+use App\Models\PengeluaranUangModel;
 
 
 
@@ -1129,6 +1130,86 @@ public function savepengguna()
         return redirect()->back()->with('success', 'Klien berhasil ditambahkan!');
     }
 
+//////////////////////
+/// Pengeluaran Uang
+//////////////////////
+public function pengeluaranUang()
+{
+    $adminModel = new \App\Models\AdminModel();
+    $pengeluaranModel = new \App\Models\PengeluaranUangModel();
+    $pembayaranModel = new \App\Models\PembayaranModel();
+
+    // Hitung total pemasukan
+    $totalPemasukanData = $pembayaranModel->selectSum('jumlah')->first();
+    $totalPemasukan = $totalPemasukanData['jumlah'] ?? 0;
+
+    // Hitung total pengeluaran
+    $totalPengeluaranData = $pengeluaranModel->selectSum('jumlah')->first();
+    $totalPengeluaran = $totalPengeluaranData['jumlah'] ?? 0;
+
+    // Sisa uang = total pemasukan - total pengeluaran
+    $sisaUang = $totalPemasukan - $totalPengeluaran;
+
+    // Ambil semua data pengeluaran beserta total pembayaran per pengeluaran
+    $listPengeluaran = $pengeluaranModel
+        ->select('tabel_pengeluaran_uang.*, SUM(tabel_pembayaran.jumlah) as total_bayar')
+        ->join('tabel_pembayaran', 'tabel_pembayaran.jumlah = tabel_pengeluaran_uang.id', 'left')
+        ->groupBy('tabel_pengeluaran_uang.id')
+        ->findAll();
+
+    // Ambil data admin
+    $admin = $adminModel->first(); 
+    $username = $admin['username'] ?? 'Admin';
+    $email    = $admin['email'] ?? '-';
+    $peran    = $admin['peran'] ?? '-';
+
+    // Data untuk view
+    $data = [
+        'username'          => $username,
+        'email'             => $email,
+        'totalPemasukan'    => $totalPemasukan,
+        'totalPengeluaran'  => $totalPengeluaran,
+        'sisaUang'          => $sisaUang,
+        'listPengeluaran'   => $listPengeluaran,
+        'title'             => 'Pengeluaran Uang'
+    ];
+
+    // Load view (head, header, nav, list, footer)
+    return
+        view('temp_admin/head', $data)
+        . view('temp_admin/header', $data)
+        . view('temp_admin/nav', $data)
+        . view('temp_admin/pengeluaran/list', $data)
+        . view('temp_admin/footer', $data);
+}
+
+
+public function savePengeluaran()
+    {
+        $pengeluaranModel = new PengeluaranUangModel();
+        $request = $this->request;
+
+        // Ambil data dari form
+        $data = [
+            'tanggal' => $request->getPost('tanggal'),
+            'kategori' => $request->getPost('kategori'),
+            'keterangan' => $request->getPost('keterangan'),
+            'jumlah' => $request->getPost('jumlah'),
+        ];
+
+        // Validasi sederhana
+        if(empty($data['tanggal']) || empty($data['kategori']) || empty($data['keterangan']) || empty($data['jumlah'])) {
+            return redirect()->back()->with('error', 'Semua field harus diisi!');
+        }
+
+        // Simpan ke database
+        $pengeluaranModel->insert($data);
+
+        return redirect()->back()->with('success', 'Pengeluaran berhasil ditambahkan!');
+    }
+/////////////////////////
+//// Jadwal Pertemuan
+////////////////////////    
 public function jadwalpertemuan()
 {
     $adminModel = new \App\Models\AdminModel();
