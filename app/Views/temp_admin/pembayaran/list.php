@@ -112,21 +112,16 @@
                                 </td>
                                 <td class="text-center">
                                 <?php if(!empty($p['bukti_transaksi'])): ?>
-
-                                    <!-- Tombol Download -->
                                     <a href="<?= base_url('uploads/bukti_transfer/' . $p['bukti_transaksi']) ?>" download class="btn btn-sm btn-success" title="Download">
                                         <i class="bi bi-download"></i>
                                     </a>
-                                    <!-- Tombol View -->
                                     <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#viewBuktiModal<?= $p['id'] ?>" title="View">
                                         <i class="bi bi-eye"></i>
                                     </button>
-
                                 <?php else: ?>
                                     <span class="text-muted">Tidak ada bukti</span>
                                 <?php endif; ?>
-                            </td>
-
+                                </td>
                                 <td>
                                     <?php if($p['metode_pembayaran'] == 'Tunai'): ?>
                                         <span class="badge bg-success"><?= esc($p['metode_pembayaran']) ?></span>
@@ -140,22 +135,23 @@
                                 </td>
                                 <td><?= esc($p['tanggal_pembayaran']) ?></td>
                                 <td class="d-flex gap-1">
-                                    <button class="btn btn-sm btn-warning" 
-                                            onclick='editPembayaran(<?= json_encode($p) ?>)'>
+                                    <button class="btn btn-sm btn-warning" onclick='editPembayaran(<?= json_encode($p) ?>)'>
                                         <i class="fa fa-edit"></i>
                                     </button>
-
-
-                                    <!-- Tombol Print / Preview Modal -->
                                     <button class="btn btn-sm btn-info" data-bs-toggle="modal" data-bs-target="#modalKwitansi<?= $p['id'] ?>">
-                                        <i class="bi bi-printer"></i> <!-- Bootstrap Icons -->
+                                        <i class="bi bi-printer"></i>
                                     </button>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
-
                         </tbody>
                     </table>
+
+                    <!-- Pagination -->
+                    <nav class="mt-3">
+                        <ul class="pagination justify-content-center" id="pembayaranPagination"></ul>
+                    </nav>
+
                 </div>
             </div>
 
@@ -207,12 +203,21 @@
                 <select name="id_tagihan" id="id_tagihan" class="form-select" required>
                     <option value="">-- Pilih Tagihan --</option>
                     <?php foreach($tagihan as $t): ?>
-                        <option value="<?= $t['id'] ?>">
+                        <option value="<?= $t['id'] ?>" data-jumlah="<?= $t['jumlah'] ?>">
                             <?= esc($t['id_perkara']) ?> - <?= esc($t['nama']) ?>
                         </option>
                     <?php endforeach; ?>
                 </select>
             </div>
+
+            <div class="mb-3">
+                <label class="form-label">Jumlah Tagihan</label>
+                <div id="jumlahTagihan" class="fw-bold" style="font-size: 1.1rem; color: #0d6efd;">
+                    -- Pilih tagihan --
+                </div>
+            </div>
+
+
             <div class="mb-3">
                 <label for="jumlah" class="form-label">Jumlah Bayar</label>
                 <input type="number" name="jumlah" id="jumlah" class="form-control" required>
@@ -527,4 +532,94 @@ if (data.bukti_transfer) {
     updateModal.show();
 }
 
+</script>
+<script>
+document.getElementById('id_tagihan').addEventListener('change', function() {
+    const selectedOption = this.options[this.selectedIndex];
+    const jumlah = selectedOption.getAttribute('data-jumlah') || 0;
+
+    // Format angka menjadi rupiah
+    const formattedJumlah = parseFloat(jumlah).toLocaleString('id-ID', { minimumFractionDigits: 2 });
+
+    document.getElementById('jumlahTagihan').textContent = formattedJumlah;
+});
+</script>
+<!-- Pagination -->
+<nav class="mt-3">
+    <ul class="pagination justify-content-center" id="pembayaranPagination"></ul>
+</nav>
+
+<script>
+const rowsPerPage = 10;
+const table = document.getElementById('pembayaranTable').getElementsByTagName('tbody')[0];
+const rows = Array.from(table.getElementsByTagName('tr'));
+const pagination = document.getElementById('pembayaranPagination');
+let currentPage = 1;
+const totalPages = Math.ceil(rows.length / rowsPerPage);
+
+function showPage(page) {
+    if(page < 1) page = 1;
+    if(page > totalPages) page = totalPages;
+    currentPage = page;
+
+    const start = (page - 1) * rowsPerPage;
+    const end = start + rowsPerPage;
+
+    rows.forEach((row, index) => {
+        row.style.display = (index >= start && index < end) ? '' : 'none';
+    });
+
+    renderPagination();
+}
+
+function renderPagination() {
+    pagination.innerHTML = '';
+
+    // Tombol Previous
+    const prevLi = document.createElement('li');
+    prevLi.className = 'page-item' + (currentPage === 1 ? ' disabled' : '');
+    const prevA = document.createElement('a');
+    prevA.className = 'page-link';
+    prevA.href = '#';
+    prevA.innerHTML = '&laquo;'; // panah kiri
+    prevA.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(currentPage - 1);
+    });
+    prevLi.appendChild(prevA);
+    pagination.appendChild(prevLi);
+
+    // Nomor halaman
+    for (let i = 1; i <= totalPages; i++) {
+        const li = document.createElement('li');
+        li.className = 'page-item' + (i === currentPage ? ' active' : '');
+        const a = document.createElement('a');
+        a.className = 'page-link';
+        a.href = '#';
+        a.innerText = i;
+        a.addEventListener('click', function(e) {
+            e.preventDefault();
+            showPage(i);
+        });
+        li.appendChild(a);
+        pagination.appendChild(li);
+    }
+
+    // Tombol Next
+    const nextLi = document.createElement('li');
+    nextLi.className = 'page-item' + (currentPage === totalPages ? ' disabled' : '');
+    const nextA = document.createElement('a');
+    nextA.className = 'page-link';
+    nextA.href = '#';
+    nextA.innerHTML = '&raquo;'; // panah kanan
+    nextA.addEventListener('click', function(e) {
+        e.preventDefault();
+        showPage(currentPage + 1);
+    });
+    nextLi.appendChild(nextA);
+    pagination.appendChild(nextLi);
+}
+
+// Tampilkan halaman pertama saat load
+showPage(1);
 </script>

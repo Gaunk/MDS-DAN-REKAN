@@ -226,5 +226,6 @@ function printFaktur(id) {
     document.body.innerHTML = faktur;
     window.print();
     document.body.innerHTML = originalContents;
+    location.reload();
 }
 </script>

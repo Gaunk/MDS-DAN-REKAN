@@ -768,7 +768,21 @@ public function tambahPembayaran()
     }
 
     $totalTagihan = $tagihan['jumlah'];
-    $sisaTagihan  = max($totalTagihan - $jumlahPembayaran, 0); // tidak boleh negatif
+
+    // Hitung total pembayaran sebelumnya
+    $totalDibayar = $pembayaranModel->where('id_tagihan', $idTagihan)
+                                     ->selectSum('jumlah')
+                                     ->first()['jumlah'] ?? 0;
+
+    $sisaTagihan = $totalTagihan - $totalDibayar;
+
+    if ($sisaTagihan <= 0) {
+        return redirect()->back()->with('error', 'Tagihan sudah lunas, tidak bisa melakukan pembayaran lagi!');
+    }
+
+    if ($jumlahPembayaran > $sisaTagihan) {
+        return redirect()->back()->with('error', 'Jumlah pembayaran melebihi sisa tagihan!');
+    }
 
     // Siapkan data pembayaran
     $data = [
@@ -792,10 +806,10 @@ public function tambahPembayaran()
     $pembayaranModel->insert($data);
 
     // Update sisa tagihan
-    $tagihanModel->update($idTagihan, ['jumlah' => $sisaTagihan]);
+    $tagihanModel->update($idTagihan, ['jumlah' => $totalTagihan - ($totalDibayar + $jumlahPembayaran)]);
 
     return redirect()->to(base_url('admin/pembayaran'))
-        ->with('success', 'Pembayaran berhasil ditambahkan & tagihan diperbarui!');
+                     ->with('success', 'Pembayaran berhasil ditambahkan & tagihan diperbarui!');
 }
 
 
