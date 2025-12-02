@@ -20,7 +20,7 @@ class SuratWordService
 
     // ==== CELL 1: LOGO ====
     $cellLogo = $row->addCell(2000);
-    $logoPath = dirname(__DIR__, 2) . '/public/images/icon-1.png';
+    $logoPath = dirname(__DIR__, 2) . '/public/images/logo.png';
 
 	$cellLogo->addImage(
 	    $logoPath,   // ← gunakan path absolut yang sudah dibuat
@@ -36,7 +36,7 @@ class SuratWordService
     $cellText = $row->addCell(8000);
 
     $cellText->addText(
-        'KANTOR HUKUM MDS & REKAN',
+        'FIRMA HUKUM MDS & REKAN',
         ['bold' => true, 'size' => 16],
         ['alignment' => 'center']
     );

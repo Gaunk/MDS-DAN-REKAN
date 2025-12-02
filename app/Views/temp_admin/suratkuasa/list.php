@@ -172,63 +172,119 @@
   </div>
 </div>
 
-
 <!-- =============================================================== -->
 <!-- MODAL UPDATE SURAT KUASA -->
 <!-- =============================================================== -->
-<div class="modal fade" id="updateSuratModal" tabindex="-1" aria-labelledby="updateSuratModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
+<div class="modal fade" id="updateSuratModal" tabindex="-1">
+  <div class="modal-dialog modal-lg">
     <form action="<?= base_url('admin/updatesuratkuasa') ?>" method="POST">
-      <input type="hidden" name="id" id="update_id">
-
+        <input type="hidden" name="id" id="update_id">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="updateSuratModalLabel">Update Surat Kuasa</h5>
-          <!-- Tombol close yang diperbaiki -->
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <h5 class="modal-title">Update Surat Kuasa</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
         </div>
 
         <div class="modal-body">
+          <div class="row g-3">
 
-            <div class="mb-3">
-                <label for="update_klien" class="form-label">Nama Klien</label>
-                <select name="id_klien" id="update_klien" class="form-select" required>
-                    <?php foreach($klien as $k): ?>
-                        <option value="<?= $k['id'] ?>"><?= esc($k['nama']) ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <!-- Nama Klien -->
+            <div class="col-md-4">
+              <label>Nama Klien</label>
+              <select name="id_klien" id="update_klien" class="form-select" required>
+                  <?php foreach($klien as $k): ?>
+                      <option value="<?= $k['id'] ?>"><?= esc($k['nama']) ?></option>
+                  <?php endforeach; ?>
+              </select>
             </div>
 
-            <div class="mb-3">
-                <label for="update_perkara" class="form-label">Nomor Perkara</label>
-                <select name="id_perkara" id="update_perkara" class="form-select" required>
-                    <?php foreach($perkara as $p): ?>
-                        <option value="<?= $p['id'] ?>"><?= esc($p['nomor_perkara']) ?></option>
-                    <?php endforeach; ?>
-                </select>
+            <!-- NIK -->
+            <div class="col-md-4">
+              <label>NIK</label>
+              <input type="text" name="nik" id="update_nik" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label for="update_deskripsi" class="form-label">Deskripsi</label>
-                <textarea name="deskripsi" id="update_deskripsi" class="form-control" required></textarea>
+            <!-- TTL -->
+            <div class="col-md-4">
+              <label>Tempat, Tanggal Lahir</label>
+              <input type="text" name="ttl" id="update_ttl" class="form-control" required>
             </div>
 
-            <div class="mb-3">
-                <label for="update_tanggal" class="form-label">Tanggal Surat</label>
-                <input type="date" name="tanggal" id="update_tanggal" class="form-control" required>
+            <!-- Jenis Kelamin -->
+            <div class="col-md-4">
+              <label>Jenis Kelamin</label>
+              <select name="jenis_kelamin" id="update_jenis_kelamin" class="form-select" required>
+                <option value="">-- Pilih --</option>
+                <option value="Laki-laki">Laki-laki</option>
+                <option value="Perempuan">Perempuan</option>
+              </select>
             </div>
 
+            <!-- Pekerjaan -->
+            <div class="col-md-4">
+              <label>Pekerjaan</label>
+              <input type="text" name="pekerjaan" id="update_pekerjaan" class="form-control" required>
+            </div>
+
+            <!-- Nomor Telepon -->
+            <div class="col-md-4">
+              <label>Nomor Telepon</label>
+              <input type="text" name="telepon" id="update_telepon" class="form-control" required>
+            </div>
+
+            <!-- Tanggal Surat -->
+            <div class="col-md-4">
+              <label>Tanggal Surat</label>
+              <input type="date" name="tanggal" id="update_tanggal" class="form-control" required>
+            </div>
+
+            <!-- Nomor Perkara -->
+            <div class="col-md-4">
+              <label>Nomor Perkara</label>
+              <select name="id_perkara" id="update_perkara" class="form-select" required>
+                  <?php foreach($perkara as $p): ?>
+                      <option value="<?= $p['id'] ?>"><?= esc($p['nomor_perkara']) ?></option>
+                  <?php endforeach; ?>
+              </select>
+            </div>
+
+            <!-- Deskripsi -->
+            <div class="col-12">
+              <label>Deskripsi</label>
+              <textarea name="deskripsi" id="update_deskripsi" class="form-control" required></textarea>
+            </div>
+
+            <!-- Alamat Klien -->
+            <div class="col-md-6">
+              <label>Alamat Klien</label>
+              <textarea name="alamat" id="update_alamat" class="form-control" required></textarea>
+            </div>
+
+            <!-- Penerima Kuasa -->
+            <div class="col-md-6">
+              <label>Penerima Kuasa</label>
+              <textarea name="penerima" id="update_penerima" class="form-control" required></textarea>
+            </div>
+
+            <!-- Alamat Kantor -->
+            <div class="col-12">
+              <label>Alamat Kantor</label>
+              <textarea name="alamat_kantor" id="update_alamat_kantor" class="form-control" required></textarea>
+            </div>
+
+          </div>
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
-          <button type="submit" class="btn btn-success">Update</button>
+          <button class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button class="btn btn-primary">Update</button>
         </div>
 
       </div>
     </form>
   </div>
 </div>
+
 
 <!-- =============================================================== -->
 <!-- SWEETALERT2 -->
@@ -238,12 +294,21 @@
 function editSurat(s) {
     document.getElementById('update_id').value = s.id;
     document.getElementById('update_klien').value = s.id_klien;
+    document.getElementById('update_nik').value = s.nik;
+    document.getElementById('update_ttl').value = s.ttl;
+    document.getElementById('update_jenis_kelamin').value = s.jenis_kelamin;
+    document.getElementById('update_pekerjaan').value = s.pekerjaan;
+    document.getElementById('update_telepon').value = s.telepon;
+    document.getElementById('update_tanggal').value = s.tanggal;
     document.getElementById('update_perkara').value = s.id_perkara;
     document.getElementById('update_deskripsi').value = s.deskripsi;
-    document.getElementById('update_tanggal').value = s.tanggal;
+    document.getElementById('update_alamat').value = s.alamat;
+    document.getElementById('update_penerima').value = s.penerima;
+    document.getElementById('update_alamat_kantor').value = s.alamat_kantor;
 
     new bootstrap.Modal(document.getElementById('updateSuratModal')).show();
 }
+
 
 // Hapus dengan konfirmasi
 function hapusSurat(id) {

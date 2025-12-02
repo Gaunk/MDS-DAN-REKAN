@@ -16,9 +16,29 @@
                                     <input class="au-input au-input--full" type="text" name="username" placeholder="Username">
                                 </div>
                                 <div class="form-group">
-                                    <label>Password</label>
-                                    <input class="au-input au-input--full" type="password" name="kata_sandi" placeholder="Password">
-                                </div>
+    <label>Password</label>
+    <div style="position: relative;">
+        <input id="password" class="au-input au-input--full" type="password" name="kata_sandi" placeholder="Password">
+        <span id="togglePassword" style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); cursor: pointer;">
+            👁️
+        </span>
+    </div>
+</div>
+
+<script>
+    const password = document.getElementById('password');
+    const togglePassword = document.getElementById('togglePassword');
+
+    togglePassword.addEventListener('click', function () {
+        // Toggle type password/text
+        const type = password.getAttribute('type') === 'password' ? 'text' : 'password';
+        password.setAttribute('type', type);
+
+        // Ubah icon
+        this.textContent = type === 'password' ? '👁️' : '🙈';
+    });
+</script>
+
                                 <div class="login-checkbox mt-3">
                                     <label>
                                         <a href="#">Lupa Password?</a>

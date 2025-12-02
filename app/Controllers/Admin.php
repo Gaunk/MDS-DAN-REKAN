@@ -503,9 +503,17 @@ public function updateSuratKuasa()
     $id_perkara  = $post['id_perkara'] ?? null;
     $deskripsi   = $post['deskripsi'] ?? null;
     $tanggal     = $post['tanggal'] ?? date('Y-m-d'); // default ke hari ini jika kosong
+    $nik         = $post['nik'] ?? null;
+    $ttl         = $post['ttl'] ?? null;
+    $jenis_kelamin = $post['jenis_kelamin'] ?? null;
+    $pekerjaan   = $post['pekerjaan'] ?? null;
+    $telepon     = $post['telepon'] ?? null;
+    $alamat      = $post['alamat'] ?? null;
+    $penerima    = $post['penerima'] ?? null;
+    $alamat_kantor = $post['alamat_kantor'] ?? null;
 
-    // Validasi
-    if (!$id || !$id_klien || !$id_perkara) {
+    // Validasi sederhana
+    if (!$id || !$id_klien || !$id_perkara || !$nik || !$ttl || !$jenis_kelamin || !$pekerjaan) {
         return redirect()->back()->with('error', 'Data tidak lengkap.');
     }
 
@@ -518,13 +526,21 @@ public function updateSuratKuasa()
     }
 
     $data = [
-        'id_klien'      => $id_klien,
-        'id_perkara'    => $id_perkara,
-        'nama_klien'    => $klien['nama'],
-        'nomor_perkara' => $perkara['nomor_perkara'],
-        'deskripsi'     => $deskripsi,
-        'tanggal' => $tanggal,          // tambahkan tanggal surat
-        'updated_at'    => date('Y-m-d H:i:s')
+        'id_klien'       => $id_klien,
+        'id_perkara'     => $id_perkara,
+        'nama_klien'     => $klien['nama'],
+        'nomor_perkara'  => $perkara['nomor_perkara'],
+        'nik'            => $nik,
+        'ttl'            => $ttl,
+        'jenis_kelamin'  => $jenis_kelamin,
+        'pekerjaan'      => $pekerjaan,
+        'telepon'        => $telepon,
+        'deskripsi'      => $deskripsi,
+        'alamat'         => $alamat,
+        'penerima'       => $penerima,
+        'alamat_kantor'  => $alamat_kantor,
+        'tanggal'        => $tanggal,
+        'updated_at'     => date('Y-m-d H:i:s')
     ];
 
     // Update data

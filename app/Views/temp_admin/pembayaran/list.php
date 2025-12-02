@@ -34,7 +34,7 @@
                                 <div class="text">
                                     <h2>
                                         <img width="45" height="45" src="https://img.icons8.com/external-icongeek26-flat-icongeek26/45/external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3.png" alt="external-Indonesian-Rupiah-currency-icongeek26-flat-icongeek26-3"/> <?= number_format($totalPemasukan ?? 0, 2); ?></h2>
-                                    <span>Pemasukan</span>
+                                    <span>Uang masuk</span>
                                 </div>
                             </div>
                         </div>
