@@ -7,14 +7,14 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>MDS Dan Rekan Law Firm</h1>
+            <h1>FIRMA HUKUM MDS DAN REKAN</h1>
             <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
             <div class="d-flex">
               <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
               <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
             </div>
           </div>
-          <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
         <img src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
          class="img-fluid animated" 
          alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>">
@@ -38,9 +38,9 @@
 
           <div class="col-lg-6 d-flex flex-column justify-content-center" data-aos="fade-up" data-aos-delay="200">
           <div class="about-content ps-0 ps-lg-3">
-            <h3>MDS dan Rekan Law Firm: Profesionalisme dan Kepercayaan</h3>
+            <h3>Firma Hukum MDS Dan Rekan: Profesionalisme dan Kepercayaan</h3>
             <p class="fst-italic">
-            MDS dan Rekan Law Firm menyediakan layanan hukum profesional untuk berbagai bidang, mulai dari hukum pidana, perdata, hingga hukum perusahaan dan kesehatan.  
+            Firma Hukum MDS Dan Rekan menyediakan layanan hukum profesional untuk berbagai bidang, mulai dari hukum pidana, perdata, hingga hukum perusahaan dan kesehatan.  
             MDS adalah singkatan dari <strong>Muhammad Darrell Saefaturahman</strong>, diambil dari nama anak dan digabungkan dengan nama pemimpin dan pendiri firma hukum ini, yang berkomitmen memberikan solusi hukum terbaik bagi individu maupun perusahaan.
           </p>
             <ul>
@@ -67,7 +67,7 @@
             </li>
             </ul>
             <p>
-              MDS dan Rekan Law Firm berkomitmen memberikan solusi hukum terbaik untuk individu maupun perusahaan, dengan integritas, transparansi, dan pelayanan prima. Kami memastikan setiap kasus ditangani dengan cermat dan profesional.
+              Firma Hukum MDS Dan Rekan berkomitmen memberikan solusi hukum terbaik untuk individu maupun perusahaan, dengan integritas, transparansi, dan pelayanan prima. Kami memastikan setiap kasus ditangani dengan cermat dan profesional.
             </p>
           </div>
         </div>
@@ -83,8 +83,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Layanan Hukum MDS Dan Rekan Law Firm</h2>
-        <p>MDS dan Rekan Law Firm menyediakan layanan hukum profesional untuk berbagai bidang, mulai dari hukum pidana, hukum perdata, hukum perusahaan, hingga hukum kesehatan. 
+        <h2>Layanan Firma Hukum MDS Dan Rekan</h2>
+        <p>Firma Hukum MDS Dan Rekan menyediakan layanan hukum profesional untuk berbagai bidang, mulai dari hukum pidana, hukum perdata, hukum perusahaan, hingga hukum kesehatan. 
 Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu maupun perusahaan.</p>
       </div><!-- End Section Title -->
 
@@ -145,7 +145,7 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Portfolio</h2>
-        <p>Beberapa proyek dan kasus hukum yang telah kami tangani sebagai bukti pengalaman dan keahlian MDS dan Rekan Law Firm.  
+        <p>Beberapa proyek dan kasus hukum yang telah kami tangani sebagai bukti pengalaman dan keahlian Firma Hukum MDS Dan Rekan.  
         Kami selalu berkomitmen memberikan layanan hukum yang profesional dan terpercaya bagi setiap klien.
         </p>
       </div><!-- End Section Title -->
@@ -522,7 +522,7 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Contact</h2>
-        <p>Hubungi MDS dan Rekan Law Firm untuk konsultasi hukum atau pertanyaan terkait layanan kami.  
+        <p>Hubungi Firma Hukum MDS Dan Rekan untuk konsultasi hukum atau pertanyaan terkait layanan kami.  
         Tim kami siap memberikan solusi hukum yang cepat, tepat, dan profesional sesuai kebutuhan Anda.</p>
       </div><!-- End Section Title -->
 
@@ -626,7 +626,7 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
       <div class="row gy-4">
         <div class="col-lg-4 col-md-6 footer-about">
           <a href="index.html" class="d-flex align-items-center">
-            <span class="sitename">MDS & Rekan Law Firm</span>
+            <span class="sitename">Firma Hukum MDS Dan Rekan</span>
           </a>
           <div class="footer-contact pt-3">
             <p>Kabupaten Bogor</p>
@@ -677,7 +677,7 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
         <!-- You can delete the links only if you've purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: [buy-url] -->
-        Designed by <a href="https://mdsdanrekan.com/">MDS DAN REKAN</a>
+        Designed by <a href="https://mdsdanrekan.com/">FIRMA HUKUM MDS DAN REKAN</a>
       </div>
     </div>
 
