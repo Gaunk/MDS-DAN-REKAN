@@ -7,6 +7,7 @@ use App\Libraries\SuratWordService; // pastikan namespace benar
 use PhpOffice\PhpWord\PhpWord;
 use PhpOffice\PhpWord\IOFactory;
 use App\Models\AdminModel;
+use App\Models\KontakModel;
 use App\Models\KlienModel;
 use App\Models\PerkaraModel;
 use App\Models\PengacaraModel;
@@ -29,6 +30,7 @@ class Admin extends BaseController
     protected $perkaraModel;
     protected $DokumenPerkaraModel;
     protected $AdminModel;
+    protected $KontakModel;
     protected $suratWordService; // ✅ deklarasikan property
 
 
@@ -86,6 +88,12 @@ class Admin extends BaseController
         ->join('tabel_status_perkara', 'tabel_status_perkara.id = tabel_perkara.status')
         ->findAll();
 
+        $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
         $data = [
             'username' => $username,
@@ -95,7 +103,8 @@ class Admin extends BaseController
             'totalPembayaran' =>$totalPembayaran,
             'totalNominal'  => $totalNominal,
             'totalPerkara' => $totalPerkara,
-            'listPerkara'   => $listPerkara
+            'listPerkara'   => $listPerkara,
+            'kontak'        => $kontak
         ];
 
         echo view('temp_admin/head', $data);
@@ -104,6 +113,14 @@ class Admin extends BaseController
         echo view('temp_admin/dashboard', $data);
         echo view('temp_admin/footer', $data);
     }
+
+// Controller Admin/Dashboard.php
+public function markAllRead()
+{
+    $kontakModel = new \App\Models\KontakModel();
+    $kontakModel->set(['is_read' => 1])->where('is_read', 0)->update();
+    return $this->response->setJSON(['status' => 'success']);
+}
 
 
 public function tagihan()

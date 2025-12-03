@@ -21,6 +21,49 @@
     <script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
 
 <script>
+document.addEventListener("DOMContentLoaded", function() {
+    const notifMenu = document.getElementById("notifMenu");
+    const notifDropdown = document.getElementById("notifDropdown");
+    const notifCount = document.getElementById("notifCount");
+
+    // Toggle dropdown saat icon diklik
+    notifMenu.addEventListener("click", function(e) {
+        e.stopPropagation(); // mencegah klik bubble
+        notifDropdown.classList.toggle("show");
+
+        // Jika dropdown dibuka dan badge > 0, langsung hilangkan
+        if (notifDropdown.classList.contains("show") && notifCount.innerText != "0") {
+            notifCount.style.display = "none";
+
+            // AJAX untuk update semua pesan jadi sudah dibaca
+            fetch('/admin/dashboard/markAllRead', {
+                method: 'POST',
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({})
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === 'success'){
+                    console.log('All notifications marked as read.');
+                }
+            })
+            .catch(error => console.error('Error:', error));
+        }
+    });
+
+    // Tutup dropdown jika klik di luar
+    document.addEventListener("click", function() {
+        if (notifDropdown.classList.contains("show")) {
+            notifDropdown.classList.remove("show");
+        }
+    });
+});
+</script>
+
+<script>
 $(document).ready(function() {
     var table = $('#perkaraTable').DataTable({
         "pageLength": 10,

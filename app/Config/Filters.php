@@ -36,6 +36,7 @@ class Filters extends BaseFilters
         'performance'   => PerformanceMetrics::class,
         'admin'         => \App\Filters\AdminFilter::class,
         'pengacara'     => \App\Filters\PengacaraFilter::class,
+        'language' => \App\Filters\LanguageFilter::class,
 
     ];
 
@@ -78,6 +79,7 @@ class Filters extends BaseFilters
             // 'honeypot',
             // 'csrf',
             // 'invalidchars',
+            'language'
         ],
         'after' => [
             // 'honeypot',

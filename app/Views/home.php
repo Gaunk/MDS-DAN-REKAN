@@ -84,8 +84,7 @@
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
         <h2>Layanan Firma Hukum MDS Dan Rekan</h2>
-        <p>Firma Hukum MDS Dan Rekan menyediakan layanan hukum profesional untuk berbagai bidang, mulai dari hukum pidana, hukum perdata, hukum perusahaan, hingga hukum kesehatan. 
-Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu maupun perusahaan.</p>
+        <p>Firma Hukum MDS dan Rekan adalah firma hukum profesional yang berfokus pada penyelesaian perkara secara efektif dan berorientasi pada hasil. Kami menyediakan layanan litigasi maupun non-litigasi, termasuk hukum bisnis, perdata, pidana, properti, ketenagakerjaan, serta berbagai kebutuhan hukum lainnya. Dengan pengalaman mendalam dan analisis strategis, kami berkomitmen memberikan solusi komprehensif bagi individu maupun perusahaan yang membutuhkan pendampingan hukum terpercaya.</p>
       </div><!-- End Section Title -->
 
       <div class="container">
@@ -563,35 +562,35 @@ Kami berkomitmen memberikan solusi hukum yang tepat dan efektif untuk individu m
 
           <div class="col-lg-7">
             <form id="contact-form" action="<?= base_url('contact/submit') ?>" method="post" class="form-contact" data-aos="fade-up" data-aos-delay="200">
-  <div class="row gy-4">
+            <div class="row gy-4">
 
-    <div class="col-md-6">
-      <label for="name-field">Your Name</label>
-      <input type="text" name="name" id="name-field" class="form-control" required>
-    </div>
+              <div class="col-md-6">
+                <label for="name-field">Your Name</label>
+                <input type="text" name="name" id="name-field" class="form-control" required>
+              </div>
 
-    <div class="col-md-6">
-      <label for="email-field">Your Email</label>
-      <input type="email" name="email" id="email-field" class="form-control" required>
-    </div>
+              <div class="col-md-6">
+                <label for="email-field">Your Email</label>
+                <input type="email" name="email" id="email-field" class="form-control" required>
+              </div>
 
-    <div class="col-md-12">
-      <label for="subject-field">Subject</label>
-      <input type="text" name="subject" id="subject-field" class="form-control" required>
-    </div>
+              <div class="col-md-12">
+                <label for="subject-field">Subject</label>
+                <input type="text" name="subject" id="subject-field" class="form-control" required>
+              </div>
 
-    <div class="col-md-12">
-      <label for="message-field">Message</label>
-      <textarea name="message" id="message-field" class="form-control" rows="6" required></textarea>
-    </div>
+              <div class="col-md-12">
+                <label for="message-field">Message</label>
+                <textarea name="message" id="message-field" class="form-control" rows="6" required></textarea>
+              </div>
 
-    <div class="col-md-12 text-center">
-      <div class="loading" style="display:none;">Loading...</div>
-      <button type="submit">Send Message</button>
-    </div>
+              <div class="col-md-12 text-center">
+                <div class="loading" style="display:none;">Loading...</div>
+                <button type="submit">Send Message</button>
+              </div>
 
-  </div>
-</form>
+            </div>
+          </form>
 
           </div><!-- End Contact Form -->
 
