@@ -153,6 +153,12 @@ public function tagihan()
     // Ambil semua klien dan perkara untuk dropdown modal
     $klien   = $klienModel->findAll();
     $perkara = $perkaraModel->findAll();
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
     $data = [
         'judul'   => 'Daftar Tagihan',
@@ -161,7 +167,8 @@ public function tagihan()
         'peran'   => $peran,
         'tagihan' => $tagihan,
         'klien'   => $klien,
-        'perkara' => $perkara
+        'perkara' => $perkara,
+        'kontak'    => $kontak
     ];
 
     // Jika request AJAX, kirim JSON
@@ -296,13 +303,21 @@ public function honorariumPengacara()
     // Ambil daftar pengacara untuk dropdown di modal tambah/edit
     $pengacara = $pengacaraModel->findAll();
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     $data = [
         'judul'      => 'Honorarium Pengacara',
         'honorarium' => $honorarium,
         'pengacara'  => $pengacara,
         'username'   => $username,
         'email'      => $email,
-        'peran'      => $peran
+        'peran'      => $peran,
+        'kontak'     => $kontak
     ];
 
     return view('temp_admin/head', $data)
@@ -439,6 +454,13 @@ public function suratKuasa()
     $klien    = $klienModel->findAll();
     $perkara  = $perkaraModel->findAll();
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     $data = [
         'judul'       => 'Daftar Surat Kuasa',
         'suratKuasa'  => $suratKuasa,
@@ -446,7 +468,8 @@ public function suratKuasa()
         'email'       => $email,
         'peran'       => $peran,
         'klien'       => $klien,       // kirim ke view
-        'perkara'     => $perkara      // kirim ke view
+        'perkara'     => $perkara,
+        'kontak'      => $kontak     // kirim ke view
     ];
 
     return view('temp_admin/head', $data)
@@ -610,6 +633,12 @@ public function dokumenPerkara()
         ->findAll();
 
     $perkara = $perkaraModel->findAll();
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
     $data = [
         'judul'     => 'Dokumen Perkara',
@@ -618,6 +647,7 @@ public function dokumenPerkara()
         'email'     => $email,
         'peran'     => $peran,
         'perkara'   => $perkara,
+        'kontak'    => $kontak
     ];
 
     return view('temp_admin/head', $data)
@@ -800,6 +830,13 @@ public function pembayaran()
                 ->join('tabel_klien', 'tabel_klien.id = tabel_tagihan.id_klien', 'left')
                 ->findAll();
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     $data = [
         'judul' => 'Daftar Pembayaran',
         'pembayaran' => $pembayaran,
@@ -811,6 +848,7 @@ public function pembayaran()
         'totalPengeluaran'  => $totalPengeluaran,
         'sisaUang'          => $sisaUang,
         'listPengeluaran'   => $listPengeluaran,
+        'kontak'            => $kontak
     ];
 
     return view('temp_admin/head', $data)
@@ -1036,6 +1074,13 @@ usort($mutasi, function ($a, $b) {
     $data['total_pemasukan'] = array_sum(array_column($pemasukan, 'jumlah'));
     $data['total_pengeluaran'] = array_sum(array_column($pengeluaran, 'jumlah'));
     $data['saldo_akhir'] = $saldo;
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+    $data['kontak'] = $kontak;
 
     return view('temp_admin/head', $data)
         . view('temp_admin/header', $data)
@@ -1068,13 +1113,20 @@ public function kalender_aktivitas()
     $aktivitas = $model->select('id, kegiatan AS title, tanggal AS start')
                        ->orderBy('tanggal', 'ASC')
                        ->findAll();
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
     $data = [
         'judul' => 'Kalender Aktivitas',
         'username' => $username,
         'email'    => $email,
         'peran'    => $peran,
-        'events' => $aktivitas
+        'events' => $aktivitas,
+        'kontak'    => $kontak
     ];
 
     // Jika akses via AJAX, kirim JSON untuk FullCalendar
@@ -1113,13 +1165,21 @@ public function listPengguna()
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['nama_peran'] ?? '-'; // ambil nama peran dari join
 
+    $kontakModel = new KontakModel();
+
+    $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll(); 
+
     $data = [
         'username'   => $username,
         'email'      => $email,
         'peran'      => $peran,
         'users'      => $users,
         'admin'      => $admin,
-        'peranList'  => $peranList
+        'peranList'  => $peranList,
+        'kontak'     => $kontak
     ];
 
     return view('temp_admin/head').
@@ -1276,11 +1336,19 @@ public function savepengguna()
             ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_klien.id_pengacara', 'left')
             ->findAll();
 
+        $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
         $data = [
             'judul'    => 'Daftar Klien',
             'username' => $admin['username'] ?? 'Admin',
             'email'    => $admin['email'] ?? '-',
             'peran'    => $admin['peran'] ?? '-',
+            'kontak'    => $kontak
         ];
 
         $dataList = [
@@ -1351,6 +1419,13 @@ public function pengeluaranUang()
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['peran'] ?? '-';
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     // Data untuk view
     $data = [
         'username'          => $username,
@@ -1359,7 +1434,8 @@ public function pengeluaranUang()
         'totalPengeluaran'  => $totalPengeluaran,
         'sisaUang'          => $sisaUang,
         'listPengeluaran'   => $listPengeluaran,
-        'title'             => 'Pengeluaran Uang'
+        'title'             => 'Pengeluaran Uang',
+        'kontak'            => $kontak
     ];
 
     // Load view (head, header, nav, list, footer)
@@ -1431,13 +1507,21 @@ public function jadwalpertemuan()
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['peran'] ?? '-';
 
+    $kontakModel = new KontakModel();
+
+    $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     $data = [
         'username'   => $username,
         'email'      => $email,
         'peran'      => $peran,
         'pertemuan'  => $jadwal,
         'klien'      => $klien,
-        'pengacara'  => $pengacara // ✅ Tambahkan ke data
+        'pengacara'  => $pengacara, // ✅ Tambahkan ke data
+        'kontak'     => $kontak
     ];
 
     echo view('temp_admin/head', $data);
@@ -1696,6 +1780,12 @@ $romawi = [
 
 $nextNomorPerkara = $nextNomorUrut . '/MDS/SKK/' . $romawi[$currentMonth] . '/' . $currentYear;
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
     // =========================
     // Kirim data ke view
@@ -1707,6 +1797,7 @@ $nextNomorPerkara = $nextNomorUrut . '/MDS/SKK/' . $romawi[$currentMonth] . '/' 
         'email'          => $admin['email'] ?? '-',
         'users'          => $users,
         'pengacara'      => $pengacara,
+        'kontak'         => $kontak,
         'klien'          => $klien,
         'statusPerkara'  => $statusPerkara,
         'jenisPerkara'   => $jenisPerkara,
@@ -1894,8 +1985,16 @@ public function deletePerkara($id)
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['peran'] ?? '-';
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     // Gabungkan data untuk view
     $data = [
+        'kontak'   => $kontak,
         'perkara'  => $perkara,
         'username' => $username,
         'email'    => $email,
@@ -1975,7 +2074,15 @@ public function jadwalSidang()
     $adminModel = new \App\Models\AdminModel();
     $admin      = $adminModel->first();
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
+
     $data = [
+        'kontak'   => $kontak,
         'jadwals'  => $jadwals,
         'username' => $admin['username'] ?? 'Admin',
         'email'    => $admin['email'] ?? '-',
@@ -2033,10 +2140,17 @@ public function pengacara()
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['peran'] ?? '-';
 
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
     // ============================
     // 5. Siapkan data untuk view
     // ============================
     $data = [
+        'kontak'       => $kontak,
         'pengacara'   => $pengacara,
         'peranList'   => $peranList,    // dropdown peran
         'jurusanList' => $jurusanList,  // dropdown jurusan langsung dari tabel
@@ -2261,6 +2375,12 @@ public function pengaturanSistem()
     // Ambil pengaturan sistem (anggap hanya 1 row)
     $pengaturanModel = new \App\Models\PengaturanSistemModel();
     $pengaturan      = $pengaturanModel->first();
+    $kontakModel = new KontakModel();
+
+        $kontak = $kontakModel
+            ->where('is_read', 0)
+            ->orderBy('created_at', 'DESC')
+            ->findAll();
 
     $data = [
         'judul'            => 'Pengaturan Sistem',
@@ -2272,7 +2392,8 @@ public function pengaturanSistem()
         'seo'              => $pengaturan['seo'] ?? '',
         'keyword'          => $pengaturan['keyword'] ?? '',
         'copyright'        => $pengaturan['copyright'] ?? '',
-        'maintenance'      => $pengaturan['maintenance'] ?? 0
+        'maintenance'      => $pengaturan['maintenance'] ?? 0,
+        'kontak'            => $kontak
     ];
 
     return view('temp_admin/head', $data)
