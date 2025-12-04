@@ -2,9 +2,6 @@
         <!-- MENU SIDEBAR-->
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
-                <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
-                </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
@@ -13,6 +10,9 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-tachometer-alt"></i>Dashboard</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
+                                <li>
+                                    <a href="/admin/dashboard">Dashboard</a>
+                                </li>
                                 <li>
                                     <a href="/admin/listpengguna">Users Managements</a>
                                 </li>   
@@ -179,7 +179,7 @@
                                 <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="images/icon/avatar-01.jpg" alt="Admin" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#"> <?= esc($username); ?></a>

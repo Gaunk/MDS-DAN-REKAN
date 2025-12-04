@@ -608,8 +608,8 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6">
-            <h4>Join Our Newsletter</h4>
-            <p>Subscribe to our newsletter and receive the latest news about our products and services!</p>
+            <h4>Bergabunglah dengan Newsletter Kami</h4>
+            <p>Berlangganan newsletter kami dan dapatkan berita terbaru tentang produk dan layanan kami!</p>
             <form action="forms/newsletter.php" method="post" class="php-email-form">
               <div class="newsletter-form"><input type="email" name="email"><input type="submit" value="Subscribe"></div>
               <div class="loading">Loading</div>
@@ -656,8 +656,9 @@
         </div>
 
         <div class="col-lg-4 col-md-12">
-          <h4>Follow Us</h4>
-          <p>Cras fermentum odio eu feugiat lide par naso tierra videa magna derita valies</p>
+          <h4>Ikuti kami</h4>
+          <p>Tetap terhubung dengan kami untuk mendapatkan informasi, berita, dan konten terbaru dari berbagai platform kami.
+          </p>
           <div class="social-links d-flex">
             <a href=""><i class="bi bi-twitter-x"></i></a>
             <a href=""><i class="bi bi-facebook"></i></a>

@@ -95,16 +95,25 @@ class Admin extends BaseController
             ->orderBy('created_at', 'DESC')
             ->findAll();
 
+     // Hitung total pengacara
+        $pengacaraModel = new \App\Models\PengacaraModel();
+        $jumlahPengacara = $pengacaraModel->countAll();
+
+        // Atau bisa juga pakai builder (pilih salah satu):
+        // $db      = \Config\Database::connect();
+        // $jumlahPengacara = $db->table('tabel_pengacara')->countAllResults();
+
         $data = [
-            'username' => $username,
-            'email'    => $email,
-            'peran'    => $peran,
-            'totalAkun' => $totalAkun,
-            'totalPembayaran' =>$totalPembayaran,
-            'totalNominal'  => $totalNominal,
-            'totalPerkara' => $totalPerkara,
-            'listPerkara'   => $listPerkara,
-            'kontak'        => $kontak
+            'username'        => $username,
+            'email'           => $email,
+            'peran'           => $peran,
+            'totalAkun'       => $totalAkun,
+            'totalPembayaran' => $totalPembayaran,
+            'totalNominal'    => $totalNominal,
+            'totalPerkara'    => $totalPerkara,
+            'listPerkara'     => $listPerkara,
+            'kontak'          => $kontak,
+            'jumlahPengacara' => $jumlahPengacara
         ];
 
         echo view('temp_admin/head', $data);
@@ -112,7 +121,7 @@ class Admin extends BaseController
         echo view('temp_admin/nav', $data);
         echo view('temp_admin/dashboard', $data);
         echo view('temp_admin/footer', $data);
-    }
+        }
 
 // Controller Admin/Dashboard.php
 public function markAllRead()

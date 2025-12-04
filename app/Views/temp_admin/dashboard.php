@@ -37,11 +37,11 @@
                                     <div class="overview__inner">
                                         <div class="overview-box clearfix">
                                             <div class="icon">
-                                                <i class="zmdi zmdi-shopping-cart"></i>
+                                                <i class="zmdi zmdi-balance"></i>
                                             </div>
                                             <div class="text">
-                                                <h2>388,688</h2>
-                                                <span>Pengeluaran</span>
+                                                <h2><?= $jumlahPengacara; ?></h2>
+                                                <span>Advokat</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
