@@ -2334,6 +2334,55 @@ public function deletePengacara($id)
 
 
 
+// Account
+public function account()
+{
+    $adminModel = new \App\Models\AdminModel();
+    $kontakModel = new \App\Models\KontakModel();
+
+    // Ambil ID user dari session
+    $id = session()->get('user_id');
+    if (!$id) {
+        return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
+    }
+
+    // Ambil data user dari tabel_pengguna sesuai ID login
+    $user = $adminModel->find($id);
+    if (!$user) {
+        return redirect()->back()->with('error', 'Data user tidak ditemukan.');
+    }
+
+    // Siapkan variabel untuk view
+    $username = $user['username'];
+    $email    = $user['email'];
+    $peran    = $user['peran'];
+
+    // Ambil kontak unread untuk header/nav
+    $kontak = $kontakModel
+        ->where('is_read', 0)
+        ->orderBy('created_at', 'DESC')
+        ->findAll();
+
+    // Data yang dikirim ke view
+    $data = [
+        'kontak'     => $kontak,
+        'title'      => 'Pengaturan Akun',
+        'menuActive' => 'account',
+        'username'   => $username,
+        'email'      => $email,
+        'peran'      => $peran,
+        'user'       => $user   // tambahkan $user agar view bisa akses $user['...']
+    ];
+
+    // Gabungkan beberapa view menjadi satu string
+    return view('temp_admin/head', $data)
+        . view('temp_admin/header', $data)
+        . view('temp_admin/nav', $data)
+        . view('temp_admin/account/profile', $data)
+        . view('temp_admin/footer');
+}
+
+
 
 public function updateAccount()
 {
