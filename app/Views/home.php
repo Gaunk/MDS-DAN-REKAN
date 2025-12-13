@@ -7,7 +7,7 @@
       <div class="container">
         <div class="row gy-4">
           <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>FIRMA HUKUM MDS DAN REKAN</h1>
+            <h1>MDS DAN REKAN</h1>
             <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
             <div class="d-flex">
               <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
@@ -520,7 +520,7 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Contact</h2>
+        <h2>Kontak</h2>
         <p>Hubungi Firma Hukum MDS Dan Rekan untuk konsultasi hukum atau pertanyaan terkait layanan kami.  
         Tim kami siap memberikan solusi hukum yang cepat, tepat, dan profesional sesuai kebutuhan Anda.</p>
       </div><!-- End Section Title -->
@@ -631,7 +631,7 @@
             <p>Kabupaten Bogor</p>
             <p>Panjeleran Gunung, 16931</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+62 822 1192 2701</span></p>
-            <p><strong>Email:</strong> <span>info@example.com</span></p>
+            <p><strong>Email:</strong> <span>mdsrekan@gmail.com</span></p>
           </div>
         </div>
 

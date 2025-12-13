@@ -17,6 +17,7 @@ use App\Models\HonorModel;
 use App\Models\SuratKuasaModel;
 use App\Models\DokumenPerkaraModel;
 use App\Models\PengeluaranUangModel;
+use App\Models\TabelBarcodeModel;
 
 
 
@@ -31,6 +32,7 @@ class Admin extends BaseController
     protected $DokumenPerkaraModel;
     protected $AdminModel;
     protected $KontakModel;
+    protected $tabelBarcodeModel;
     protected $suratWordService; // ✅ deklarasikan property
 
 
@@ -1659,12 +1661,28 @@ public function updateklien()
 
 
     public function deleteKlien($id)
-    {
-        $klienModel = new KlienModel();
-        $klienModel->delete($id);
+{
+    $klienModel  = new \App\Models\KlienModel();
+    $jadwalModel = new \App\Models\JadwalPertemuanModel();
 
-        return redirect()->back()->with('success', 'Klien berhasil dihapus!');
+    $db = \Config\Database::connect();
+    $db->transStart();
+
+    // Hapus jadwal terkait
+    $jadwalModel->where('id_klien', $id)->delete();
+
+    // Hapus klien
+    $klienModel->delete($id);
+
+    $db->transComplete();
+
+    if ($db->transStatus() === false) {
+        return redirect()->back()->with('error', 'Gagal menghapus klien. Periksa data terkait perkara.');
     }
+
+    return redirect()->back()->with('success', 'Klien dan jadwal terkait berhasil dihapus!');
+}
+
 
     // ==========================
     // PERKARA
@@ -2381,7 +2399,190 @@ public function account()
         . view('temp_admin/account/profile', $data)
         . view('temp_admin/footer');
 }
+public function barcodeQr()
+{
+    // Membuat instance model
+    $adminModel = new \App\Models\AdminModel();
+    $kontakModel = new \App\Models\KontakModel();
+    $tabelBarcodeModel = new \App\Models\TabelBarcodeModel(); // Menambahkan model TabelBarcodeModel
+    $tabelPengacaraModel = new \App\Models\PengacaraModel(); // Menambahkan model TabelPengacaraModel
 
+    // Ambil ID user dari session
+    $id = session()->get('user_id');
+    if (!$id) {
+        return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
+    }
+
+    // Ambil data user dari tabel_pengguna sesuai ID login
+    $user = $adminModel->find($id);
+    if (!$user) {
+        return redirect()->back()->with('error', 'Data user tidak ditemukan.');
+    }
+
+    // Siapkan variabel untuk view
+    $username = $user['username'];
+    $email    = $user['email'];
+    $peran    = $user['peran'];
+
+    // Ambil kontak unread untuk header/nav
+    $kontak = $kontakModel
+        ->where('is_read', 0)
+        ->orderBy('created_at', 'DESC')
+        ->findAll();
+
+    // Ambil data barcode dengan nama pengacara melalui join
+    $barcodeData = $tabelBarcodeModel
+        ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_barcode.nama_pengacara', 'left') // Assuming the foreign key is 'id_pengacara'
+        ->findAll(); // Mengambil semua data barcode dan nama pengacara yang sudah di-join
+
+    // Ambil daftar nama pengacara untuk dropdown
+    $pengacaraData = $tabelPengacaraModel->findAll(); // Mengambil semua data pengacara
+
+    // Data yang dikirim ke view
+    $data = [
+        'kontak'        => $kontak,
+        'judul'         => 'Barcode',
+        'menuActive'    => 'account',
+        'username'      => $username,
+        'email'         => $email,
+        'peran'         => $peran,
+        'user'          => $user,  // agar view bisa akses $user['...']
+        'barcodeData'   => $barcodeData, // Menambahkan data barcode yang sudah join
+        'pengacaraData' => $pengacaraData, // Menambahkan data pengacara
+    ];
+
+    // Gabungkan beberapa view menjadi satu string dan kirim data ke view
+    return view('temp_admin/head', $data)
+        . view('temp_admin/header', $data)
+        . view('temp_admin/nav', $data)
+        . view('temp_admin/barcode/list', $data) // Tampilan barcode
+        . view('temp_admin/footer');
+}
+
+
+public function prosesBarcode()
+{
+    $model = new TabelBarcodeModel();
+
+    // Ambil data yang dikirim dari form
+    $data = [
+        'nama_pengacara' => $this->request->getPost('nama_pengacara'),
+        'spesialis' => $this->request->getPost('spesialis'),
+        'no_hp' => $this->request->getPost('no_hp'),
+        'lokasi_maps' => $this->request->getPost('lokasi_maps'),
+        'latitude' => $this->request->getPost('latitude'),
+        'longitude' => $this->request->getPost('longitude'),
+    ];
+
+    // Cek jika ada foto yang diupload
+    if ($foto = $this->request->getFile('foto')) {
+        if ($foto->isValid() && !$foto->hasMoved()) {
+            $newName = $foto->getRandomName(); // Generate nama acak untuk file
+            $foto->move('uploads/profile/', $newName); // Simpan foto di folder 'uploads/profile'
+            $data['foto'] = $newName; // Simpan nama foto ke field foto
+        }
+    }
+
+    // Insert data baru ke database
+    $insertSuccess = $model->save($data);
+
+    // Cek apakah insert berhasil
+    if ($insertSuccess) {
+        // Ambil ID pengacara yang baru saja disimpan
+        $pengacaraId = $model->getInsertID();
+
+        // Generate link profile pengacara
+        $linkProfile = base_url('profile/' . $pengacaraId);
+
+        // Generate QR Code untuk link profile pengacara
+        $qrCodeUrl = "https://api.qrserver.com/v1/create-qr-code/?data=" . urlencode($linkProfile) . "&size=150x150";
+
+        // Update link_profile dan barcode di database
+        $model->update($pengacaraId, [
+            'link_profile' => $linkProfile,  // Simpan link profile
+            'barcode' => $qrCodeUrl         // Simpan barcode (QR code URL)
+        ]);
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Barcode pengacara berhasil ditambahkan!',
+            'barcode' => $qrCodeUrl // Kirimkan URL barcode untuk ditampilkan
+        ]);
+    } else {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Gagal menambahkan barcode pengacara!'
+        ]);
+    }
+}
+
+// Fungsi untuk menghapus barcode pengacara
+public function deleteBarcode($id)
+{
+    $model = new TabelBarcodeModel();
+
+    // Validasi ID
+    if (!is_numeric($id) || $id <= 0) {
+        return $this->response->setJSON(['success' => false, 'message' => 'ID tidak valid']);
+    }
+
+    // Cari data barcode berdasarkan ID
+    $data = $model->find($id);
+
+    if (!$data) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Barcode tidak ditemukan']);
+    }
+
+    // Hapus data barcode dari database
+    try {
+        $model->delete($id);
+        return $this->response->setJSON(['success' => true]);
+    } catch (\Exception $e) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Terjadi kesalahan saat menghapus barcode.']);
+    }
+}
+
+
+    // Method untuk proses update barcode pengacara
+    public function updateBarcode($id)
+{
+    $model = new TabelBarcodeModel();
+
+    // Ambil data yang dikirim dari form
+    $data = [
+        'nama_pengacara' => $this->request->getPost('nama_pengacara'),
+        'spesialis' => $this->request->getPost('spesialis'),
+        'no_hp' => $this->request->getPost('no_hp'),
+        'lokasi_maps' => $this->request->getPost('lokasi_maps'),
+        'latitude' => $this->request->getPost('latitude'),
+        'longitude' => $this->request->getPost('longitude'),
+    ];
+
+    // Cek jika ada foto yang diupload
+    if ($foto = $this->request->getFile('foto')) {
+        if ($foto->isValid() && !$foto->hasMoved()) {
+            $newName = $foto->getRandomName(); // Generate nama acak untuk file
+            $foto->move('uploads/profile/', $newName); // Simpan foto di folder 'uploads/profile'
+            $data['foto'] = $newName; // Simpan nama foto ke field foto
+        }
+    }
+
+    // Update data ke database
+    $updateSuccess = $model->update($id, $data);
+
+    // Cek apakah update berhasil
+    if ($updateSuccess) {
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Barcode pengacara berhasil diperbarui!'
+        ]);
+    } else {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Gagal memperbarui barcode pengacara!'
+        ]);
+    }
+}
 
 
 public function updateAccount()

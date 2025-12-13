@@ -110,6 +110,9 @@
                                     <a href="<?= base_url('admin/account') ?>">Profil Akun</a>
                                 </li>
                                 <li>
+                                    <a href="<?= base_url('admin/barcodeqr') ?>">Barcode</a>
+                                </li>
+                                <li>
                                     <a href="<?= base_url('admin/pengaturansistem') ?>">Pengaturan Sistem</a>
                                 </li>
                             </ul>

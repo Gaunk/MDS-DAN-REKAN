@@ -10,7 +10,7 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>MDS Dashboard</title>
+    <title>MDS Dashboard <?= $judul ?></title>
 
     <!-- Fontfaces CSS-->
     <link href="<?= base_url('temp_admin/')?>css/font-face.css" rel="stylesheet" media="all">

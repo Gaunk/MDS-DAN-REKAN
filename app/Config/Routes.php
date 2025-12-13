@@ -8,6 +8,7 @@ $routes->post('/contact/submit', 'Home::submit');
 
 $routes->get('word/create', 'Word::create');
 
+$routes->get('profile/(:num)', 'Profile::view/$1');
 
 // ============================
 // ROUTE PROTECTED (Wajib Login & Role SESUAI)
@@ -100,7 +101,11 @@ $routes->group('admin', [
     $routes->post('updatesuratkuasa', 'Admin::updatesuratKuasa');
     $routes->get('deletesuratkuasa/(:num)', 'Admin::deleteSuratKuasa/$1');
     $routes->get('suratkuasaword/(:num)', 'Admin::suratKuasaWord/$1');
-
+    //
+    $routes->get('barcodeqr', 'Admin::barcodeQr');                      // Menampilkan halaman daftar barcode / QR
+    $routes->post('prosesbarcode', 'Admin::prosesBarcode');  // Proses menambah barcode
+    $routes->post('updatebarcode', 'Admin::updateBarcode');  // Update barcode pengacara
+    $routes->delete('deletebarcode/(:num)', 'Admin::deleteBarcode/$1');  // Hapus barcode berdasarkan ID
 
     // 
     $routes->get('dokumenperkara', 'Admin::dokumenPerkara');
