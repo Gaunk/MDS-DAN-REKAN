@@ -386,4 +386,3 @@ function selectLocation(location, lat, lon) {
     document.getElementById('suggestions').innerHTML = '';
 }
 </script>
-

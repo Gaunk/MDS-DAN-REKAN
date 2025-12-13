@@ -7,150 +7,144 @@
 
     <!-- Link to Bootstrap CSS for styling -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" />
-
-    <!-- Custom CSS for styling -->
+    <!-- Link to Bootstrap Icons CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- AOS (Animate On Scroll) CSS for animations -->
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
     <style>
+        /* Custom styles */
         body {
-            font-family: Arial, sans-serif;
-            background-color: #f7f7f7;
+            background-color: #121212;
+            color: #f1f1f1;
+            padding-top: 40px;
         }
-        .profile-card {
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+
+        .card {
+            background: #1e1e1e;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             overflow: hidden;
-            max-width: 800px;
-            margin: 30px auto;
-            padding: 20px;
-        }
-        .profile-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 20px;
-            margin-bottom: 20px;
-        }
-        .profile-header img {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            margin-bottom: 20px; /* Space between image and specialization */
-        }
-        .profile-header h1 {
-            font-size: 24px;
-            color: #333;
-            margin-bottom: 10px;
-        }
-        .profile-header p {
-            color: #777;
-            font-size: 14px;
-        }
-        .profile-header .badge {
-            background-color: #007bff;
-            color: #fff;
-            font-size: 14px;
-            border-radius: 10px;
-            padding: 5px 10px;
-        }
-        .profile-details {
-            margin-top: 20px;
-        }
-        .profile-details th {
-            font-weight: bold;
-            color: #555;
-        }
-        .profile-details td {
-            padding: 8px;
-            color: #555;
-        }
-        .qr-code {
-            text-align: center;
-            margin-top: 20px;
-        }
-        .qr-code img {
-            width: 150px;
-            height: 150px;
-        }
-        
-        /* Animation for hover and transition */
-        .view-profile-link {
-            text-decoration: none;
-            background-color: #007bff;
-            color: white;
-            padding: 10px 20px;
-            border-radius: 5px;
-            font-weight: bold;
-            display: inline-block;
+            border: none;
             transition: all 0.3s ease;
         }
 
-        .view-profile-link:hover {
-            background-color: #0056b3;
-            transform: translateY(-3px); /* Button lift effect */
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Slight shadow for hover */
+        .card:hover {
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+            transform: translateY(-5px);
         }
 
-        .view-profile-link:active {
-            transform: translateY(1px); /* Button depression effect */
-            box-shadow: none;
+        .card-body {
+            padding: 25px;
+        }
+
+        .card-body h3, .card-body h4 {
+            color: #FFD700;
+            font-weight: bold;
+        }
+
+        .badge {
+            background-color: #FFD700;
+            color: #1f1f1f;
+            font-weight: bold;
+            border-radius: 20px;
+            padding: 6px 12px;
+        }
+
+        .table-dark th {
+            background-color: #333;
+            color: #FFD700;
+        }
+
+        .table-dark td {
+            color: #f1f1f1;
+        }
+
+        .btn-warning {
+            background-color: #FFD700;
+            color: #1f1f1f;
+            border-radius: 25px;
+            padding: 8px 20px;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+
+        .btn-warning:hover {
+            background-color: #cc9b00;
+            transform: scale(1.05);
+        }
+
+        .qr-code {
+            border: 3px solid #FFD700;
+            padding: 10px;
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+
+        .qr-code:hover {
+            transform: scale(1.1);
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
 <body>
 
 <div class="container">
-    <!-- Profile Card -->
-    <div class="profile-card">
-        <div class="profile-header">
-            <!-- Profile Picture -->
-            <?php if ($profile['foto']): ?>
-                <img src="<?= base_url('uploads/profile/' . $profile['foto']) ?>" alt="Profile Picture">
-            <?php else: ?>
-                <img src="https://via.placeholder.com/120" alt="Profile Picture">
-            <?php endif; ?>
-
+    <!-- Profile Card with AOS Animation (fade-up) -->
+    <div class="card mx-auto" style="width: 18rem;" data-aos="fade-up" data-aos-duration="3000">
+        <!-- Image Section -->
+        <div class="d-flex justify-content-center mt-4">
+            <img src="<?= base_url('uploads/profile/' . $profile['foto']) ?>" class="profile-img" alt="Profile Picture">
+        </div>
+        
+        <div class="card-body text-center">
             <!-- Profile Information -->
-            <h1><?= esc($profile['nama']) ?></h1>
-            <p><strong>Spesialis: </strong><?= esc($profile['spesialis']) ?></p>
-            <span class="badge"><?= esc($profile['no_hp']) ?></span>
+            <h5 class="card-title"><?= esc($profile['nama']) ?></h5>
+            <h4><span class="badge"><?= esc($profile['spesialis']) ?></span></h4>
         </div>
 
-        <!-- Profile Details -->
-        <div class="profile-details">
-            <table class="table">
-                <tr>
-                    <th>Nama Pengacara</th>
-                    <td><?= esc($profile['nama']) ?></td>
-                </tr>
-                <tr>
-                    <th>No. Handphone</th>
-                    <td><?= esc($profile['no_hp']) ?></td>
-                </tr>
-                <tr>
-                    <th>Lokasi</th>
-                    <td><?= esc($profile['lokasi_maps']) ?></td>
-                </tr>
-                <tr>
-                    <th>Link Profil</th>
-                    <td>
-                        <a href="<?= esc($profile['link_profile']) ?>" target="_blank" class="view-profile-link">
-                            View Profile
-                        </a>
-                    </td>
-                </tr>
-            </table>
+        <!-- List Group Section -->
+        <ul class="list-group list-group-flush">
+        </ul>
+
+        <!-- Card Links Section -->
+        <div class="card-body text-center" data-aos="fade-down" data-aos-easing="linear" data-aos-duration="1500">
+            <a href="<?= esc($profile['link_profile']) ?>" target="_blank" class="card-link btn btn-warning btn-sm">
+                View Profile
+            </a>
+            <a href="tel:<?= esc($profile['no_hp']) ?>" class="card-link btn btn-warning btn-sm">
+                Call
+            </a>
         </div>
 
-        <!-- QR Code -->
-        <div class="qr-code">
-            <h3>QR Code</h3>
-            <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode('http://localhost:8080/profile/' . $profile['id']) ?>&size=150x150" alt="QR Code">
+        <!-- QR Code Section -->
+        <div class="text-center mt-4 qr-code" data-aos="fade-up" data-aos-duration="2000">
+            <h4>QR Code</h4>
+            <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode('http://localhost:8080/profile/' . $profile['id']) ?>&size=100x100" class="rounded" alt="QR Code">
         </div>
     </div>
 </div>
 
 <!-- Link to Bootstrap JS for functionality -->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- AOS (Animate On Scroll) JS for animations -->
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+    // Initialize AOS
+    AOS.init();
+</script>
+
 </body>
 </html>
