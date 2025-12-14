@@ -249,9 +249,13 @@ async function kalenderhapus(id) {
     try {
         const res = await fetch('<?= base_url('/admin/kalender_hapus') ?>', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'X-Requested-With': 'XMLHttpRequest' // <- ini wajib
+            },
             body: JSON.stringify({ id })
         });
+
 
         const data = await res.json();
 
