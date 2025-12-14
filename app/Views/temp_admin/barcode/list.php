@@ -73,9 +73,9 @@
 
 
                                         <button class="btn btn-sm btn-danger" 
-        onclick="deleteBarcode(<?= $d['id'] ?>)">
-    <i class="fa fa-trash"></i>
-</button>
+                                                onclick="deleteBarcode(<?= $d['id'] ?>)">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
 
                                     </td>
                                 </tr>
@@ -147,7 +147,7 @@
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="barcode" class="form-label">QR Code Preview</label>
+                            <label for="barcode" class="form-label"></label>
                             <div id="barcodePreview" style="text-align:center;">
                                 <!-- QR Code Image will appear here -->
                             </div>
