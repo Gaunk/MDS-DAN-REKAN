@@ -1111,8 +1111,8 @@ usort($mutasi, function ($a, $b) {
 public function kalender_aktivitas()
 {
     $kalenderModel = new \App\Models\KalenderModel();
-    $adminModel = new \App\Models\AdminModel();
-    $kontakModel = new \App\Models\KontakModel();
+    $adminModel    = new \App\Models\AdminModel();
+    $kontakModel   = new \App\Models\KontakModel();
 
     // Ambil admin pertama
     $admin = $adminModel->first(); 
@@ -1120,10 +1120,9 @@ public function kalender_aktivitas()
     $email    = $admin['email'] ?? '-';
     $peran    = $admin['peran'] ?? '-';
 
-    // Ambil semua aktivitas
+    // Ambil semua aktivitas untuk FullCalendar
     $aktivitasRaw = $kalenderModel->orderBy('tanggal', 'ASC')->findAll();
 
-    // Format data untuk FullCalendar
     $events = [];
     foreach ($aktivitasRaw as $akt) {
         $start = $akt['tanggal'];
@@ -1149,25 +1148,25 @@ public function kalender_aktivitas()
         ];
     }
 
-    // Ambil event terdekat (5 event ke depan)
-    $today = date('Y-m-d H:i:s');
-    $upcoming = $kalenderModel
+    // Ambil 3 event terdekat (dari tanggal sekarang)
+    $today = date('Y-m-d');
+    $upcomingRaw = $kalenderModel
         ->where('tanggal >=', $today)
         ->orderBy('tanggal', 'ASC')
-        ->findAll(5); // maksimal 5 event
+        ->findAll(3); // maksimal 3 event
 
-    // Format untuk sidebar
     $upcomingEvents = [];
-    foreach ($upcoming as $akt) {
+    foreach ($upcomingRaw as $akt) {
         $start = $akt['tanggal'];
         if (!empty($akt['waktu_mulai'])) $start .= ' ' . $akt['waktu_mulai'];
-        $end   = $akt['tanggal'];
+        $end = $akt['tanggal'];
         if (!empty($akt['waktu_selesai'])) $end .= ' ' . $akt['waktu_selesai'];
 
         $upcomingEvents[] = [
             'title' => $akt['kegiatan'],
             'start' => $start,
-            'end'   => $end
+            'end'   => $end,
+            'tipe'  => $akt['tipe'] ?? 'Event'
         ];
     }
 
@@ -1198,6 +1197,10 @@ public function kalender_aktivitas()
          . view('temp_admin/kalender/list', $data)
          . view('temp_admin/footer');
 }
+
+
+// Controller: Admin.php
+
 
 // ==========================
 // TAMBAH EVENT KALENDER (AJAX)
@@ -1237,6 +1240,43 @@ public function kalender_tambah()
         ]);
     } else {
         return $this->response->setJSON(['success' => false]);
+    }
+}
+
+public function kalender_hapus()
+{
+    // Pastikan request AJAX
+    if (!$this->input->is_ajax_request()) {
+        show_404();
+    }
+
+    // Ambil JSON body
+    $input = json_decode($this->input->raw_input_stream, true);
+
+    if (!isset($input['id']) || empty($input['id'])) {
+        echo json_encode([
+            'success' => false,
+            'message' => 'ID event tidak ditemukan'
+        ]);
+        return;
+    }
+
+    $id = $input['id'];
+
+    // Hapus data
+    $this->db->where('id', $id);
+    $delete = $this->db->delete('kalender'); // ganti nama tabel jika beda
+
+    if ($delete) {
+        echo json_encode([
+            'success' => true,
+            'message' => 'Event berhasil dihapus'
+        ]);
+    } else {
+        echo json_encode([
+            'success' => false,
+            'message' => 'Gagal menghapus event'
+        ]);
     }
 }
 

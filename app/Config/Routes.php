@@ -68,6 +68,9 @@ $routes->group('admin', [
     //
     $routes->get('kalender_aktivitas', 'Admin::kalender_aktivitas');
     $routes->post('kalender_tambah', 'Admin::kalender_tambah');
+    // Tambahkan route untuk delete event
+    $routes->post('kalender_hapus', 'Admin::kalenderHapus');
+
     //
     $routes->get('tagihan', 'Admin::tagihan');
     $routes->post('tambahtagihan', 'Admin::tambahTagihan');
