@@ -107,7 +107,7 @@
         </div>
 
         <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+          <button type="button" class="btn btn-secondary" id="cancel-btn" data-bs-dismiss="modal">Batal</button>
           <button type="button" id="delete-event-btn" class="btn btn-danger me-auto" style="display:none;">Hapus Event</button>
           <button type="submit" class="btn btn-primary">Simpan Event</button>
         </div>
@@ -122,6 +122,11 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 <script>
+    document.getElementById('cancel-btn').addEventListener('click', function() {
+    // Ganti URL sesuai halaman yang ingin dituju
+    window.location.href = '<?= base_url("admin/kalender_aktivitas") ?>';
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
     const upcomingEl = document.getElementById('upcoming-events');
