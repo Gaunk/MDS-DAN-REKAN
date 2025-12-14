@@ -2114,6 +2114,7 @@ public function jadwalSidang()
             ->findAll();
 
     $data = [
+        'judul'     => 'Jadwal Sidang',
         'kontak'   => $kontak,
         'jadwals'  => $jadwals,
         'username' => $admin['username'] ?? 'Admin',

@@ -8,7 +8,7 @@
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <h2 class="title-1">Daftar Dokumen Perkara</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahDokumenModal">
-                        Tambah Dokumen
+                        <i class="fa fa-plus"></i> Tambah Dokumen
                     </button>
                 </div>
             </div>
@@ -194,11 +194,46 @@
 </div>
 
 
-<!-- =============================================================== -->
+<!-- jQuery -->
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+
+<!-- DataTables -->
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/dataTables.bootstrap5.min.js"></script>
+
 <!-- SWEETALERT2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+// =====================
+// DATATABLE INIT
+// =====================
+$(document).ready(function () {
+    $('#dokumenTable').DataTable({
+        pageLength: 15,        // 15 data per halaman
+        lengthChange: false,   // hilangkan dropdown jumlah data
+        searching: true,       // aktifkan search
+        ordering: true,
+        info: true,
+        language: {
+            search: "Cari:",
+            info: "Menampilkan _START_ sampai _END_ dari _TOTAL_ data",
+            infoEmpty: "Tidak ada data",
+            zeroRecords: "Data tidak ditemukan",
+            paginate: {
+                next: "›",
+                previous: "‹"
+            }
+        },
+        columnDefs: [
+            { orderable: false, targets: [0, 4, 7] } // No, Dokumen, Aksi
+        ]
+    });
+});
+
+// =====================
+// EDIT DOKUMEN
+// =====================
 function editDokumen(d) {
     document.getElementById('update_id').value = d.id;
     document.getElementById('update_perkara').value = d.id_perkara;
@@ -208,7 +243,9 @@ function editDokumen(d) {
     new bootstrap.Modal(document.getElementById('updateDokumenModal')).show();
 }
 
-// Hapus dengan konfirmasi
+// =====================
+// HAPUS DOKUMEN
+// =====================
 function hapusDokumen(id) {
     Swal.fire({
         title: 'Yakin ingin menghapus?',
@@ -225,7 +262,9 @@ function hapusDokumen(id) {
     });
 }
 
-// SweetAlert2 Toast untuk flashdata
+// =====================
+// FLASH MESSAGE
+// =====================
 <?php if(session()->getFlashdata('success')): ?>
 Swal.fire({
     toast: true,

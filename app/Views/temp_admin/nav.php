@@ -63,9 +63,9 @@
                             <a class="js-arrow" href="#">
                                 <i class="fas fa-briefcase   mb-2"></i>Dokumen & Arsip</a>
                             <ul class="list-unstyled navbar__sub-list js-sub-list">
-                                <li>
+                                <!-- <li>
                                     <a href="<?= base_url('admin/suratkuasa') ?>">Surat Kuasa</a>
-                                </li>
+                                </li> -->
 
                                 <li>
                                     <a href="<?= base_url('admin/dokumenperkara') ?>">Dokumen Perkara</a>
