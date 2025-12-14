@@ -70,7 +70,7 @@ $routes->group('admin', [
     $routes->post('kalender_tambah', 'Admin::kalender_tambah');
     // Tambahkan route untuk delete event
     $routes->post('kalender_update', 'Admin::kalender_update');
-    $routes->post('kalender_hapus', 'Admin::kalenderHapus');
+    $routes->post('kalender_hapus', 'Admin::kalender_hapus');
 
 
     //

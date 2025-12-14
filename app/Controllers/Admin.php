@@ -1240,57 +1240,106 @@ public function kalender_tambah()
 // ==========================
 public function kalender_update()
 {
-    if (!$this->request->isAJAX()) {
-        return $this->response->setStatusCode(403, 'No direct access allowed');
+    $request = $this->request->getJSON(true);
+    $model = new \App\Models\KalenderModel();
+
+    // Ambil data lama dari DB
+    $event = $model->find($request['id']);
+    if (!$event) {
+        return $this->response->setJSON(['success' => false, 'message' => 'Event tidak ditemukan']);
     }
 
-    $input = $this->request->getJSON(true);
-
-    if (!$input || empty($input['id'])) {
-        return $this->response->setJSON(['success'=>false,'message'=>'ID event tidak ditemukan']);
-    }
-
-    $id = $input['id'];
     $data = [
-        'kegiatan' => $input['kegiatan'] ?? '',
-        'tanggal' => $input['tanggal'] ?? date('Y-m-d'),
-        'waktu_mulai' => $input['waktu_mulai'] ?? null,
-        'waktu_selesai' => $input['waktu_selesai'] ?? null,
-        'tipe' => $input['tipe'] ?? 'custom',
-        'deskripsi' => $input['deskripsi'] ?? '',
-        'all_day' => isset($input['all_day']) ? (int)$input['all_day'] : 0
+        'kegiatan' => $request['kegiatan'] ?? $event['kegiatan'],
+        'tanggal' => $request['tanggal'] ?? $event['tanggal'],
+        'waktu_mulai' => $request['waktu_mulai'] ?? $event['waktu_mulai'],
+        'waktu_selesai' => $request['waktu_selesai'] ?? $event['waktu_selesai'],
+        'all_day' => $request['all_day'] ?? $event['all_day'],
+        'tipe' => $request['tipe'] ?? $event['tipe'],
+        'deskripsi' => $request['deskripsi'] ?? $event['deskripsi'],
     ];
 
-    $model = new \App\Models\KalenderModel();
-    $updated = $model->update($id, $data);
+    $updated = $model->update($request['id'], $data);
 
     if ($updated) {
-        return $this->response->setJSON(['success'=>true]);
+        $start = $data['tanggal'] . ($data['waktu_mulai'] ? 'T'.$data['waktu_mulai'] : '');
+        $end   = $data['tanggal'] . ($data['waktu_selesai'] ? 'T'.$data['waktu_selesai'] : '');
+
+        return $this->response->setJSON([
+            'success' => true,
+            'event' => [
+                'id' => $request['id'],
+                'title' => $data['kegiatan'],
+                'start' => $start,
+                'end' => $end,
+                'allDay' => $data['all_day'] == 1,
+                'extendedProps' => [
+                    'tipe' => $data['tipe'],
+                    'deskripsi' => $data['deskripsi'],
+                    'waktu_mulai' => $data['waktu_mulai'],
+                    'waktu_selesai' => $data['waktu_selesai'],
+                    'tanggal' => $data['tanggal'],
+                ]
+            ]
+        ]);
     } else {
-        return $this->response->setJSON(['success'=>false,'message'=>'Gagal update event']);
+        return $this->response->setJSON(['success' => false, 'message' => 'Gagal update event']);
     }
 }
 
 // ==========================
 // HAPUS EVENT
 // ==========================
-public function kalenderHapus()
+public function kalender_hapus()
 {
+    // Pastikan hanya request AJAX yang bisa mengakses
     if (!$this->request->isAJAX()) {
-        return $this->response->setStatusCode(403, 'No direct access allowed');
+        return $this->response->setStatusCode(403)
+                              ->setJSON([
+                                  'success' => false,
+                                  'message' => 'Akses langsung tidak diperbolehkan'
+                              ]);
     }
 
+    // Ambil data JSON dari request
     $input = $this->request->getJSON(true);
 
+    // Validasi ID
     if (empty($input['id'])) {
-        return $this->response->setJSON(['success'=>false,'message'=>'ID event tidak ditemukan']);
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'ID event tidak ditemukan'
+        ]);
     }
 
-    $model = new \App\Models\KalenderModel();
-    $deleted = $model->delete($input['id']);
+    try {
+        $model = new \App\Models\KalenderModel();
 
-    return $this->response->setJSON(['success'=>(bool)$deleted]);
+        // Cek apakah event ada
+        $event = $model->find($input['id']);
+        if (!$event) {
+            return $this->response->setJSON([
+                'success' => false,
+                'message' => 'Event tidak ditemukan di database'
+            ]);
+        }
+
+        // Hapus event
+        $deleted = $model->delete($input['id']);
+
+        return $this->response->setJSON([
+            'success' => (bool)$deleted,
+            'message' => $deleted ? 'Event berhasil dihapus' : 'Gagal menghapus event'
+        ]);
+
+    } catch (\Exception $e) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Terjadi kesalahan server: ' . $e->getMessage()
+        ]);
+    }
 }
+
 
 // ==========================
 // PENGGUNA / ADMIN

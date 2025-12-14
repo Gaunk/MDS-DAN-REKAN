@@ -5,8 +5,7 @@
             <!-- Header -->
             <div class="row">
                 <div class="col-md-12">
-                    <div class="overview-wrap">
-                    </div>
+                    <div class="overview-wrap"></div>
                 </div>
             </div>
 
@@ -48,237 +47,284 @@
                     </div>
                 </div>
             </div>
+
         </div>
     </div>
 </div>
 
 <!-- MODAL -->
 <div class="modal fade" id="eventModal" tabindex="-1">
-  <div class="modal-dialog">
-    <form id="eventForm">
-      <div class="modal-content">
+    <div class="modal-dialog">
+        <form id="eventForm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Tambah / Edit Event</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
 
-        <div class="modal-header">
-          <h5 class="modal-title" id="eventModalLabel">Tambah / Edit Event</h5>
-          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-        </div>
+                <div class="modal-body">
+                    <input type="hidden" id="event-id" name="id">
+                    <input type="hidden" id="event-date" name="tanggal">
 
-        <div class="modal-body">
-          <input type="hidden" id="event-id" name="id">
-          <input type="hidden" id="event-date" name="tanggal">
+                    <div class="mb-3">
+                        <label>Judul Event</label>
+                        <input type="text" id="edit_kegiatan" name="kegiatan" class="form-control" required>
+                    </div>
 
-          <div class="mb-3">
-            <label>Judul Event</label>
-            <input type="text" id="event-title" name="kegiatan" class="form-control" required>
-          </div>
+                    <div class="row">
+                        <div class="col">
+                            <label>Waktu Mulai</label>
+                            <input type="time" id="edit_waktu_mulai" name="waktu_mulai" class="form-control">
+                        </div>
+                        <div class="col">
+                            <label>Waktu Selesai</label>
+                            <input type="time" id="edit_waktu_selesai" name="waktu_selesai" class="form-control">
+                        </div>
+                    </div>
 
-          <div class="row">
-            <div class="col">
-              <label>Waktu Mulai</label>
-              <input type="time" id="event-start" name="waktu_mulai" class="form-control">
+                    <div class="mt-3">
+                        <label>Tipe Event</label>
+                        <select id="edit_tipe" name="tipe" class="form-select">
+                            <option value="meeting">Meeting</option>
+                            <option value="task">Task</option>
+                            <option value="appointment">Appointment</option>
+                            <option value="deadline">Deadline</option>
+                            <option value="presentation">Presentation</option>
+                            <option value="custom">Custom</option>
+                        </select>
+                    </div>
+
+                    <div class="mt-3">
+                        <label>Deskripsi</label>
+                        <textarea id="edit_deskripsi" name="deskripsi" class="form-control" rows="3"></textarea>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" id="delete-event-btn" class="btn btn-danger me-auto" style="display:none;">Hapus Event</button>
+                    <button type="submit" class="btn btn-primary">Simpan</button>
+                </div>
             </div>
-            <div class="col">
-              <label>Waktu Selesai</label>
-              <input type="time" id="event-end" name="waktu_selesai" class="form-control">
-            </div>
-          </div>
-
-          <div class="mt-3">
-            <label>Tipe Event</label>
-            <select id="event-type" name="tipe" class="form-select">
-              <option value="meeting">Meeting</option>
-              <option value="task">Task</option>
-              <option value="appointment">Appointment</option>
-              <option value="deadline">Deadline</option>
-              <option value="presentation">Presentation</option>
-              <option value="custom">Custom</option>
-            </select>
-          </div>
-
-          <div class="mt-3">
-            <label>Deskripsi</label>
-            <textarea id="event-desc" name="deskripsi" class="form-control" rows="3"></textarea>
-          </div>
-        </div>
-
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" id="cancel-btn" data-bs-dismiss="modal">Batal</button>
-          <button type="button" id="delete-event-btn" class="btn btn-danger me-auto" style="display:none;">Hapus Event</button>
-          <button type="submit" class="btn btn-primary">Simpan</button>
-        </div>
-
-      </div>
-    </form>
-  </div>
+        </form>
+    </div>
 </div>
 
 <!-- FullCalendar & Bootstrap JS -->
 <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
-    document.getElementById('cancel-btn').addEventListener('click', function() {
-    // Ganti URL sesuai halaman yang ingin dituju
-    window.location.href = '<?= base_url("admin/kalender_aktivitas") ?>';
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
-    const upcomingEl = document.getElementById('upcoming-events');
-    const eventModalEl = document.getElementById('eventModal');
-    const eventModal = new bootstrap.Modal(eventModalEl);
+    const eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
     const eventForm = document.getElementById('eventForm');
     const deleteBtn = document.getElementById('delete-event-btn');
+    const upcomingEl = document.getElementById('upcoming-events');
 
-    function getBadgeClass(tipe) {
-        switch((tipe||'').toLowerCase()) {
-            case 'meeting': return 'bg-primary';
-            case 'task': return 'bg-success';
-            case 'appointment': return 'bg-warning';
-            case 'deadline': return 'bg-danger';
-            case 'presentation': return 'bg-info';
-            default: return 'bg-secondary';
-        }
-    }
-
-    function renderUpcoming(events) {
-        if (!upcomingEl) return;
-        if (!events.length) {
-            upcomingEl.innerHTML = '<p>Tidak ada event terdekat</p>';
-            return;
-        }
-        upcomingEl.innerHTML = events.map(e=>{
-            const start = new Date(e.start);
-            const end = e.end ? new Date(e.end) : null;
-            const month = start.toLocaleString('default',{month:'short'}).toUpperCase();
-            const day = start.getDate();
-            const timeText = end ? 
-                `${start.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})} - ${end.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})}` 
-                : 'All Day';
-            const tipe = e.extendedProps?.tipe || 'Custom';
-            return `
-            <div class="event-item d-flex align-items-start mb-3 p-3 border rounded">
-                <div class="text-center me-3">
-                    <div class="fw-bold text-primary">${month}</div>
-                    <div class="fs-4 fw-bold">${day}</div>
-                </div>
-                <div class="flex-grow-1">
-                    <h6 class="mb-1">${e.title}</h6>
-                    <small class="text-muted">${timeText}</small>
-                    <div class="mt-1">
-                        <span class="badge ${getBadgeClass(tipe)}" style="font-size: 0.62rem;">${tipe}</span>
-                    </div>
-
-                </div>
-            </div>`;
-        }).join('');
-    }
-
-    async function loadEvents() {
-        try {
-            const res = await fetch('/admin/kalender_aktivitas', { headers:{ 'X-Requested-With':'XMLHttpRequest' }});
-            const data = await res.json();
-            calendar.removeAllEvents();
-            data.forEach(ev=>calendar.addEvent(ev));
-
-            const now = new Date();
-            renderUpcoming(
-                data.filter(e=>new Date(e.start)>=now)
-                    .sort((a,b)=>new Date(a.start)-new Date(b.start))
-                    .slice(0,3)
-            );
-        } catch(e) {
-            console.error('Gagal load events:', e);
-        }
-    }
-
+    // ==========================
+    // Inisialisasi Kalender
+    // ==========================
     const calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView:'dayGridMonth',
-        headerToolbar:{left:'prev,next today',center:'title',right:'dayGridMonth,timeGridWeek,timeGridDay,listWeek'},
-        height:'auto',
-        dateClick: info => openEventModal({dateStr: info.dateStr}),
-        eventClick: info => {
-            const e = info.event;
-            const p = e.extendedProps;
-            openEventModal({
-                id: e.id || '',
-                title: e.title,
-                start: e.start?.toISOString().substring(11,16) || '',
-                end: e.end?.toISOString().substring(11,16) || '',
-                dateStr: e.start.toISOString().split('T')[0],
-                tipe: p.tipe || 'custom',
-                desc: p.deskripsi || ''
-            });
+        initialView: 'dayGridMonth',
+        selectable: true,
+        editable: false, // edit hanya lewat modal
+        events: [],
+        dateClick: function(info) { kalendertambah(info.dateStr); },
+        eventClick: function(info) { kalenderupdate(info.event); },
+        eventDidMount: function(info) {
+            const tipe = info.event.extendedProps.tipe || 'custom';
+            const colors = {
+                meeting: '#0d6efd',
+                task: '#198754',
+                appointment: '#ffc107',
+                deadline: '#dc3545',
+                presentation: '#0dcaf0',
+                custom: '#6c757d'
+            };
+            info.el.style.backgroundColor = colors[tipe];
         }
     });
-
     calendar.render();
-    loadEvents();
 
-    function openEventModal(data={}) {
-        document.getElementById('event-id').value = data.id || '';
-        document.getElementById('event-date').value = data.dateStr || '';
-        document.getElementById('event-title').value = data.title || '';
-        document.getElementById('event-start').value = data.start || '';
-        document.getElementById('event-end').value = data.end || '';
-        document.getElementById('event-type').value = data.tipe || 'custom';
-        document.getElementById('event-desc').value = data.desc || '';
-        deleteBtn.style.display = data.id ? 'inline-block' : 'none';
+    // ==========================
+    // Load Events dari Server
+    // ==========================
+    async function loadEvents() {
+        const res = await fetch('/admin/kalender_aktivitas', { headers: {'X-Requested-With':'XMLHttpRequest'} });
+        const data = await res.json();
+
+        calendar.removeAllEvents();
+        data.forEach(e => calendar.addEvent({
+            id: e.id,
+            title: e.title,
+            start: e.start,
+            end: e.end,
+            allDay: e.allDay,
+            extendedProps: e.extendedProps
+        }));
+        updateUpcoming();
+    }
+
+    // ==========================
+    // Sidebar Upcoming Events
+    // ==========================
+    function updateUpcoming() {
+        const events = calendar.getEvents()
+            .filter(e => new Date(e.start) >= new Date())
+            .sort((a,b) => new Date(a.start) - new Date(b.start))
+            .slice(0,5);
+
+        if(events.length === 0) {
+            upcomingEl.innerHTML = '<p>Belum ada event.</p>';
+            return;
+        }
+
+        let html = '<ul class="list-unstyled">';
+        events.forEach(e => {
+            const start = new Date(e.start);
+            const time = start.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
+            html += `<li><span class="badge bg-${getBadge(e.extendedProps.tipe)} me-1">${e.extendedProps.tipe || 'custom'}</span> ${time} - ${e.title}</li>`;
+        });
+        html += '</ul>';
+        upcomingEl.innerHTML = html;
+    }
+
+    function getBadge(type) {
+        switch(type) {
+            case 'meeting': return 'primary';
+            case 'task': return 'success';
+            case 'appointment': return 'warning';
+            case 'deadline': return 'danger';
+            case 'presentation': return 'info';
+            default: return 'secondary';
+        }
+    }
+
+    // ==========================
+    // Tambah Event
+    // ==========================
+    function kalendertambah(tanggal) {
+        eventForm.reset();
+        deleteBtn.style.display = 'none';
+        document.getElementById('event-id').value = '';
+        document.getElementById('event-date').value = tanggal;
         eventModal.show();
     }
 
-    eventForm.addEventListener('submit', async function(e){
+    // ==========================
+    // Update Event
+    // ==========================
+    function kalenderupdate(event) {
+        document.getElementById('event-id').value = event.id;
+        document.getElementById('event-date').value = event.startStr.split('T')[0];
+        document.getElementById('edit_kegiatan').value = event.title;
+        document.getElementById('edit_waktu_mulai').value = event.extendedProps.waktu_mulai || '';
+        document.getElementById('edit_waktu_selesai').value = event.extendedProps.waktu_selesai || '';
+        document.getElementById('edit_tipe').value = event.extendedProps.tipe || 'custom';
+        document.getElementById('edit_deskripsi').value = event.extendedProps.deskripsi || '';
+        deleteBtn.style.display = 'inline-block';
+        eventModal.show();
+    }
+
+    // ==========================
+// Hapus Event dengan SweetAlert2
+// ==========================
+async function kalenderhapus(id) {
+    // Konfirmasi sebelum hapus
+    const result = await Swal.fire({
+        title: 'Hapus Event?',
+        text: "Apakah Anda yakin ingin menghapus event ini?",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#dc3545',
+        cancelButtonColor: '#6c757d',
+        confirmButtonText: 'Ya, hapus!',
+        cancelButtonText: 'Batal'
+    });
+
+    if (!result.isConfirmed) return;
+
+    try {
+        const res = await fetch('<?= base_url('/admin/kalender_hapus') ?>', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id })
+        });
+
+        const data = await res.json();
+
+        if (data.success) {
+            await loadEvents(); // reload semua event dari database
+            eventModal.hide();
+            Swal.fire({
+                icon: 'success',
+                title: 'Terhapus!',
+                text: 'Event berhasil dihapus',
+                timer: 1500,
+                showConfirmButton: false
+            });
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: data.message || 'Gagal menghapus event'
+            });
+        }
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Terjadi kesalahan server'
+        });
+    }
+}
+
+    // ==========================
+    // Submit Event (Tambah / Update)
+    // ==========================
+    eventForm.addEventListener('submit', async function(e) {
         e.preventDefault();
         const id = document.getElementById('event-id').value;
-        const title = document.getElementById('event-title').value;
-        const startTime = document.getElementById('event-start').value;
-        const endTime = document.getElementById('event-end').value;
-        const tipe = document.getElementById('event-type').value;
-        const desc = document.getElementById('event-desc').value;
-        const dateStr = document.getElementById('event-date').value;
-        const all_day = !startTime && !endTime ? 1 : 0;
+        const data = {
+            id: id || null,
+            kegiatan: document.getElementById('edit_kegiatan').value,
+            tanggal: document.getElementById('event-date').value,
+            waktu_mulai: document.getElementById('edit_waktu_mulai').value || null,
+            waktu_selesai: document.getElementById('edit_waktu_selesai').value || null,
+            tipe: document.getElementById('edit_tipe').value,
+            deskripsi: document.getElementById('edit_deskripsi').value,
+            all_day: 0
+        };
 
         const url = id ? '/admin/kalender_update' : '/admin/kalender_tambah';
+        const res = await fetch(url, {
+            method: 'POST',
+            headers: {'Content-Type':'application/json'},
+            body: JSON.stringify(data)
+        });
+        const result = await res.json();
 
-        try {
-            const res = await fetch(url, {
-                method:'POST',
-                headers:{ 'Content-Type':'application/json','X-Requested-With':'XMLHttpRequest' },
-                body: JSON.stringify({ id, kegiatan:title, tanggal:dateStr, waktu_mulai:startTime, waktu_selesai:endTime, all_day, tipe, deskripsi:desc })
+        if(result.success) {
+            await loadEvents();
+            eventModal.hide();
+        } else {
+            Swal.fire({
+                icon: 'error',
+                title: 'Gagal!',
+                text: result.message || 'Gagal menyimpan event'
             });
-            const result = await res.json();
-            if(result.success){
-                loadEvents();
-                eventModal.hide();
-                alert(id ? 'Event berhasil diupdate!' : 'Event berhasil ditambahkan!');
-            } else alert(result.message || 'Gagal menyimpan event.');
-        } catch(err) {
-            console.error(err);
-            alert('Terjadi kesalahan saat menyimpan event.');
         }
     });
 
-    deleteBtn.addEventListener('click', async function(){
+    // Tombol Hapus Event
+    deleteBtn.addEventListener('click', function() {
         const id = document.getElementById('event-id').value;
-        if(!id || !confirm('Hapus event ini?')) return;
-        try {
-            const res = await fetch('/admin/kalender_hapus', {
-                method:'POST',
-                headers:{ 'Content-Type':'application/json','X-Requested-With':'XMLHttpRequest' },
-                body: JSON.stringify({ id })
-            });
-            const result = await res.json();
-            if(result.success){
-                loadEvents();
-                eventModal.hide();
-                alert('Event berhasil dihapus!');
-            } else alert(result.message || 'Gagal menghapus event.');
-        } catch(err) {
-            console.error(err);
-            alert('Terjadi kesalahan saat menghapus event.');
-        }
+        if(id) kalenderhapus(id);
     });
 
-    window.addNewEvent = ()=> openEventModal({ dateStr: new Date().toISOString().split('T')[0] });
+    // Load events pertama kali
+    loadEvents();
 });
 </script>
