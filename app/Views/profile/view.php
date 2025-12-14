@@ -113,7 +113,7 @@
             <h5>
                 <span id="profileNama" class="badge d-flex align-items-center text-center" style="
                     gap: 0.8rem; 
-                    font-size: 1.2rem;
+                    font-size: 1.1rem;
                     font-weight: 700;
                     font-family: 'Poppins', sans-serif; 
                     text-transform: uppercase;  
