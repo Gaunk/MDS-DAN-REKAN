@@ -1308,28 +1308,28 @@ public function kalender_hapus()
     if (empty($input['id'])) {
         return $this->response->setJSON([
             'success' => false,
-            'message' => 'ID event tidak ditemukan'
+            'message' => 'ID jadwal tidak ditemukan'
         ]);
     }
 
     try {
         $model = new \App\Models\KalenderModel();
 
-        // Cek apakah event ada
+        // Cek apakah jadwal ada
         $event = $model->find($input['id']);
         if (!$event) {
             return $this->response->setJSON([
                 'success' => false,
-                'message' => 'Event tidak ditemukan di database'
+                'message' => 'Jadwal tidak ditemukan di database'
             ]);
         }
 
-        // Hapus event
+        // Hapus jadwal
         $deleted = $model->delete($input['id']);
 
         return $this->response->setJSON([
             'success' => (bool)$deleted,
-            'message' => $deleted ? 'Event berhasil dihapus' : 'Gagal menghapus event'
+            'message' => $deleted ? 'Jadwal berhasil dihapus' : 'Gagal menghapus jadwal'
         ]);
 
     } catch (\Exception $e) {

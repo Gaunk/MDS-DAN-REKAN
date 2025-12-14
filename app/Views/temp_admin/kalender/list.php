@@ -116,6 +116,7 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 <script>
+
 document.addEventListener('DOMContentLoaded', function() {
     const calendarEl = document.getElementById('calendar');
     const eventModal = new bootstrap.Modal(document.getElementById('eventModal'));
@@ -148,6 +149,18 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     calendar.render();
 
+  // ==========================
+    // Bootstrap Modal Instance (AMAN)
+    // ==========================
+    const modalEl = document.getElementById('eventModal');
+    const modalInstance = bootstrap.Modal.getOrCreateInstance(modalEl);
+
+    // Paksa tombol Batal & X bekerja
+    modalEl.querySelectorAll('[data-bs-dismiss="modal"]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            modalInstance.hide();
+        });
+    });
     // ==========================
     // Load Events dari Server
     // ==========================
@@ -170,26 +183,49 @@ document.addEventListener('DOMContentLoaded', function() {
     // ==========================
     // Sidebar Upcoming Events
     // ==========================
-    function updateUpcoming() {
-        const events = calendar.getEvents()
-            .filter(e => new Date(e.start) >= new Date())
-            .sort((a,b) => new Date(a.start) - new Date(b.start))
-            .slice(0,5);
+function updateUpcoming() {
+    const events = calendar.getEvents()
+        .filter(e => new Date(e.start) >= new Date())
+        .sort((a,b) => new Date(a.start) - new Date(b.start))
+        .slice(0,5);
 
-        if(events.length === 0) {
-            upcomingEl.innerHTML = '<p>Belum ada event.</p>';
-            return;
-        }
-
-        let html = '<ul class="list-unstyled">';
-        events.forEach(e => {
-            const start = new Date(e.start);
-            const time = start.toLocaleTimeString([], {hour:'2-digit', minute:'2-digit'});
-            html += `<li><span class="badge bg-${getBadge(e.extendedProps.tipe)} me-1">${e.extendedProps.tipe || 'custom'}</span> ${time} - ${e.title}</li>`;
-        });
-        html += '</ul>';
-        upcomingEl.innerHTML = html;
+    if(events.length === 0) {
+        upcomingEl.innerHTML = '<p>Belum ada event.</p>';
+        return;
     }
+
+    let html = '';
+    events.forEach(e => {
+        const start = new Date(e.start);
+        const end = e.end ? new Date(e.end) : null;
+
+        const optionsMonth = { month: 'short' };
+        const optionsDay = { day: '2-digit' };
+
+        const month = start.toLocaleDateString('en-US', optionsMonth).toUpperCase();
+        const day = start.toLocaleDateString('en-US', optionsDay);
+
+        const startTime = start.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+        const endTime = end ? end.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }) : '';
+
+        html += `
+        <div class="event-item d-flex align-items-start mb-3 p-3 border rounded">
+            <div class="event-date text-center me-3">
+                <div class="fs-6 fw-bold text-primary">${month}</div>
+                <div class="fs-4 fw-bold">${day}</div>
+            </div>
+            <div class="event-details flex-grow-1">
+                <h6 class="mb-1">${e.title}</h6>
+                <small class="text-muted">${startTime}${endTime ? ' - ' + endTime : ''}</small>
+                <div class="mt-1">
+                    <span class="badge bg-${getBadge(e.extendedProps.tipe)}">${e.extendedProps.tipe || 'custom'}</span>
+                </div>
+            </div>
+        </div>`;
+    });
+
+    upcomingEl.innerHTML = html;
+}
 
     function getBadge(type) {
         switch(type) {
@@ -228,14 +264,14 @@ document.addEventListener('DOMContentLoaded', function() {
         eventModal.show();
     }
 
-    // ==========================
+// ==========================
 // Hapus Event dengan SweetAlert2
 // ==========================
 async function kalenderhapus(id) {
     // Konfirmasi sebelum hapus
     const result = await Swal.fire({
         title: 'Hapus Event?',
-        text: "Apakah Anda yakin ingin menghapus event ini?",
+        text: "Apakah Anda yakin ingin menghapus jadwal ini?",
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#dc3545',
@@ -265,7 +301,7 @@ async function kalenderhapus(id) {
             Swal.fire({
                 icon: 'success',
                 title: 'Terhapus!',
-                text: 'Event berhasil dihapus',
+                text: 'Jadwa berhasil dihapus',
                 timer: 1500,
                 showConfirmButton: false
             });
@@ -273,7 +309,7 @@ async function kalenderhapus(id) {
             Swal.fire({
                 icon: 'error',
                 title: 'Gagal!',
-                text: data.message || 'Gagal menghapus event'
+                text: data.message || 'Gagal menghapus jadwal'
             });
         }
     } catch (error) {
@@ -286,41 +322,65 @@ async function kalenderhapus(id) {
 }
 
     // ==========================
-    // Submit Event (Tambah / Update)
-    // ==========================
-    eventForm.addEventListener('submit', async function(e) {
-        e.preventDefault();
-        const id = document.getElementById('event-id').value;
-        const data = {
-            id: id || null,
-            kegiatan: document.getElementById('edit_kegiatan').value,
-            tanggal: document.getElementById('event-date').value,
-            waktu_mulai: document.getElementById('edit_waktu_mulai').value || null,
-            waktu_selesai: document.getElementById('edit_waktu_selesai').value || null,
-            tipe: document.getElementById('edit_tipe').value,
-            deskripsi: document.getElementById('edit_deskripsi').value,
-            all_day: 0
-        };
+// Submit Event (Tambah / Update)
+// ==========================
+eventForm.addEventListener('submit', async function(e) {
+    e.preventDefault();
 
-        const url = id ? '/admin/kalender_update' : '/admin/kalender_tambah';
+    const id = document.getElementById('event-id').value;
+    const data = {
+        id: id || null,
+        kegiatan: document.getElementById('edit_kegiatan').value,
+        tanggal: document.getElementById('event-date').value,
+        waktu_mulai: document.getElementById('edit_waktu_mulai').value || null,
+        waktu_selesai: document.getElementById('edit_waktu_selesai').value || null,
+        tipe: document.getElementById('edit_tipe').value,
+        deskripsi: document.getElementById('edit_deskripsi').value,
+        all_day: 0
+    };
+
+    const url = id ? '<?= base_url("/admin/kalender_update") ?>' : '<?= base_url("/admin/kalender_tambah") ?>';
+
+    try {
         const res = await fetch(url, {
             method: 'POST',
-            headers: {'Content-Type':'application/json'},
+            headers: {
+                'Content-Type':'application/json',
+                'X-Requested-With':'XMLHttpRequest' // penting agar isAJAX() di CI4 true
+            },
             body: JSON.stringify(data)
         });
+
         const result = await res.json();
 
         if(result.success) {
-            await loadEvents();
+            await loadEvents(); // reload semua event dari database
             eventModal.hide();
+            Swal.fire({
+                icon: 'success',
+                title: 'Berhasil!',
+                text: 'Jadwal berhasil disimpan',
+                timer: 1500,
+                showConfirmButton: false
+            });
         } else {
             Swal.fire({
                 icon: 'error',
                 title: 'Gagal!',
-                text: result.message || 'Gagal menyimpan event'
+                text: result.message || 'Gagal menyimpan jadwal'
             });
         }
-    });
+
+    } catch (error) {
+        Swal.fire({
+            icon: 'error',
+            title: 'Error!',
+            text: 'Terjadi kesalahan server'
+        });
+        console.error(error);
+    }
+});
+
 
     // Tombol Hapus Event
     deleteBtn.addEventListener('click', function() {
