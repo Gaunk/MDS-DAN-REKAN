@@ -189,7 +189,7 @@
                         <div class="col-md-6 mb-3">
                             <label for="edit_nama_pengacara" class="form-label">Nama Pengacara</label>
                             <select class="form-control" id="edit_nama_pengacara" name="nama_pengacara" required>
-                                <option value="" disabled selected>Pilih Nama Pengacara</option>
+                                <option value="">-- Pilih ---</option>
                                 <?php foreach ($pengacaraData as $pengacara): ?>
                                     <option value="<?= $pengacara['id']; ?>"><?= esc($pengacara['nama']); ?></option>
                                 <?php endforeach; ?>
