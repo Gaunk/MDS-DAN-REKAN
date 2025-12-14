@@ -410,35 +410,47 @@
       <div class="container">
 
         <div class="row gy-4">
+<!-- Tambahkan style langsung di HTML -->
+<style>
+.member img {
+    width: 100%;
+    height: 250px; /* tinggi sama untuk semua */
+    object-fit: cover; /* agar gambar terpotong sesuai kotak tanpa merusak rasio */
+    border-radius: 8px; /* opsional, agar sedikit rounded */
+}
+</style>
 
-          <?php foreach($pengacara as $p): ?>
-          <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-              <div class="member">
-                  <img src="<?= base_url('uploads/pengacara/' . ($p['foto_pengacara'] ?? 'default.png')) ?>" 
-                       class="img-fluid" alt="<?= esc($p['nama']) ?>">
-                  <div class="member-info">
-                      <div class="member-info-content">
-                          <h4><?= esc($p['nama']) ?></h4>
-                          <span><?= esc($p['peran']) ?></span>
-                      </div>
-                      <div class="social">
-                          <?php if(!empty($p['twitter'])): ?>
-                              <a href="<?= esc($p['twitter']) ?>"><i class="bi bi-twitter"></i></a>
-                          <?php endif; ?>
-                          <?php if(!empty($p['facebook'])): ?>
-                              <a href="<?= esc($p['facebook']) ?>"><i class="bi bi-facebook"></i></a>
-                          <?php endif; ?>
-                          <?php if(!empty($p['instagram'])): ?>
-                              <a href="<?= esc($p['instagram']) ?>"><i class="bi bi-instagram"></i></a>
-                          <?php endif; ?>
-                          <?php if(!empty($p['linkedin'])): ?>
-                              <a href="<?= esc($p['linkedin']) ?>"><i class="bi bi-linkedin"></i></a>
-                          <?php endif; ?>
-                      </div>
-                  </div>
-              </div>
-          </div>
-          <?php endforeach; ?>
+<!-- Grid Pengacara -->
+<div class="row">
+    <?php foreach($pengacara as $p): ?>
+    <div class="col-xl-3 col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="member">
+            <img src="<?= base_url('uploads/pengacara/' . ($p['foto_pengacara'] ?? 'default.png')) ?>" 
+                 class="img-fluid" alt="<?= esc($p['nama']) ?>">
+            <div class="member-info">
+                <div class="member-info-content">
+                    <h4><?= esc($p['nama']) ?></h4>
+                </div>
+                <div class="social">
+                    <?php if(!empty($p['twitter'])): ?>
+                        <a href="<?= esc($p['twitter']) ?>"><i class="bi bi-twitter"></i></a>
+                    <?php endif; ?>
+                    <?php if(!empty($p['facebook'])): ?>
+                        <a href="<?= esc($p['facebook']) ?>"><i class="bi bi-facebook"></i></a>
+                    <?php endif; ?>
+                    <?php if(!empty($p['instagram'])): ?>
+                        <a href="<?= esc($p['instagram']) ?>"><i class="bi bi-instagram"></i></a>
+                    <?php endif; ?>
+                    <?php if(!empty($p['linkedin'])): ?>
+                        <a href="<?= esc($p['linkedin']) ?>"><i class="bi bi-linkedin"></i></a>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
+    <?php endforeach; ?>
+</div>
+
 
 
           <!-- End Team Member -->

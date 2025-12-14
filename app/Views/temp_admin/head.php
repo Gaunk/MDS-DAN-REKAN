@@ -30,5 +30,44 @@
     <!-- Main CSS-->
     <link href="<?= base_url('temp_admin/')?>css/theme.css" rel="stylesheet" media="all">
         <!-- DataTables CSS -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
+        <!-- =============================================================== -->    <!-- FullCalendar v6+ CSS -->
+    <link href='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css' rel='stylesheet' />
+<style type="text/css">
+    /* FullCalendar Bootstrap 5 integration */
+    .fc-theme-standard .fc-view-harness {
+        border: none;
+    }
+    
+    .fc-theme-standard .fc-scrollgrid {
+        border: 1px solid var(--bs-border-color);
+        border-radius: 0.375rem;
+    }
+    
+    .fc .fc-button-primary {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        color: #fff;
+    }
+    
+    .fc .fc-button-primary:hover {
+        background-color: var(--bs-primary);
+        border-color: var(--bs-primary);
+        opacity: 0.9;
+    }
+    
+    .fc-theme-standard .fc-header-toolbar {
+        margin-bottom: 1rem;
+    }
+    
+    .fc-event {
+        border-radius: 0.25rem;
+        border: none !important;
+        font-size: 0.875rem;
+    }
+    
+    .fc-daygrid-event {
+        margin: 2px 4px;
+    }
+    </style>
 </head>

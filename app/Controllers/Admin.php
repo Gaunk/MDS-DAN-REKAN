@@ -18,6 +18,7 @@ use App\Models\SuratKuasaModel;
 use App\Models\DokumenPerkaraModel;
 use App\Models\PengeluaranUangModel;
 use App\Models\TabelBarcodeModel;
+use App\Models\KalenderModel;
 
 
 
@@ -33,6 +34,7 @@ class Admin extends BaseController
     protected $AdminModel;
     protected $KontakModel;
     protected $tabelBarcodeModel;
+    protected $kalenderModel;
     protected $suratWordService; // ✅ deklarasikan property
 
 
@@ -1108,50 +1110,134 @@ usort($mutasi, function ($a, $b) {
 // ==========================
 public function kalender_aktivitas()
 {
-    $model = new JadwalModel();
+    $kalenderModel = new \App\Models\KalenderModel();
     $adminModel = new \App\Models\AdminModel();
+    $kontakModel = new \App\Models\KontakModel();
 
-        // Ambil semua pengguna (untuk keperluan lain, misal list dropdown)
-        $users = $adminModel->findAll();
+    // Ambil admin pertama
+    $admin = $adminModel->first(); 
+    $username = $admin['username'] ?? 'Admin';
+    $email    = $admin['email'] ?? '-';
+    $peran    = $admin['peran'] ?? '-';
 
-        // Ambil pengguna pertama
-        $admin = $adminModel->first(); 
-        $username = $admin['username'] ?? 'Admin';
-        $email    = $admin['email'] ?? '-';
-        $peran    = $admin['peran'] ?? '-';
+    // Ambil semua aktivitas
+    $aktivitasRaw = $kalenderModel->orderBy('tanggal', 'ASC')->findAll();
 
-        
-    // Ambil semua aktivitas untuk kalender
-    $aktivitas = $model->select('id, kegiatan AS title, tanggal AS start')
-                       ->orderBy('tanggal', 'ASC')
-                       ->findAll();
-    $kontakModel = new KontakModel();
+    // Format data untuk FullCalendar
+    $events = [];
+    foreach ($aktivitasRaw as $akt) {
+        $start = $akt['tanggal'];
+        $end   = $akt['tanggal'];
 
-        $kontak = $kontakModel
-            ->where('is_read', 0)
-            ->orderBy('created_at', 'DESC')
-            ->findAll();
+        if (!empty($akt['waktu_mulai'])) {
+            $start .= 'T' . $akt['waktu_mulai'];
+        }
+        if (!empty($akt['waktu_selesai'])) {
+            $end .= 'T' . $akt['waktu_selesai'];
+        }
+
+        $events[] = [
+            'id'    => $akt['id'],
+            'title' => $akt['kegiatan'],
+            'start' => $start,
+            'end'   => $end,
+            'allDay' => (bool)$akt['all_day'],
+            'extendedProps' => [
+                'tipe' => $akt['tipe'],
+                'deskripsi' => $akt['deskripsi']
+            ]
+        ];
+    }
+
+    // Ambil event terdekat (5 event ke depan)
+    $today = date('Y-m-d H:i:s');
+    $upcoming = $kalenderModel
+        ->where('tanggal >=', $today)
+        ->orderBy('tanggal', 'ASC')
+        ->findAll(5); // maksimal 5 event
+
+    // Format untuk sidebar
+    $upcomingEvents = [];
+    foreach ($upcoming as $akt) {
+        $start = $akt['tanggal'];
+        if (!empty($akt['waktu_mulai'])) $start .= ' ' . $akt['waktu_mulai'];
+        $end   = $akt['tanggal'];
+        if (!empty($akt['waktu_selesai'])) $end .= ' ' . $akt['waktu_selesai'];
+
+        $upcomingEvents[] = [
+            'title' => $akt['kegiatan'],
+            'start' => $start,
+            'end'   => $end
+        ];
+    }
+
+    // Ambil kontak yang belum terbaca
+    $kontak = $kontakModel->where('is_read', 0)
+                          ->orderBy('created_at', 'DESC')
+                          ->findAll();
 
     $data = [
-        'judul' => 'Kalender Aktivitas',
-        'username' => $username,
-        'email'    => $email,
-        'peran'    => $peran,
-        'events' => $aktivitas,
-        'kontak'    => $kontak
+        'judul'          => 'Kalender Aktivitas',
+        'username'       => $username,
+        'email'          => $email,
+        'peran'          => $peran,
+        'events'         => $events,
+        'upcomingEvents' => $upcomingEvents, // kirim ke view
+        'kontak'         => $kontak
     ];
 
     // Jika akses via AJAX, kirim JSON untuk FullCalendar
     if ($this->request->isAJAX()) {
-        return $this->response->setJSON($aktivitas);
+        return $this->response->setJSON($events);
     }
 
-    // Jika membuka halaman normal, tampilkan view kalender
+    // Tampilkan view normal
     return view('temp_admin/head', $data)
          . view('temp_admin/header', $data)
          . view('temp_admin/nav', $data)
          . view('temp_admin/kalender/list', $data)
          . view('temp_admin/footer');
+}
+
+// ==========================
+// TAMBAH EVENT KALENDER (AJAX)
+// ==========================
+public function kalender_tambah()
+{
+    $request = $this->request->getJSON(true);
+
+    $model = new \App\Models\KalenderModel();
+
+    $data = [
+        'kegiatan' => $request['kegiatan'],
+        'tanggal' => $request['tanggal'],
+        'waktu_mulai' => $request['waktu_mulai'] ?? null,
+        'waktu_selesai' => $request['waktu_selesai'] ?? null,
+        'all_day' => $request['all_day'],
+        'tipe' => $request['tipe'],
+        'deskripsi' => $request['deskripsi'],
+    ];
+
+    $id = $model->insert($data);
+    if ($id) {
+        // Siapkan response sesuai FullCalendar
+        $start = $data['tanggal'] . ($data['waktu_mulai'] ? 'T'.$data['waktu_mulai'] : '');
+        $end = $data['tanggal'] . ($data['waktu_selesai'] ? 'T'.$data['waktu_selesai'] : '');
+        return $this->response->setJSON([
+            'success' => true,
+            'event' => [
+                'id' => $id,
+                'title' => $data['kegiatan'],
+                'start' => $start,
+                'end' => $end,
+                'allDay' => $data['all_day'] == 1 ? true : false,
+                'tipe' => $data['tipe'],
+                'deskripsi' => $data['deskripsi'],
+            ]
+        ]);
+    } else {
+        return $this->response->setJSON(['success' => false]);
+    }
 }
 
 // ==========================

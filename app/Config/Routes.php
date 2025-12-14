@@ -67,6 +67,8 @@ $routes->group('admin', [
     $routes->get('deletepengacara/(:num)', 'Admin::deletePengacara/$1');
     //
     $routes->get('kalender_aktivitas', 'Admin::kalender_aktivitas');
+    $routes->post('kalender_tambah', 'Admin::kalender_tambah');
+    //
     $routes->get('tagihan', 'Admin::tagihan');
     $routes->post('tambahtagihan', 'Admin::tambahTagihan');
     $routes->post('updatetagihan', 'Admin::updateTagihan');
