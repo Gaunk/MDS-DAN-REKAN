@@ -63,11 +63,10 @@
                                     </td>
                                     <td class="text-center">
                                         <img 
-    src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=70x70" 
-    alt="QR Code"
-    class="mb-2"
-/>
-
+                                            src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=70x70" 
+                                            alt="QR Code"
+                                            class="mb-2"
+                                        />
                                         <br>
                                         <button 
                                             class="btn btn-sm btn-success"
@@ -239,9 +238,11 @@
                     </div>
 
                     <div class="row">
-                        <div class="col-md-6 mb-3">
+                        <div class="col-mlg-6 mb-3">
                             <label for="edit_barcode" class="form-label"></label>
-                            <div id="edit_barcodePreview" style="text-align:center;"></div>
+                            <div id="edit_barcodePreview" class="text-center">
+                                <!-- QR Code muncul di sini -->
+                            </div>
                         </div>
                     </div>
 
@@ -279,7 +280,12 @@ function editBarcodeModal(data) {
     // QR Code preview
     const profileUrl = `<?= base_url('profile') ?>/${data.id}`;
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(profileUrl)}&size=150x150`;
-    document.getElementById('edit_barcodePreview').innerHTML = `<img src="${qrCodeUrl}" alt="QR Code">`;
+    document.getElementById('edit_barcodePreview').innerHTML = `
+        <img src="${qrCodeUrl}" 
+             alt="QR Code"
+             style="width:100px;height:100px"
+             class="img-thumbnail mt-2">
+    `;
 
     // Tampilkan modal (Bootstrap 5)
     const editModal = new bootstrap.Modal(document.getElementById('editBarcodeModal'));
