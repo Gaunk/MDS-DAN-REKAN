@@ -1441,6 +1441,7 @@ public function pengeluaranUang()
 
     // Data untuk view
     $data = [
+        'judul'             => 'Pengeluaran Uang',
         'username'          => $username,
         'email'             => $email,
         'totalPemasukan'    => $totalPemasukan,

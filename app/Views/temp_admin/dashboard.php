@@ -76,8 +76,8 @@
                                                 <i class="zmdi zmdi-money"></i>
                                             </div>
                                             <div class="text">
-                                                <h4><?= number_format($totalNominal, 0, ',', '.') ?></h4>
-                                                <span>total pemasukan</span>
+                                                <h2><?= number_format($totalNominal, 0, ',', '.') ?></h2>
+                                                <span>total</span>
                                             </div>
                                         </div>
                                         <div class="overview-chart">
