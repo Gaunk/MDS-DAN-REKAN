@@ -62,8 +62,20 @@
                                         </button>
                                     </td>
                                     <td class="text-center">
-                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" alt="QR Code">
+                                        <img 
+                                            src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" 
+                                            alt="QR Code"
+                                            class="mb-2"
+                                        >
+                                        <br>
+                                        <button 
+                                            class="btn btn-sm btn-success"
+                                            onclick="downloadQRCode('<?= urlencode($d['link_profile']) ?>', 'qr-code-<?= $d['id'] ?>.png')"
+                                        >
+                                            <i class="bi bi-download"></i> Download
+                                        </button>
                                     </td>
+
                                     <td class="text-center">
                                         <button class="btn btn-warning btn-sm" 
                                             onclick='editBarcodeModal(<?= json_encode([
@@ -401,5 +413,24 @@ function selectLocation(location, lat, lon) {
     document.getElementById('latitude').value = lat;
     document.getElementById('longitude').value = lon;
     document.getElementById('suggestions').innerHTML = '';
+}
+</script>
+<script>
+function downloadQRCode(data, filename) {
+    const qrUrl = `https://api.qrserver.com/v1/create-qr-code/?size=300x300&data=${data}`;
+
+    fetch(qrUrl)
+        .then(res => res.blob())
+        .then(blob => {
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        })
+        .catch(() => alert('Gagal mengunduh QR Code'));
 }
 </script>
