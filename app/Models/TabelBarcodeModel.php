@@ -16,6 +16,8 @@ class TabelBarcodeModel extends Model
 
     // Mengaktifkan fitur timestamp untuk otomatis mengelola created_at dan updated_at
     protected $useTimestamps = true;
+    protected $useAutoIncrement = true;
+    protected $returnType = 'array';
     
     // Kolom yang digunakan untuk created_at dan updated_at
     protected $createdField = 'created_at';

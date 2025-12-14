@@ -106,6 +106,7 @@ class Admin extends BaseController
         // $jumlahPengacara = $db->table('tabel_pengacara')->countAllResults();
 
         $data = [
+            'judul'           => '',
             'username'        => $username,
             'email'           => $email,
             'peran'           => $peran,
@@ -2516,33 +2517,6 @@ public function prosesBarcode()
     }
 }
 
-// Fungsi untuk menghapus barcode pengacara
-public function deleteBarcode($id)
-{
-    $model = new TabelBarcodeModel();
-
-    // Validasi ID
-    if (!is_numeric($id) || $id <= 0) {
-        return $this->response->setJSON(['success' => false, 'message' => 'ID tidak valid']);
-    }
-
-    // Cari data barcode berdasarkan ID
-    $data = $model->find($id);
-
-    if (!$data) {
-        return $this->response->setJSON(['success' => false, 'message' => 'Barcode tidak ditemukan']);
-    }
-
-    // Hapus data barcode dari database
-    try {
-        $model->delete($id);
-        return $this->response->setJSON(['success' => true]);
-    } catch (\Exception $e) {
-        return $this->response->setJSON(['success' => false, 'message' => 'Terjadi kesalahan saat menghapus barcode.']);
-    }
-}
-
-
     // Method untuk proses update barcode pengacara
     public function updateBarcode($id)
 {
@@ -2584,6 +2558,45 @@ public function deleteBarcode($id)
     }
 }
 
+public function deleteBarcode()
+{
+    $model = new \App\Models\TabelBarcodeModel();
+
+    try {
+        // 1️⃣ Ambil semua data barcode
+        $allBarcodes = $model->findAll();
+
+        foreach ($allBarcodes as $row) {
+            if (!empty($row['foto'])) {
+                // Sesuaikan path sesuai lokasi penyimpanan file di server
+                $filePath = FCPATH . 'uploads/profile/' . basename($row['foto']);
+
+                if (file_exists($filePath)) {
+                    @unlink($filePath); // Hapus file, @ untuk suppress error
+                }
+            }
+        }
+
+        // 2️⃣ Hapus semua baris di tabel
+        $model->truncate(); // Lebih cepat daripada delete(null)
+
+        return $this->response->setJSON([
+            'success' => true,
+            'message' => 'Semua data barcode dan file terkait berhasil dihapus'
+        ]);
+    } catch (\Throwable $e) {
+        log_message('error', 'Delete all barcodes error: ' . $e->getMessage());
+
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Terjadi kesalahan saat menghapus semua data'
+        ]);
+    }
+}
+
+
+
+///
 
 public function updateAccount()
 {

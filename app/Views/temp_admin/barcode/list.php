@@ -269,8 +269,6 @@ document.getElementById('editBarcodeForm').addEventListener('submit', function(e
         Swal.fire('Error!', 'Terjadi kesalahan saat mengirim data.', 'error');
     });
 });
-
-// Fungsi hapus barcode
 function deleteBarcode(id) {
     Swal.fire({
         title: 'Apakah Anda yakin?',
@@ -281,32 +279,28 @@ function deleteBarcode(id) {
         cancelButtonText: 'Batal'
     }).then((result) => {
         if (result.isConfirmed) {
-            // Menggunakan Fetch API untuk menghapus barcode
-            fetch(`<?= base_url('admin/deletebarcode/') ?>${id}`, {
-                method: 'DELETE', // Menggunakan method DELETE
+            fetch(`<?= base_url('admin/deletebarcode') ?>/${id}`, {
+                method: 'DELETE',
                 headers: {
-                    'Content-Type': 'application/json',
-                    'X-Requested-With': 'XMLHttpRequest' // Bisa digunakan untuk mengindikasikan bahwa ini adalah permintaan AJAX
+                    'X-Requested-With': 'XMLHttpRequest'
                 }
             })
-            .then(res => res.json()) // Mengonversi response ke JSON
+            .then(res => res.json())
             .then(data => {
                 if (data.success) {
-                    Swal.fire('Berhasil!', 'Data barcode berhasil dihapus.', 'success')
-                        .then(() => {
-                            location.reload(); // Reload halaman setelah hapus
-                        });
+                    Swal.fire('Berhasil!', data.message, 'success')
+                        .then(() => location.reload());
                 } else {
-                    Swal.fire('Gagal!', 'Terjadi kesalahan saat menghapus data.', 'error');
+                    Swal.fire('Gagal!', data.message ?? 'Gagal menghapus data.', 'error');
                 }
             })
-            .catch(error => {
-                // Menangani error jika fetch gagal
-                Swal.fire('Error!', 'Terjadi kesalahan pada saat penghapusan.', 'error');
+            .catch(() => {
+                Swal.fire('Error!', 'Terjadi kesalahan server.', 'error');
             });
         }
     });
 }
+
 
 // Fungsi untuk form tambah barcode
 document.getElementById('tambahBarcodeForm').addEventListener('submit', function(e) {
