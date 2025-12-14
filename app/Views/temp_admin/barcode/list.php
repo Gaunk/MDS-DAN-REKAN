@@ -63,10 +63,11 @@
                                     </td>
                                     <td class="text-center">
                                         <img 
-                                            src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" 
-                                            alt="QR Code"
-                                            class="mb-2"
-                                        >
+    src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=70x70" 
+    alt="QR Code"
+    class="mb-2"
+/>
+
                                         <br>
                                         <button 
                                             class="btn btn-sm btn-success"
