@@ -144,7 +144,19 @@ document.addEventListener('DOMContentLoaded', function() {
                 presentation: '#0dcaf0',
                 custom: '#6c757d'
             };
-            info.el.style.backgroundColor = colors[tipe];
+            // Background event
+    info.el.style.backgroundColor = colors[tipe];
+    info.el.style.borderColor = colors[tipe];
+
+    // ⚠️ PAKSA WARNA TEKS
+    info.el.style.color = '#ffffff';
+
+    // Paksa juga judul event
+    const titleEl = info.el.querySelector('.fc-event-title');
+    if (titleEl) {
+        titleEl.style.color = '#ffffff';
+        titleEl.style.fontWeight = '600';
+    }
         }
     });
     calendar.render();
