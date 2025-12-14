@@ -1148,12 +1148,12 @@ public function kalender_aktivitas()
         ];
     }
 
-    // Ambil 3 event terdekat (dari tanggal sekarang)
+    // Ambil 3 event terdekat
     $today = date('Y-m-d');
     $upcomingRaw = $kalenderModel
         ->where('tanggal >=', $today)
         ->orderBy('tanggal', 'ASC')
-        ->findAll(3); // maksimal 3 event
+        ->findAll(3);
 
     $upcomingEvents = [];
     foreach ($upcomingRaw as $akt) {
@@ -1181,16 +1181,14 @@ public function kalender_aktivitas()
         'email'          => $email,
         'peran'          => $peran,
         'events'         => $events,
-        'upcomingEvents' => $upcomingEvents, // kirim ke view
+        'upcomingEvents' => $upcomingEvents,
         'kontak'         => $kontak
     ];
 
-    // Jika akses via AJAX, kirim JSON untuk FullCalendar
     if ($this->request->isAJAX()) {
         return $this->response->setJSON($events);
     }
 
-    // Tampilkan view normal
     return view('temp_admin/head', $data)
          . view('temp_admin/header', $data)
          . view('temp_admin/nav', $data)
@@ -1198,17 +1196,12 @@ public function kalender_aktivitas()
          . view('temp_admin/footer');
 }
 
-
-// Controller: Admin.php
-
-
 // ==========================
-// TAMBAH EVENT KALENDER (AJAX)
+// TAMBAH EVENT
 // ==========================
 public function kalender_tambah()
 {
     $request = $this->request->getJSON(true);
-
     $model = new \App\Models\KalenderModel();
 
     $data = [
@@ -1216,14 +1209,13 @@ public function kalender_tambah()
         'tanggal' => $request['tanggal'],
         'waktu_mulai' => $request['waktu_mulai'] ?? null,
         'waktu_selesai' => $request['waktu_selesai'] ?? null,
-        'all_day' => $request['all_day'],
+        'all_day' => $request['all_day'] ?? 0,
         'tipe' => $request['tipe'],
         'deskripsi' => $request['deskripsi'],
     ];
 
     $id = $model->insert($data);
     if ($id) {
-        // Siapkan response sesuai FullCalendar
         $start = $data['tanggal'] . ($data['waktu_mulai'] ? 'T'.$data['waktu_mulai'] : '');
         $end = $data['tanggal'] . ($data['waktu_selesai'] ? 'T'.$data['waktu_selesai'] : '');
         return $this->response->setJSON([
@@ -1233,7 +1225,7 @@ public function kalender_tambah()
                 'title' => $data['kegiatan'],
                 'start' => $start,
                 'end' => $end,
-                'allDay' => $data['all_day'] == 1 ? true : false,
+                'allDay' => $data['all_day'] == 1,
                 'tipe' => $data['tipe'],
                 'deskripsi' => $data['deskripsi'],
             ]
@@ -1243,41 +1235,61 @@ public function kalender_tambah()
     }
 }
 
-public function kalender_hapus()
+// ==========================
+// UPDATE EVENT
+// ==========================
+public function kalender_update()
 {
-    // Pastikan request AJAX
-    if (!$this->input->is_ajax_request()) {
-        show_404();
+    if (!$this->request->isAJAX()) {
+        return $this->response->setStatusCode(403, 'No direct access allowed');
     }
 
-    // Ambil JSON body
-    $input = json_decode($this->input->raw_input_stream, true);
+    $input = $this->request->getJSON(true);
 
-    if (!isset($input['id']) || empty($input['id'])) {
-        echo json_encode([
-            'success' => false,
-            'message' => 'ID event tidak ditemukan'
-        ]);
-        return;
+    if (!$input || empty($input['id'])) {
+        return $this->response->setJSON(['success'=>false,'message'=>'ID event tidak ditemukan']);
     }
 
     $id = $input['id'];
+    $data = [
+        'kegiatan' => $input['kegiatan'] ?? '',
+        'tanggal' => $input['tanggal'] ?? date('Y-m-d'),
+        'waktu_mulai' => $input['waktu_mulai'] ?? null,
+        'waktu_selesai' => $input['waktu_selesai'] ?? null,
+        'tipe' => $input['tipe'] ?? 'custom',
+        'deskripsi' => $input['deskripsi'] ?? '',
+        'all_day' => isset($input['all_day']) ? (int)$input['all_day'] : 0
+    ];
 
-    // Hapus data
-    $this->db->where('id', $id);
-    $delete = $this->db->delete('kalender'); // ganti nama tabel jika beda
+    $model = new \App\Models\KalenderModel();
+    $updated = $model->update($id, $data);
 
-    if ($delete) {
-        echo json_encode([
-            'success' => true,
-            'message' => 'Event berhasil dihapus'
-        ]);
+    if ($updated) {
+        return $this->response->setJSON(['success'=>true]);
     } else {
-        echo json_encode([
-            'success' => false,
-            'message' => 'Gagal menghapus event'
-        ]);
+        return $this->response->setJSON(['success'=>false,'message'=>'Gagal update event']);
     }
+}
+
+// ==========================
+// HAPUS EVENT
+// ==========================
+public function kalenderHapus()
+{
+    if (!$this->request->isAJAX()) {
+        return $this->response->setStatusCode(403, 'No direct access allowed');
+    }
+
+    $input = $this->request->getJSON(true);
+
+    if (empty($input['id'])) {
+        return $this->response->setJSON(['success'=>false,'message'=>'ID event tidak ditemukan']);
+    }
+
+    $model = new \App\Models\KalenderModel();
+    $deleted = $model->delete($input['id']);
+
+    return $this->response->setJSON(['success'=>(bool)$deleted]);
 }
 
 // ==========================
