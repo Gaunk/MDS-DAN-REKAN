@@ -14,59 +14,63 @@
 
             <!-- TABLE -->
             <div class="row">
-                <div class="col-md-12">
-                    <table class="table table-bordered" id="barcodeTable">
-                        <thead class="table-dark">
-                            <tr>
-                                <th>No</th>
-                                <th>Nama Pengacara</th>
-                                <th>Spesialis</th>
-                                <th>No. Handphone</th>
-                                <th>Maps</th>
-                                <th>Foto</th>
-                                <th>Link Profil</th>
-                                <th>QR Code</th>
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <?php $no=1; foreach($barcodeData as $d): ?>
-                            <tr>
-                                <td><?= $no++ ?></td>
-                                <td><?= esc($d['nama']) ?></td>
-                                <td><?= esc($d['spesialis']) ?></td>
-                                <td><?= esc($d['no_hp']) ?></td>
-                                <td><?= esc($d['lokasi_maps']) ?></td>
-                                <td>
-                                    <?php if ($d['foto']): ?>
-                                        <img src="<?= base_url('uploads/profile/'.$d['foto']) ?>" alt="Foto Pengacara" width="50" height="50">
-                                    <?php else: ?>
-                                        No Foto
-                                    <?php endif; ?>
-                                </td>
-                                <td>
-                                    <a href="<?= esc($d['link_profile']) ?>" target="_blank"><?= esc($d['link_profile']) ?></a>
-                                </td>
-                                <td>
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" alt="QR Code">
-                                </td>
-                                <td>
+                <div class="col-lg-12">
+                    <div class="table-responsive">
+                        <table class="table table-bordered table-striped" id="barcodeTable">
+                            <thead class="table-dark text-center">
+                                <tr>
+                                    <th>No</th>
+                                    <th>Nama Pengacara</th>
+                                    <th>Spesialis</th>
+                                    <th>No. Handphone</th>
+                                    <th>Maps</th>
+                                    <th>Foto</th>
+                                    <th>Link Profil</th>
+                                    <th>QR Code</th>
+                                    <th>Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php $no=1; foreach($barcodeData as $d): ?>
+                                <tr class="align-middle">
+                                    <td class="text-center"><?= $no++ ?></td>
+                                    <td><?= esc($d['nama']) ?></td>
+                                    <td><?= esc($d['spesialis']) ?></td>
+                                    <td class="text-center"><?= esc($d['no_hp']) ?></td>
+                                    <td class="text-wrap"><?= esc($d['lokasi_maps']) ?></td>
+                                    <td class="text-center">
+                                        <?php if ($d['foto']): ?>
+                                            <img src="<?= base_url('uploads/profile/'.$d['foto']) ?>" alt="Foto Pengacara" width="50" height="50">
+                                        <?php else: ?>
+                                            No Foto
+                                        <?php endif; ?>
+                                    </td>
+                                    <td class="text-center">
+                                        <button type="button" class="btn btn-sm btn-primary" 
+                                                onclick="window.open('<?= esc($d['link_profile']) ?>', '_blank')"
+                                                title="Lihat Detail">
+                                            <i class="fa fa-eye"></i>
+                                        </button>
+                                    </td>
+                                    <td class="text-center">
+                                        <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" alt="QR Code">
+                                    </td>
+                                    <td class="text-center">
+                                        <button class="btn btn-sm btn-warning" onclick="editBarcodeModal(<?= htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8') ?>)">
+                                            <i class="fa fa-edit"></i>
+                                        </button>
 
-                                	<button class="btn btn-sm btn-warning" onclick="editBarcodeModal(<?= htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8') ?>)">
-									    <i class="fa fa-edit"></i>
-									</button>
-
-
-									<button class="btn btn-sm btn-danger" onclick="deleteBarcode(<?= (int) $d['id'] ?>)">
-									    <i class="fa fa-trash"></i>
-									</button>
-
-                                </td>
-                            </tr>
-                            <?php endforeach; ?>
-                        </tbody>
-                    </table>
+                                        <button class="btn btn-sm btn-danger" onclick="deleteBarcode(<?= (int) $d['id'] ?>)">
+                                            <i class="fa fa-trash"></i>
+                                        </button>
+                                    </td>
+                                </tr>
+                                <?php endforeach; ?>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
+
             </div>
 
         </div>
