@@ -1185,6 +1185,7 @@ public function listPengguna()
             ->findAll(); 
 
     $data = [
+        'judul'      => 'List Pengguna',
         'username'   => $username,
         'email'      => $email,
         'peran'      => $peran,
@@ -1194,8 +1195,8 @@ public function listPengguna()
         'kontak'     => $kontak
     ];
 
-    return view('temp_admin/head').
-           view('temp_admin/header').
+    return view('temp_admin/head', $data).
+           view('temp_admin/header', $data).
            view('temp_admin/nav', $data).
            view('temp_admin/pengguna/list', $data).
            view('temp_admin/footer');
@@ -2023,6 +2024,7 @@ public function deletePerkara($id)
 
     // Gabungkan data untuk view
     $data = [
+        'judul'    => 'Status Kasus',
         'kontak'   => $kontak,
         'perkara'  => $perkara,
         'username' => $username,

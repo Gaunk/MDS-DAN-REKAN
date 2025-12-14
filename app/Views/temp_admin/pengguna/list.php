@@ -6,7 +6,7 @@
             <!-- Header -->
             <div class="row mb-3">
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
-                    <h2 class="title-1">Overview</h2>
+                    <h2 class="title-1">List Pengguna</h2>
                     <button class="au-btn au-btn-icon au-btn--blue" data-bs-toggle="modal" data-bs-target="#modalTambahUser">
                         <i class="zmdi zmdi-plus"></i> Add User
                     </button>
