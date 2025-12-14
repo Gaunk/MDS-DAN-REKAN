@@ -30,7 +30,7 @@
                     <!-- Event Terdekat -->
                     <div class="au-card m-b-30">
                         <div class="au-card-inner">
-                            <h3 class="title-2 m-b-30">Event Terdekat</h3>
+                            <h3 class="title-2 m-b-30">Jadwal Terdekat</h3>
                             <div id="upcoming-events">
                                 <p>Memuat event...</p>
                             </div>
@@ -171,8 +171,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h6 class="mb-1">${e.title}</h6>
                     <small class="text-muted">${timeText}</small>
                     <div class="mt-1">
-                        <span class="badge ${getBadgeClass(tipe)}">${tipe}</span>
-                    </div>
+    <span class="badge ${getBadgeClass(tipe)}" style="font-size: 0.62rem;">${tipe}</span>
+</div>
+
                 </div>
             </div>`;
         }).join('');
