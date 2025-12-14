@@ -15,7 +15,6 @@
                 <div class="col-lg-9">
                     <div class="au-card">
                         <div class="au-card-inner">
-                            <h3 class="title-2 m-b-40">Jadwal Kalender</h3>
                             <div id="calendar"></div>
                         </div>
                     </div>
@@ -26,7 +25,7 @@
                     <!-- Event Terdekat -->
                     <div class="au-card m-b-30">
                         <div class="au-card-inner">
-                            <h3 class="title-2 m-b-30">Jadwal Terdekat</h3>
+                            <h3 class="title-2 m-b-30">Terdekat</h3>
                             <div id="upcoming-events">
                                 <p>Memuat event...</p>
                             </div>
@@ -105,7 +104,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" id="cancel-btn" data-bs-dismiss="modal">Batal</button>
           <button type="button" id="delete-event-btn" class="btn btn-danger me-auto" style="display:none;">Hapus Event</button>
-          <button type="submit" class="btn btn-primary">Simpan Event</button>
+          <button type="submit" class="btn btn-primary">Simpan</button>
         </div>
 
       </div>
