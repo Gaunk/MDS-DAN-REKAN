@@ -37,11 +37,12 @@
                                     <td><?= esc($d['nama_pengacara']) ?></td>
                                     <td><?= esc($d['spesialis']) ?></td>
                                     <td class="text-center"><?= esc($d['no_hp']) ?></td>
-                                    <td class="text-wrap text-center">
+                                    <td class="text-wrap text-center text-info">
                                         <?php if (!empty($d['lokasi_maps'])): ?>
-                                            <a class="text-info" href="<?= esc($d['lokasi_maps']); ?>" target="_blank">
-                                                <i class="bi bi-geo-alt-fill text-danger"></i> Maps
-                                            </a>
+                                        <a href="https://www.google.com/maps/search/?api=1&query=<?= urlencode($d['lokasi_maps']); ?>" target="_blank">
+                                            <i class="bi bi-geo-alt-fill text-danger"></i>Maps
+                                        </a>
+
                                         <?php else: ?>
                                             -
                                         <?php endif; ?>
@@ -54,10 +55,10 @@
                                         <?php endif; ?>
                                     </td>
                                     <td class="text-center">
-                                        <button type="button" class="btn btn-sm btn-primary" 
+                                        <button type="button" class="btn btn-sm btn-info" 
                                                 onclick="window.open('<?= esc($d['link_profile']) ?>', '_blank')"
                                                 title="Lihat Detail">
-                                            <i class="fa fa-eye"></i>
+                                            <i class="fa fa-eye text-white"></i>
                                         </button>
                                     </td>
                                     <td class="text-center">
@@ -75,7 +76,7 @@
                                                 'longitude' => $d['longitude'] ?? '',
                                                 'foto' => $d['foto'] ?? ''
                                             ], JSON_HEX_APOS | JSON_HEX_QUOT) ?>)'>
-                                            <i class="fa fa-edit"></i>
+                                            <i class="fa fa-edit text-white"></i>
                                         </button>
 
 
