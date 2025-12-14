@@ -6,10 +6,6 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="overview-wrap">
-                        <h2 class="title-1">Kalender</h2>
-                        <button class="au-btn au-btn-icon au-btn--blue" onclick="addNewEvent()">
-                            <i class="zmdi zmdi-plus"></i> Tambah Event
-                        </button>
                     </div>
                 </div>
             </div>
@@ -40,7 +36,7 @@
                     <!-- Legend -->
                     <div class="au-card">
                         <div class="au-card-inner">
-                            <h3 class="title-2 m-b-30">Jenis Event</h3>
+                            <h3 class="title-2 m-b-30">Info Jadwal</h3>
                             <div class="calendar-legend">
                                 <div class="mb-2"><span class="badge bg-primary">Meeting</span></div>
                                 <div class="mb-2"><span class="badge bg-success">Task</span></div>
@@ -171,8 +167,8 @@ document.addEventListener('DOMContentLoaded', function() {
                     <h6 class="mb-1">${e.title}</h6>
                     <small class="text-muted">${timeText}</small>
                     <div class="mt-1">
-    <span class="badge ${getBadgeClass(tipe)}" style="font-size: 0.62rem;">${tipe}</span>
-</div>
+                        <span class="badge ${getBadgeClass(tipe)}" style="font-size: 0.62rem;">${tipe}</span>
+                    </div>
 
                 </div>
             </div>`;
