@@ -7,7 +7,7 @@
                 <div class="col-md-12 d-flex justify-content-between align-items-center">
                     <h2 class="title-1">Daftar Barcode Pengacara</h2>
                     <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#tambahBarcodeModal">
-                        Tambah Barcode
+                        <i class="fa fa-plus"></i>Tambah Barcode
                     </button>
                 </div>
             </div>
@@ -122,7 +122,7 @@
                         <!-- Kolom 2 -->
                         <div class="col-md-6 mb-3">
                             <label for="no_hp" class="form-label">No. Handphone</label>
-                            <input type="text" class="form-control" id="no_hp" name="no_hp" required>
+                            <input type="number" class="form-control" id="no_hp" name="no_hp" required>
                         </div>
 
                         <div class="col-md-6 mb-3">
@@ -195,7 +195,7 @@
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="edit_no_hp" class="form-label">No. Handphone</label>
-                            <input type="text" class="form-control" id="edit_no_hp" name="no_hp" required>
+                            <input type="number" class="form-control" id="edit_no_hp" name="no_hp" required>
                         </div>
                         <div class="col-md-6 mb-3">
                             <label for="edit_lokasi_maps" class="form-label">Lokasi Maps</label>
