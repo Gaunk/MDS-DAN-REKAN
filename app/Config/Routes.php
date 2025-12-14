@@ -104,7 +104,7 @@ $routes->group('admin', [
     //
     $routes->get('barcodeqr', 'Admin::barcodeQr');                      // Menampilkan halaman daftar barcode / QR
     $routes->post('prosesbarcode', 'Admin::prosesBarcode');  // Proses menambah barcode
-    $routes->post('updatebarcode', 'Admin::updateBarcode');  // Update barcode pengacara
+    $routes->post('updatebarcode/(:num)', 'Admin::updateBarcode/$1'); // Route untuk update barcode dengan ID
     $routes->delete('deletebarcode/(:num)', 'Admin::deleteBarcode/$1');  // Hapus barcode berdasarkan ID
 
     // 

@@ -34,7 +34,7 @@
                                 <?php $no=1; foreach($barcodeData as $d): ?>
                                 <tr class="align-middle">
                                     <td class="text-center"><?= $no++ ?></td>
-                                    <td><?= esc($d['nama']) ?></td>
+                                    <td><?= esc($d['nama_pengacara']) ?></td>
                                     <td><?= esc($d['spesialis']) ?></td>
                                     <td class="text-center"><?= esc($d['no_hp']) ?></td>
                                     <td class="text-wrap"><?= esc($d['lokasi_maps']) ?></td>
@@ -56,13 +56,27 @@
                                         <img src="https://api.qrserver.com/v1/create-qr-code/?data=<?= urlencode($d['link_profile']) ?>&size=100x100" alt="QR Code">
                                     </td>
                                     <td class="text-center">
-                                        <button class="btn btn-sm btn-warning" onclick="editBarcodeModal(<?= htmlspecialchars(json_encode($d), ENT_QUOTES, 'UTF-8') ?>)">
+                                        <button class="btn btn-warning btn-sm" 
+                                            onclick='editBarcodeModal(<?= json_encode([
+                                                'id' => $d['id'] ?? null,
+                                                'nama_pengacara' => $d['nama_pengacara'] ?? '',
+                                                'spesialis' => $d['spesialis'] ?? '',
+                                                'no_hp' => $d['no_hp'] ?? '',
+                                                'lokasi_maps' => $d['lokasi_maps'] ?? '',
+                                                'latitude' => $d['latitude'] ?? '',
+                                                'longitude' => $d['longitude'] ?? '',
+                                                'foto' => $d['foto'] ?? ''
+                                            ], JSON_HEX_APOS | JSON_HEX_QUOT) ?>)'>
                                             <i class="fa fa-edit"></i>
                                         </button>
 
-                                        <button class="btn btn-sm btn-danger" onclick="deleteBarcode(<?= (int) $d['id'] ?>)">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
+
+
+                                        <button class="btn btn-sm btn-danger" 
+        onclick="deleteBarcode(<?= $d['id'] ?>)">
+    <i class="fa fa-trash"></i>
+</button>
+
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -152,7 +166,7 @@
 
 <!-- Modal Edit Barcode -->
 <div class="modal fade" id="editBarcodeModal" tabindex="-1" aria-labelledby="editBarcodeModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
+    <div class="modal-dialog modal-lg"> <!-- modal lebih lebar -->
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editBarcodeModalLabel">Edit Barcode Pengacara</h5>
@@ -160,7 +174,7 @@
             </div>
             <div class="modal-body">
                 <form id="editBarcodeForm" enctype="multipart/form-data">
-                    <input type="hidden" id="editBarcodeId" name="id"> <!-- Hidden input to store the barcode ID -->
+                    <input type="hidden" id="editBarcodeId" name="id">
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
@@ -172,20 +186,17 @@
                                 <?php endforeach; ?>
                             </select>
                         </div>
-
                         <div class="col-md-6 mb-3">
                             <label for="edit_spesialis" class="form-label">Spesialis</label>
                             <input type="text" class="form-control" id="edit_spesialis" name="spesialis" required>
                         </div>
                     </div>
 
-                    <!-- Kolom 2 -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <label for="edit_no_hp" class="form-label">No. Handphone</label>
                             <input type="text" class="form-control" id="edit_no_hp" name="no_hp" required>
                         </div>
-
                         <div class="col-md-6 mb-3">
                             <label for="edit_lokasi_maps" class="form-label">Lokasi Maps</label>
                             <input type="text" class="form-control" id="edit_lokasi_maps" name="lokasi_maps" placeholder="Cari lokasi..." required>
@@ -193,29 +204,25 @@
                         </div>
                     </div>
 
-                    <!-- Kolom 3 -->
                     <div class="row">
                         <div class="col-md-6 mb-3">
                             <input type="hidden" id="edit_latitude" name="latitude">
                             <input type="hidden" id="edit_longitude" name="longitude">
                         </div>
-
                         <div class="col-md-6 mb-3">
                             <label for="edit_foto" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="edit_foto" name="foto">
+                            <div id="edit_fotoPreview" style="text-align:center; margin-top:10px;"></div>
                         </div>
                     </div>
 
                     <div class="row">
                         <div class="col-md-6 mb-3">
-                            <label for="edit_barcode" class="form-label">QR Code Preview</label>
-                            <div id="edit_barcodePreview" style="text-align:center;">
-                                <!-- QR Code Image will appear here -->
-                            </div>
+                            <label for="edit_barcode" class="form-label"></label>
+                            <div id="edit_barcodePreview" style="text-align:center;"></div>
                         </div>
                     </div>
 
-                    <!-- Tombol Simpan -->
                     <div class="d-flex justify-content-end mt-3">
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </div>
@@ -227,53 +234,57 @@
 
 <!-- SweetAlert2 -->
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-<script>
-// Fungsi untuk mengisi modal dengan data yang sesuai
-function editBarcodeModal(data) {
-    // Mengisi data ke form
-    document.getElementById('editBarcodeId').value = data.id;  // Set ID barcode yang akan diupdate
-    document.getElementById('edit_nama_pengacara').value = data.nama_pengacara;
-    document.getElementById('edit_spesialis').value = data.spesialis;
-    document.getElementById('edit_no_hp').value = data.no_hp;
-    document.getElementById('edit_lokasi_maps').value = data.lokasi_maps;
-    document.getElementById('edit_latitude').value = data.latitude;
-    document.getElementById('edit_longitude').value = data.longitude;
 
-    // Menampilkan QR Code Preview
-    const profileUrl = `http://localhost:8080/profile/${data.id}`;
+<script>// Fungsi untuk menampilkan modal dan mengisi data dari tabel_barcode
+function editBarcodeModal(data) {
+    // Isi form
+    document.getElementById('editBarcodeId').value = data.id || '';
+    document.getElementById('edit_nama_pengacara').value = data.nama_pengacara || '';
+    document.getElementById('edit_spesialis').value = data.spesialis || '';
+    document.getElementById('edit_no_hp').value = data.no_hp || '';
+    document.getElementById('edit_lokasi_maps').value = data.lokasi_maps || '';
+    document.getElementById('edit_latitude').value = data.latitude || '';
+    document.getElementById('edit_longitude').value = data.longitude || '';
+
+    // Foto preview
+    const fotoPreview = document.getElementById('edit_fotoPreview');
+    if (data.foto) {
+        fotoPreview.innerHTML = `<img src="<?= base_url('uploads/profile/') ?>${data.foto}" alt="Foto Pengacara" width="120" class="img-thumbnail">`;
+    } else {
+        fotoPreview.innerHTML = 'No Foto';
+    }
+
+    // QR Code preview
+    const profileUrl = `<?= base_url('profile') ?>/${data.id}`;
     const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?data=${encodeURIComponent(profileUrl)}&size=150x150`;
     document.getElementById('edit_barcodePreview').innerHTML = `<img src="${qrCodeUrl}" alt="QR Code">`;
 
-    // Menampilkan modal
-    $('#editBarcodeModal').modal('show');
+    // Tampilkan modal (Bootstrap 5)
+    const editModal = new bootstrap.Modal(document.getElementById('editBarcodeModal'));
+    editModal.show();
 }
 
-// Menangani submit form edit
+// Submit form edit ke tabel_barcode
 document.getElementById('editBarcodeForm').addEventListener('submit', function(e) {
-    e.preventDefault();  // Mencegah reload halaman
+    e.preventDefault();
+    const formData = new FormData(this);
+    const id = formData.get('id');
 
-    let formData = new FormData(this);  // Ambil data form
-
-    fetch('<?= base_url('admin/updatebarcode') ?>', {  // Ganti dengan URL yang sesuai untuk proses edit
-        method: 'POST',
+    fetch(`<?= base_url('admin/updatebarcode') ?>/${id}`, {
+        method: 'POST',  // POST sesuai route CI4
         body: formData
     })
     .then(res => res.json())
     .then(data => {
-        if (data.success) {
-            Swal.fire('Berhasil!', 'Data barcode berhasil diperbarui.', 'success').then(() => {
-                // Setelah berhasil, reload atau update tabel
-                location.reload(); // Reload halaman setelah update
-            });
-        } else {
-            Swal.fire('Gagal!', data.message || 'Terjadi kesalahan.', 'error');
-        }
+        if(data.success) Swal.fire('Berhasil', data.message, 'success').then(() => location.reload());
+        else Swal.fire('Gagal', data.message, 'error');
     })
-    .catch(error => {
-        Swal.fire('Error!', 'Terjadi kesalahan saat mengirim data.', 'error');
-    });
+    .catch(() => Swal.fire('Error', 'Terjadi kesalahan server.', 'error'));
 });
+
 function deleteBarcode(id) {
+    if (!id) return alert('ID tidak valid');
+
     Swal.fire({
         title: 'Apakah Anda yakin?',
         text: "Data ini akan dihapus secara permanen!",
@@ -304,7 +315,6 @@ function deleteBarcode(id) {
         }
     });
 }
-
 
 // Fungsi untuk form tambah barcode
 document.getElementById('tambahBarcodeForm').addEventListener('submit', function(e) {

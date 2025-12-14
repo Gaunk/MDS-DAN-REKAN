@@ -1527,6 +1527,7 @@ public function jadwalpertemuan()
             ->findAll();
 
     $data = [
+        'judul'      => 'Jadwal Pertemuan',
         'username'   => $username,
         'email'      => $email,
         'peran'      => $peran,
@@ -2178,6 +2179,7 @@ public function pengacara()
     // 5. Siapkan data untuk view
     // ============================
     $data = [
+        'judul'         => 'Pengacara',
         'kontak'       => $kontak,
         'pengacara'   => $pengacara,
         'peranList'   => $peranList,    // dropdown peran
@@ -2212,7 +2214,7 @@ public function savePengacara()
 
     if ($fotoFile && $fotoFile->isValid() && !$fotoFile->hasMoved()) {
         $fotoName = $fotoFile->getRandomName();
-        $fotoFile->move(WRITEPATH . 'uploads/pengacara', $fotoName);
+        $fotoFile->move(FCPATH . 'uploads/pengacara', $fotoName);
     }
 
     // ===============================
@@ -2384,6 +2386,7 @@ public function account()
 
     // Data yang dikirim ke view
     $data = [
+        'judul'      => 'Akun',
         'kontak'     => $kontak,
         'title'      => 'Pengaturan Akun',
         'menuActive' => 'account',
@@ -2400,13 +2403,14 @@ public function account()
         . view('temp_admin/account/profile', $data)
         . view('temp_admin/footer');
 }
+
 public function barcodeQr()
 {
-    // Membuat instance model
+    // Load model
     $adminModel = new \App\Models\AdminModel();
     $kontakModel = new \App\Models\KontakModel();
-    $tabelBarcodeModel = new \App\Models\TabelBarcodeModel(); // Menambahkan model TabelBarcodeModel
-    $tabelPengacaraModel = new \App\Models\PengacaraModel(); // Menambahkan model TabelPengacaraModel
+    $tabelBarcodeModel = new \App\Models\TabelBarcodeModel();
+    $tabelPengacaraModel = new \App\Models\PengacaraModel();
 
     // Ambil ID user dari session
     $id = session()->get('user_id');
@@ -2414,52 +2418,46 @@ public function barcodeQr()
         return redirect()->to('/login')->with('error', 'Silakan login terlebih dahulu.');
     }
 
-    // Ambil data user dari tabel_pengguna sesuai ID login
+    // Ambil data user
     $user = $adminModel->find($id);
     if (!$user) {
         return redirect()->back()->with('error', 'Data user tidak ditemukan.');
     }
 
-    // Siapkan variabel untuk view
-    $username = $user['username'];
-    $email    = $user['email'];
-    $peran    = $user['peran'];
+    // Ambil kontak unread
+    $kontak = $kontakModel->where('is_read', 0)->orderBy('created_at', 'DESC')->findAll();
 
-    // Ambil kontak unread untuk header/nav
-    $kontak = $kontakModel
-        ->where('is_read', 0)
-        ->orderBy('created_at', 'DESC')
-        ->findAll();
-
-    // Ambil data barcode dengan nama pengacara melalui join
     $barcodeData = $tabelBarcodeModel
-        ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_barcode.nama_pengacara', 'left') // Assuming the foreign key is 'id_pengacara'
-        ->findAll(); // Mengambil semua data barcode dan nama pengacara yang sudah di-join
+    ->select('tabel_barcode.*, tabel_pengacara.nama AS nama_pengacara') // Ambil nama pengacara dari tabel_pengacara
+    ->join('tabel_pengacara', 'tabel_pengacara.id = tabel_barcode.nama_pengacara', 'left') // Join berdasarkan foreign key
+    ->orderBy('tabel_barcode.id', 'DESC')
+    ->findAll();
 
-    // Ambil daftar nama pengacara untuk dropdown
-    $pengacaraData = $tabelPengacaraModel->findAll(); // Mengambil semua data pengacara
+
+
+    // Ambil daftar pengacara untuk dropdown
+    $pengacaraData = $tabelPengacaraModel->findAll();
 
     // Data yang dikirim ke view
     $data = [
         'kontak'        => $kontak,
         'judul'         => 'Barcode',
         'menuActive'    => 'account',
-        'username'      => $username,
-        'email'         => $email,
-        'peran'         => $peran,
-        'user'          => $user,  // agar view bisa akses $user['...']
-        'barcodeData'   => $barcodeData, // Menambahkan data barcode yang sudah join
-        'pengacaraData' => $pengacaraData, // Menambahkan data pengacara
+        'username'      => $user['username'],
+        'email'         => $user['email'],
+        'peran'         => $user['peran'],
+        'user'          => $user,
+        'barcodeData'   => $barcodeData,
+        'pengacaraData' => $pengacaraData,
     ];
 
-    // Gabungkan beberapa view menjadi satu string dan kirim data ke view
+    // Load view
     return view('temp_admin/head', $data)
         . view('temp_admin/header', $data)
         . view('temp_admin/nav', $data)
-        . view('temp_admin/barcode/list', $data) // Tampilan barcode
+        . view('temp_admin/barcode/list', $data)
         . view('temp_admin/footer');
 }
-
 
 public function prosesBarcode()
 {
@@ -2517,24 +2515,33 @@ public function prosesBarcode()
     }
 }
 
-    // Method untuk proses update barcode pengacara
-    public function updateBarcode($id)
+// Method untuk proses update barcode pengacara
+public function updateBarcode($id)
 {
     $model = new TabelBarcodeModel();
+
+    // Ambil data lama dari database
+    $existing = $model->find($id);
 
     // Ambil data yang dikirim dari form
     $data = [
         'nama_pengacara' => $this->request->getPost('nama_pengacara'),
-        'spesialis' => $this->request->getPost('spesialis'),
-        'no_hp' => $this->request->getPost('no_hp'),
-        'lokasi_maps' => $this->request->getPost('lokasi_maps'),
-        'latitude' => $this->request->getPost('latitude'),
-        'longitude' => $this->request->getPost('longitude'),
+        'spesialis'      => $this->request->getPost('spesialis'),
+        'no_hp'          => $this->request->getPost('no_hp'),
+        'lokasi_maps'    => $this->request->getPost('lokasi_maps'),
+        'latitude'       => $this->request->getPost('latitude'),
+        'longitude'      => $this->request->getPost('longitude'),
     ];
 
     // Cek jika ada foto yang diupload
     if ($foto = $this->request->getFile('foto')) {
         if ($foto->isValid() && !$foto->hasMoved()) {
+            // Hapus foto lama jika ada
+            if (!empty($existing['foto']) && file_exists('uploads/profile/' . $existing['foto'])) {
+                unlink('uploads/profile/' . $existing['foto']);
+            }
+
+            // Simpan foto baru
             $newName = $foto->getRandomName(); // Generate nama acak untuk file
             $foto->move('uploads/profile/', $newName); // Simpan foto di folder 'uploads/profile'
             $data['foto'] = $newName; // Simpan nama foto ke field foto
@@ -2558,45 +2565,46 @@ public function prosesBarcode()
     }
 }
 
-public function deleteBarcode()
+
+public function deleteBarcode($id = null)
 {
     $model = new \App\Models\TabelBarcodeModel();
 
-    try {
-        // 1️⃣ Ambil semua data barcode
-        $allBarcodes = $model->findAll();
-
-        foreach ($allBarcodes as $row) {
-            if (!empty($row['foto'])) {
-                // Sesuaikan path sesuai lokasi penyimpanan file di server
-                $filePath = FCPATH . 'uploads/profile/' . basename($row['foto']);
-
-                if (file_exists($filePath)) {
-                    @unlink($filePath); // Hapus file, @ untuk suppress error
-                }
-            }
-        }
-
-        // 2️⃣ Hapus semua baris di tabel
-        $model->truncate(); // Lebih cepat daripada delete(null)
-
-        return $this->response->setJSON([
-            'success' => true,
-            'message' => 'Semua data barcode dan file terkait berhasil dihapus'
-        ]);
-    } catch (\Throwable $e) {
-        log_message('error', 'Delete all barcodes error: ' . $e->getMessage());
-
+    if (!$id) {
         return $this->response->setJSON([
             'success' => false,
-            'message' => 'Terjadi kesalahan saat menghapus semua data'
+            'message' => 'ID tidak dikirim'
         ]);
     }
+
+    $row = $model->find($id);
+
+    if (!$row) {
+        return $this->response->setJSON([
+            'success' => false,
+            'message' => 'Data tidak ditemukan'
+        ]);
+    }
+
+    // Hapus foto jika ada
+    if (!empty($row['foto'])) {
+        $filePath = FCPATH . 'uploads/profile/' . basename($row['foto']);
+        if (file_exists($filePath)) unlink($filePath);
+    }
+
+    // Hapus barcode file jika ada
+    if (!empty($row['barcode'])) {
+        $barcodePath = FCPATH . 'uploads/qr_codes/' . basename($row['barcode']);
+        if (file_exists($barcodePath)) unlink($barcodePath);
+    }
+
+    $model->delete($id);
+
+    return $this->response->setJSON([
+        'success' => true,
+        'message' => 'Data barcode berhasil dihapus beserta foto dan barcode terkait'
+    ]);
 }
-
-
-
-///
 
 public function updateAccount()
 {
