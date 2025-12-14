@@ -2209,7 +2209,15 @@ public function savePengacara()
     $db = db_connect();
 
     // ===============================
-    // 1. Upload foto jika ada
+    // 1. Cek duplikat email
+    // ===============================
+    $existingEmail = $pengacaraModel->where('email', $post['email'])->first();
+    if ($existingEmail) {
+        return redirect()->back()->withInput()->with('error', 'Email sudah digunakan oleh pengacara lain!');
+    }
+
+    // ===============================
+    // 2. Upload foto jika ada
     // ===============================
     $fotoFile = $this->request->getFile('foto_pengacara');
     $fotoName = null;
@@ -2220,25 +2228,23 @@ public function savePengacara()
     }
 
     // ===============================
-    // 2. Validasi id_peran dan id_jurusan
+    // 3. Validasi id_peran dan id_jurusan
     // ===============================
     $id_peran   = $post['peran'] ?? null;
     $id_jurusan = $post['jurusan'] ?? null;
 
-    // Optional: cek apakah id_peran ada di tabel_peran
     if (!empty($id_peran)) {
         $cekPeran = $db->table('tabel_peran')->where('id', $id_peran)->get()->getRowArray();
         if (!$cekPeran) $id_peran = null;
     }
 
-    // Optional: cek apakah id_jurusan ada di tabel_jurusan_hukum
     if (!empty($id_jurusan)) {
         $cekJurusan = $db->table('tabel_jurusan_hukum')->where('id', $id_jurusan)->get()->getRowArray();
         if (!$cekJurusan) $id_jurusan = null;
     }
 
     // ===============================
-    // 3. Simpan data ke tabel_pengacara
+    // 4. Simpan data ke tabel_pengacara
     // ===============================
     $pengacaraModel->insert([
         'nama'           => $post['nama'],
@@ -2251,11 +2257,12 @@ public function savePengacara()
         'peran'          => $id_peran,
         'foto_pengacara' => $fotoName,
         'created_at'     => date('Y-m-d H:i:s'),
-        'update_at'      => date('Y-m-d H:i:s')
+        'updated_at'    => date('Y-m-d H:i:s') // perbaiki typo update_at -> updated_at
     ]);
 
     return redirect()->back()->with('success', 'Pengacara berhasil ditambahkan!');
 }
+
 
 public function updatePengacara()
 {

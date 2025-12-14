@@ -15,8 +15,8 @@
             <!-- TABLE -->
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="table-responsive">
-                        <table class="table table-bordered table-striped" id="barcodeTable">
+                    <div class="table-responsive mt-3">
+                        <table class="table table-borderless table-striped table-earning" id="barcodeTable">
                             <thead class="table-dark text-center">
                                 <tr>
                                     <th>No</th>
@@ -37,7 +37,15 @@
                                     <td><?= esc($d['nama_pengacara']) ?></td>
                                     <td><?= esc($d['spesialis']) ?></td>
                                     <td class="text-center"><?= esc($d['no_hp']) ?></td>
-                                    <td class="text-wrap"><?= esc($d['lokasi_maps']) ?></td>
+                                    <td class="text-wrap text-center">
+                                        <?php if (!empty($d['lokasi_maps'])): ?>
+                                            <a class="text-info" href="<?= esc($d['lokasi_maps']); ?>" target="_blank">
+                                                <i class="bi bi-geo-alt-fill text-danger"></i> Maps
+                                            </a>
+                                        <?php else: ?>
+                                            -
+                                        <?php endif; ?>
+                                    </td>
                                     <td class="text-center">
                                         <?php if ($d['foto']): ?>
                                             <img src="<?= base_url('uploads/profile/'.$d['foto']) ?>" alt="Foto Pengacara" width="50" height="50">
