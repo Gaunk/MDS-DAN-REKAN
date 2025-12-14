@@ -26,7 +26,7 @@
                         <div class="au-card-inner">
                             <h3 class="title-2 m-b-30">Terdekat</h3>
                             <div id="upcoming-events">
-                                <p>Memuat event...</p>
+                                <p>Memuat jadwal...</p>
                             </div>
                         </div>
                     </div>
@@ -145,18 +145,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 custom: '#6c757d'
             };
             // Background event
-    info.el.style.backgroundColor = colors[tipe];
-    info.el.style.borderColor = colors[tipe];
+            info.el.style.backgroundColor = colors[tipe];
+            info.el.style.borderColor = colors[tipe];
 
-    // ⚠️ PAKSA WARNA TEKS
-    info.el.style.color = '#ffffff';
+            // ⚠️ PAKSA WARNA TEKS
+            info.el.style.color = '#ffffff';
 
-    // Paksa juga judul event
-    const titleEl = info.el.querySelector('.fc-event-title');
-    if (titleEl) {
-        titleEl.style.color = '#ffffff';
-        titleEl.style.fontWeight = '600';
-    }
+            // Paksa juga judul event
+            const titleEl = info.el.querySelector('.fc-event-title');
+            if (titleEl) {
+                titleEl.style.color = '#ffffff';
+                titleEl.style.fontWeight = '600';
+            }
         }
     });
     calendar.render();
@@ -202,7 +202,7 @@ function updateUpcoming() {
         .slice(0,5);
 
     if(events.length === 0) {
-        upcomingEl.innerHTML = '<p>Belum ada event.</p>';
+        upcomingEl.innerHTML = '<p>Belum ada jadwal.</p>';
         return;
     }
 
