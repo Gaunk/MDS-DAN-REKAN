@@ -85,7 +85,8 @@
                     </div>
                 </div>
                 <div class="col-md-12">
-                    <table class="table table-bordered" id="pembayaranTable">
+                    <div class="table-responsive">
+                    <table class="table table-borderless table-striped table-earning" id="pembayaranTable">
                         <thead class="table-dark">
                             <tr>
                                 <th>No</th>
@@ -151,7 +152,7 @@
                     <nav class="mt-3">
                         <ul class="pagination justify-content-center" id="pembayaranPagination"></ul>
                     </nav>
-
+                    </div>
                 </div>
             </div>
 

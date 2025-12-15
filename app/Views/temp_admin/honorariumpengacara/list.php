@@ -16,7 +16,8 @@
             <!-- TABLE -->
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-bordered" id="honorTable">
+                    <div class="table-responsive">
+                    <table class="table table-borderless table-striped table-earning" id="honorTable">
                         <thead class="table-dark">
                             <tr>
                                 <th>No</th>
@@ -61,6 +62,7 @@
                         </tbody>
 
                     </table>
+                    </div>
                 </div>
             </div>
 

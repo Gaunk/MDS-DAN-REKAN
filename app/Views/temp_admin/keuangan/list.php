@@ -57,7 +57,7 @@
 
             <!-- MUTASI TABLE -->
             <div class="table-responsive">
-                <table class="table table-bordered table-hover" id="mutasiTable">
+                <table class="table table-borderless table-striped table-earning table-hover" id="mutasiTable">
                     <thead class="table-dark">
                         <tr>
                             <th>Tanggal</th>

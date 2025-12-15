@@ -21,7 +21,8 @@
             <!-- TABLE -->
             <div class="row">
                 <div class="col-md-12">
-                    <table class="table table-bordered" id="tagihanTable">
+                    <div class="table-responsive">
+                    <table class="table table-borderless table-striped table-earning" id="tagihanTable">
                         <thead class="table-dark">
                             <tr>
                                 <th>No</th>
@@ -71,6 +72,7 @@
                             <?php endforeach; ?>
                         </tbody>
                     </table>
+                    </div>
                 </div>
             </div>
 
