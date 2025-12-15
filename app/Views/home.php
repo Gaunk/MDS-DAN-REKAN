@@ -15,11 +15,13 @@
             </div>
           </div>
           <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <img src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
-         class="img-fluid animated" 
-         alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>">
+            <img 
+                src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
+                class="img-fluid animated" 
+                alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
+            >
+        </div>
 
-          </div>
         </div>
       </div>
 
@@ -511,14 +513,14 @@
             }
           </script>
           <div class="swiper-wrapper align-items-center">
-            <div class="swiper-slide"><img src="assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
-            <div class="swiper-slide"><img src="assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-1.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-2.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-3.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-4.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-5.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-6.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-7.png" class="img-fluid" alt=""></div>
+            <div class="swiper-slide"><img src="<?= base_url('temp_home/') ?>assets/img/clients/client-8.png" class="img-fluid" alt=""></div>
           </div>
           <div class="swiper-pagination"></div>
         </div>
