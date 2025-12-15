@@ -6,13 +6,21 @@ use App\Models\PengaturanSistemModel;
 use App\Models\PengacaraModel;
 use App\Models\KontakModel;
 
-
 class Home extends BaseController
 {
     public function index(): string
     {
         // Ambil pengaturan sistem (baris pertama)
-        $pengaturan = (new PengaturanSistemModel())->first() ?? [];
+        $pengaturanModel = new PengaturanSistemModel();
+        $pengaturan = $pengaturanModel->first() ?? [];
+
+        // Cek status maintenance dari kolom 'maintenance'
+        $maintenanceActive = $pengaturan['maintenance'] ?? 0;
+
+        if ($maintenanceActive) {
+            // Jika maintenance aktif, tampilkan halaman maintenance
+            return view('maintenance'); // Buat view maintenance.php
+        }
 
         // Ambil semua pengacara
         $pengacara = (new PengacaraModel())->findAll();
@@ -24,7 +32,7 @@ class Home extends BaseController
             'pengacara'  => $pengacara
         ];
 
-        // Load view
+        // Load view normal
         return 
             view('temp_home/head', $data) .
             view('temp_home/nav', $data) .
@@ -33,34 +41,32 @@ class Home extends BaseController
     }
 
     public function submit()
-{
-    if (!$this->request->isAJAX()) {
-        return redirect()->back();
+    {
+        if (!$this->request->isAJAX()) {
+            return redirect()->back();
+        }
+
+        $kontakModel = new KontakModel();
+
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'name'    => 'required',
+            'email'   => 'required|valid_email',
+            'subject' => 'required',
+            'message' => 'required',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return $this->response->setJSON(['errors' => $validation->getErrors()]);
+        }
+
+        $kontakModel->save([
+            'name'    => $this->request->getPost('name'),
+            'email'   => $this->request->getPost('email'),
+            'subject' => $this->request->getPost('subject'),
+            'message' => $this->request->getPost('message'),
+        ]);
+
+        return $this->response->setJSON(['success' => 'Your message has been sent. Thank you!']);
     }
-
-    $kontakModel = new \App\Models\KontakModel();
-
-    $validation = \Config\Services::validation();
-    $validation->setRules([
-        'name'    => 'required',
-        'email'   => 'required|valid_email',
-        'subject' => 'required',
-        'message' => 'required',
-    ]);
-
-    if (!$validation->withRequest($this->request)->run()) {
-        return $this->response->setJSON(['errors' => $validation->getErrors()]);
-    }
-
-    $kontakModel->save([
-        'name'    => $this->request->getPost('name'),
-        'email'   => $this->request->getPost('email'),
-        'subject' => $this->request->getPost('subject'),
-        'message' => $this->request->getPost('message'),
-    ]);
-
-    return $this->response->setJSON(['success' => 'Your message has been sent. Thank you!']);
-}
-
-
 }

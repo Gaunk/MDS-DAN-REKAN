@@ -57,13 +57,13 @@
                         </div>
 
                         <!-- KEYWORD -->
-<div class="mb-3">
-    <label>Keyword (Meta Keywords)</label>
-    <input type="text" id="keywordInput" name="keyword" class="form-control" 
-           value="<?= esc($keyword ?? '') ?>" 
-           placeholder="Tekan ENTER untuk menambah keyword">
-    <div id="keywordTags" class="mt-2"></div>
-</div>
+                        <div class="mb-3">
+                            <label>Keyword (Meta Keywords)</label>
+                            <input type="text" id="keywordInput" name="keyword" class="form-control" 
+                                   value="<?= esc($keyword ?? '') ?>" 
+                                   placeholder="Tekan ENTER untuk menambah keyword">
+                            <div id="keywordTags" class="mt-2"></div>
+                        </div>
 
 
                         <!-- Copyright -->
