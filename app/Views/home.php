@@ -39,76 +39,74 @@
 }
 </style>
 
+  <!-- Hero Section -->
+  <section id="hero" class="section hero light-background">
 
-<!-- Hero Section -->
-<section id="hero" class="section hero light-background">
-
-  <div class="container">
-    <div class="row gy-4">
-      
-      <!-- Hero Text -->
-      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-        <h1>MDS DAN REKAN</h1>
-        <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
-        <div class="d-flex">
-          <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
-          <a href="#" class="glightbox btn-watch-video d-flex align-items-center">
-            <i class="bi bi-play-circle"></i><span>Watch Video</span>
-          </a>
-        </div>
-      </div>
-
-      <!-- Hero Slider -->
-      <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
-
-          <div class="carousel-inner">
-            <!-- Slide 1 -->
-            <div class="carousel-item active">
-              <img 
-                src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
-                class="d-block w-100 img-fluid animated" 
-                alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
-              >
-            </div>
-
-            <!-- Slide 2 -->
-            <div class="carousel-item">
-              <img 
-                src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
-                class="d-block w-100 img-fluid animated" 
-                alt="Slider Image 1"
-              >
-            </div>
-
-            <!-- Slide 3 -->
-            <div class="carousel-item">
-              <img 
-                src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
-                class="d-block w-100 img-fluid animated" 
-                alt="Slider Image 2"
-              >
-            </div>
+    <div class="container">
+      <div class="row gy-4">
+        
+        <!-- Hero Text -->
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+          <h1>MDS DAN REKAN</h1>
+          <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
+          <div class="d-flex">
+            <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
+            <a href="#" class="glightbox btn-watch-video d-flex align-items-center">
+              <i class="bi bi-play-circle"></i><span>Watch Video</span>
+            </a>
           </div>
-
-          <!-- Controls -->
-          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-          </button>
-
         </div>
+
+        <!-- Hero Slider -->
+        <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+          <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+
+            <div class="carousel-inner">
+              <!-- Slide 1 -->
+              <div class="carousel-item active">
+                <img 
+                  src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
+                  class="d-block w-100 img-fluid animated" 
+                  alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
+                >
+              </div>
+
+              <!-- Slide 2 -->
+              <div class="carousel-item">
+                <img 
+                  src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
+                  class="d-block w-100 img-fluid animated" 
+                  alt="Slider Image 1"
+                >
+              </div>
+
+              <!-- Slide 3 -->
+              <div class="carousel-item">
+                <img 
+                  src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
+                  class="d-block w-100 img-fluid animated" 
+                  alt="Slider Image 2"
+                >
+              </div>
+            </div>
+
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+
+          </div>
+        </div>
+
       </div>
-
     </div>
-  </div>
 
-</section><!-- /Hero Section -->
-
+  </section><!-- /Hero Section -->
 
 </main>
 
@@ -614,6 +612,159 @@
       </div>
 
     </section><!-- /Clients Section -->
+    <!-- Visitors Section -->
+<section id="visitors" class="visitors section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2>Pengunjung</h2>
+    <p>
+      Temukan informasi dan layanan yang tersedia untuk pengunjung kami. 
+      Kami menyediakan berbagai bantuan agar pengalaman Anda lebih mudah dan nyaman.
+    </p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-4 justify-content-center">
+
+      <!-- Card 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center p-4 shadow-sm border-0 rounded-4 visitor-card">
+          <div class="icon-wrapper mb-3">
+            <i class="bi bi-info-circle animated-icon" style="font-size: 60px; color: #4e73df;"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Informasi Layanan</h5>
+            <p class="card-text">Dapatkan informasi lengkap tentang layanan yang kami sediakan untuk pengunjung.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center p-4 shadow-sm border-0 rounded-4 visitor-card">
+          <div class="icon-wrapper mb-3">
+            <i class="bi bi-life-preserver animated-icon" style="font-size: 60px; color: #1cc88a;"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Bantuan & Panduan</h5>
+            <p class="card-text">Butuh bantuan? Ikuti panduan kami atau hubungi tim untuk mendapatkan solusi cepat.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 text-center p-4 shadow-sm border-0 rounded-4 visitor-card">
+          <div class="icon-wrapper mb-3">
+            <i class="bi bi-envelope animated-icon" style="font-size: 60px; color: #f6c23e;"></i>
+          </div>
+          <div class="card-body">
+            <h5 class="card-title">Kontak Kami</h5>
+            <p class="card-text">Ada pertanyaan? Hubungi kami melalui telepon, email, atau media sosial yang tersedia.</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section><!-- /Visitors Section -->
+
+<!-- CSS untuk efek hover animasi -->
+<style>
+.visitor-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.visitor-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+
+.animated-icon {
+  transition: transform 0.3s;
+}
+
+.visitor-card:hover .animated-icon {
+  transform: scale(1.3) rotate(-10deg);
+}
+</style>
+
+<!-- News Article Section -->
+<section id="news" class="news section light-background">
+
+  <!-- Section Title -->
+  <div class="container section-title text-center" data-aos="fade-up">
+    <h2>Berita Terbaru</h2>
+    <p>
+      Ikuti perkembangan terbaru dan informasi penting dari kami.
+    </p>
+  </div><!-- End Section Title -->
+
+  <div class="container" data-aos="fade-up" data-aos-delay="100">
+    <div class="row g-4">
+
+      <!-- Article 1 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4 news-card">
+          <img src="https://storage.googleapis.com/danacita-website-v3-prd/website_v3/images/lawyer.original.jpg" class="card-img-top rounded-top-4" alt="Berita 1">
+          <div class="card-body">
+            <h5 class="card-title">Peningkatan Layanan Hukum</h5>
+            <p class="card-text">
+              Kami terus meningkatkan layanan hukum untuk masyarakat. Panduan interaktif dan konsultasi profesional siap membantu Anda.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 2 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4 news-card">
+          <img src="https://i2.wp.com/asiatimes.com/wp-content/uploads/2020/07/Indonesia-Court-Room-Law-Justice.jpg" class="card-img-top rounded-top-4" alt="Berita 2">
+          <div class="card-body">
+            <h5 class="card-title">Panduan Digital untuk Pengunjung</h5>
+            <p class="card-text">
+              Panduan digital terbaru memungkinkan pengunjung mengakses informasi hukum dengan mudah melalui website maupun aplikasi.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Article 3 -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow-sm border-0 rounded-4 news-card">
+          <img src="https://www.acslaw.org/wp-content/uploads/2025/05/laws.jpg" class="card-img-top rounded-top-4" alt="Berita 3">
+          <div class="card-body">
+            <h5 class="card-title">Kegiatan Edukasi Hukum</h5>
+            <p class="card-text">
+              Program edukasi hukum terbaru membantu pengunjung memahami hak dan prosedur hukum secara praktis.
+            </p>
+            <a href="#" class="btn btn-primary btn-sm">Baca Selengkapnya</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</section><!-- /News Section -->
+
+<!-- CSS tambahan untuk animasi hover pada card berita -->
+<style>
+.news-card {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.news-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 25px rgba(0,0,0,0.2);
+}
+</style>
+
 
     <!-- Contact Section -->
     <section id="contact" class="contact section">
