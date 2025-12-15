@@ -1,31 +1,117 @@
 
   <main class="main">
+<!-- Pengumuman / Breaking News -->
+<section class="announcement py-2" style="background-color: #f8f9fa;"> <!-- samakan dengan light-background -->
+  <div class="container d-flex align-items-center">
+    <i class="bi bi-megaphone-fill me-2 text-dark"></i> <!-- icon warna sama -->
+    <div class="announcement-text overflow-hidden position-relative w-100">
+      <div class="scrolling-text text-dark">
+        Pengumuman: Layanan konsultasi gratis setiap Jumat! &nbsp;|&nbsp; Informasi terbaru terkait hukum & peraturan terbaru!
+      </div>
+    </div>
+  </div>
+</section>
 
-    <!-- Hero Section -->
-    <section id="hero" class="section hero light-background">
+<style>
+.announcement-text {
+  white-space: nowrap;
+}
 
-      <div class="container">
-        <div class="row gy-4">
-          <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
-            <h1>MDS DAN REKAN</h1>
-            <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
-            <div class="d-flex">
-              <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
-              <a href="#" class="glightbox btn-watch-video d-flex align-items-center"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
+.scrolling-text {
+  display: inline-block;
+  padding-left: 100%;
+  animation: scroll-left 20s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+/* Optional: samakan font dengan Hero Section */
+.announcement-text, .scrolling-text {
+  font-family: inherit;
+  font-size: 1rem;
+}
+</style>
+
+
+<!-- Hero Section -->
+<section id="hero" class="section hero light-background">
+
+  <div class="container">
+    <div class="row gy-4">
+      
+      <!-- Hero Text -->
+      <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center" data-aos="fade-up">
+        <h1>MDS DAN REKAN</h1>
+        <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
+        <div class="d-flex">
+          <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
+          <a href="#" class="glightbox btn-watch-video d-flex align-items-center">
+            <i class="bi bi-play-circle"></i><span>Watch Video</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Hero Slider -->
+      <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+        <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+
+          <div class="carousel-inner">
+            <!-- Slide 1 -->
+            <div class="carousel-item active">
+              <img 
+                src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
+                class="d-block w-100 img-fluid animated" 
+                alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
+              >
+            </div>
+
+            <!-- Slide 2 -->
+            <div class="carousel-item">
+              <img 
+                src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
+                class="d-block w-100 img-fluid animated" 
+                alt="Slider Image 1"
+              >
+            </div>
+
+            <!-- Slide 3 -->
+            <div class="carousel-item">
+              <img 
+                src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
+                class="d-block w-100 img-fluid animated" 
+                alt="Slider Image 2"
+              >
             </div>
           </div>
-          <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-            <img 
-                src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
-                class="img-fluid animated" 
-                alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
-            >
-        </div>
+
+          <!-- Controls -->
+          <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
 
         </div>
       </div>
 
-    </section><!-- /Hero Section -->
+    </div>
+  </div>
+
+</section><!-- /Hero Section -->
+
+
+</main>
+
 
     <!-- About Section -->
     <section id="about" class="section about">
