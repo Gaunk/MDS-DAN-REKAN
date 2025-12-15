@@ -230,8 +230,12 @@ function updateUpcoming() {
                 <h6 class="mb-1">${e.title}</h6>
                 <small class="text-muted">${startTime}${endTime ? ' - ' + endTime : ''}</small>
                 <div class="mt-1">
-                    <span class="badge bg-${getBadge(e.extendedProps.tipe)}">${e.extendedProps.tipe || 'custom'}</span>
+                    <span class="badge bg-${getBadge(e.extendedProps.tipe)}" 
+                          style="font-size:0.60rem; padding:0.20em 0.6em; line-height:1; white-space:nowrap;">
+                        ${e.extendedProps.tipe || 'custom'}
+                    </span>
                 </div>
+
             </div>
         </div>`;
     });
