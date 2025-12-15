@@ -50,7 +50,7 @@
           <h1>MDS DAN REKAN</h1>
           <p>Advokat - Konsultan Hukum - Arbiter - Mediator</p>
           <div class="d-flex">
-            <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started">Hubungi</a>
+            <a href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." class="btn-get-started"><i class="bi bi-whatsapp"></i> Hubungi</a>
             <a href="#" class="glightbox btn-watch-video d-flex align-items-center">
               <i class="bi bi-play-circle"></i><span>Watch Video</span>
             </a>

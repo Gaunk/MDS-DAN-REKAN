@@ -22,7 +22,10 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya.">Hubungi</a>
+          <a class="btn-getstarted" href="https://wa.me/+6282211922701?text=Halo%2C%20saya%20ingin%20bertanya." target="_blank">
+      <i class="bi bi-whatsapp"></i> Hubungi
+    </a>
+
 
     </div>
   </header>
