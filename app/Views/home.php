@@ -938,13 +938,10 @@
 
   <!-- Preloader -->
   <div id="preloader"></div>
-
-
 <!-- Popup HTML -->
 <div class="popup-overlay" id="popup">
     <div class="popup-content">
         <img src="<?= base_url('temp_home/') ?>assets/img/popup-1.png" alt="Popup Gambar">
-        <!-- <button class="close-btn" onclick="closePopup()">Tutup</button> -->
     </div>
 </div>
 
@@ -954,16 +951,20 @@ window.onload = function() {
     const popup = document.getElementById('popup');
     popup.style.display = 'flex';
     
+    // Animasi masuk
     setTimeout(() => {
         popup.classList.add('show');
     }, 100); // delay kecil agar transition terlihat
 
-    // Klik di luar kotak popup menutup popup
-    popup.addEventListener('click', function(e) {
-        if (e.target === popup) {
-            closePopup();
-        }
+    // Klik di mana saja (termasuk gambar) menutup popup
+    popup.addEventListener('click', function() {
+        closePopup();
     });
+
+    // Tutup otomatis setelah 5 detik
+    setTimeout(() => {
+        closePopup();
+    }, 5000);
 }
 
 // Fungsi tutup popup

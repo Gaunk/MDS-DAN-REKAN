@@ -62,17 +62,7 @@
 .popup-content img {
     max-width: 100%;
     border-radius: 10px;
-}
-
-/* Tombol tutup */
-.close-btn {
-    margin-top: 15px;
-    padding: 10px 20px;
-    background: #f44336;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
+    cursor: pointer; /* beri tanda bisa diklik */
 }
 </style>
 
