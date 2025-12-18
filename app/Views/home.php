@@ -943,8 +943,8 @@
 <!-- Popup HTML -->
 <div class="popup-overlay" id="popup">
     <div class="popup-content">
-        <img src="<?= base_url('temp_home/') ?>assets/img/popup.png" alt="Popup Gambar">
-        <button class="close-btn" onclick="closePopup()">Tutup</button>
+        <img src="<?= base_url('temp_home/') ?>assets/img/popup-1.png" alt="Popup Gambar">
+        <!-- <button class="close-btn" onclick="closePopup()">Tutup</button> -->
     </div>
 </div>
 
