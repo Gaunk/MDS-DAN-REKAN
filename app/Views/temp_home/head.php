@@ -23,6 +23,7 @@
     <link href="<?= base_url('temp_home/assets/css/main.css') ?>" rel="stylesheet">
     <!-- Link AOS CSS -->
     <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
 <style>
 /* Latar belakang popup */
 .popup-overlay {

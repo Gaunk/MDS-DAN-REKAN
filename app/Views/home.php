@@ -954,13 +954,19 @@ window.onload = function() {
     const popup = document.getElementById('popup');
     popup.style.display = 'flex';
     
-    // Tambahkan kelas 'show' agar animasi CSS berjalan
     setTimeout(() => {
         popup.classList.add('show');
     }, 100); // delay kecil agar transition terlihat
+
+    // Klik di luar kotak popup menutup popup
+    popup.addEventListener('click', function(e) {
+        if (e.target === popup) {
+            closePopup();
+        }
+    });
 }
 
-// Tutup popup
+// Fungsi tutup popup
 function closePopup() {
     const popup = document.getElementById('popup');
     popup.classList.remove('show'); // animasi keluar
