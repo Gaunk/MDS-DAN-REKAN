@@ -70,7 +70,7 @@
       <!-- Slide 1 -->
       <div class="carousel-item active">
         <img 
-          src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
+          src="<?= base_url('temp_home/') ?>assets/img/popup-1.png" 
           class="d-block w-100 img-fluid animated hero-slider-img" 
           alt="Slider Image 1"
         >
@@ -79,7 +79,7 @@
       <!-- Slide 2 -->
       <div class="carousel-item">
         <img 
-          src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
+          src="<?= base_url('temp_home/') ?>assets/img/s-2.jpeg" 
           class="d-block w-100 img-fluid animated hero-slider-img" 
           alt="Slider Image 2"
         >
