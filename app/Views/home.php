@@ -6,7 +6,10 @@
     <i class="bi bi-megaphone-fill me-2 text-dark"></i> <!-- icon warna sama -->
     <div class="announcement-text overflow-hidden position-relative w-100">
       <div class="scrolling-text text-dark">
-        Pengumuman: Layanan konsultasi gratis setiap Jumat! &nbsp;|&nbsp; Informasi terbaru terkait hukum & peraturan terbaru!
+        <strong>Pengumuman:</strong> Layanan konsultasi <strong>gratis setiap Jumat</strong>! &nbsp;|&nbsp; 
+        Dapatkan informasi terbaru terkait <strong>hukum, peraturan terbaru, dan regulasi terkini</strong>!
+        <strong>Firma Hukum MDS & Rekan</strong> – aman, terpercaya, profesional, berpengalaman, berdedikasi, responsif, solusi hukum tuntas, integritas tinggi, fokus pada kepentingan klien, dan partner hukum yang dapat diandalkan.
+        Kami hadir untuk mendampingi Anda dengan layanan hukum berkualitas, memberikan nasihat tepat, strategi efektif, dan perlindungan hukum maksimal. Percayakan kebutuhan hukum Anda pada <strong>MDS & Rekan</strong>, firma hukum yang solid, handal, dan berkomitmen penuh terhadap kepuasan klien.
       </div>
     </div>
   </div>
@@ -14,18 +17,19 @@
 
 <style>
 .announcement-text {
-  white-space: nowrap;
+  height: 1.5em; /* sesuaikan tinggi teks */
 }
 
 .scrolling-text {
   display: inline-block;
-  padding-left: 100%;
-  animation: scroll-left 20s linear infinite;
+  white-space: nowrap;
+  position: relative;
+  animation: scrollText 60s linear infinite; /* durasi lama = scroll lebih lambat */
 }
 
-@keyframes scroll-left {
+@keyframes scrollText {
   0% {
-    transform: translateX(0%);
+    transform: translateX(100%);
   }
   100% {
     transform: translateX(-100%);
@@ -57,17 +61,17 @@
           </div>
         </div>
 
-        <!-- Hero Slider -->
+  <!-- Hero Slider -->
 <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+  <div id="heroCarousel" class="carousel slide rounded-4 overflow-hidden" data-bs-ride="carousel">
 
     <div class="carousel-inner">
 
-      <!-- Slide 1 (jadi active) -->
+      <!-- Slide 1 -->
       <div class="carousel-item active">
         <img 
           src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
-          class="d-block w-100 img-fluid animated" 
+          class="d-block w-100 img-fluid animated hero-slider-img" 
           alt="Slider Image 1"
         >
       </div>
@@ -76,7 +80,7 @@
       <div class="carousel-item">
         <img 
           src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
-          class="d-block w-100 img-fluid animated" 
+          class="d-block w-100 img-fluid animated hero-slider-img" 
           alt="Slider Image 2"
         >
       </div>
@@ -797,7 +801,7 @@
                 <i class="bi bi-envelope flex-shrink-0"></i>
                 <div>
                   <h3>Email Us</h3>
-                  <p>mdsrekan@gmail.com</p>
+                  <p>mdsdanrekan@gmail.com</p>
                 </div>
               </div><!-- End Info Item -->
 
@@ -876,7 +880,7 @@
             <p>Kabupaten Bogor</p>
             <p>Pajeleran Gunung, 16931</p>
             <p class="mt-3"><strong>Phone:</strong> <span>+62 822 1192 2701</span></p>
-            <p><strong>Email:</strong> <span>mdsrekan@gmail.com</span></p>
+            <p><strong>Email:</strong> <span>mdsdanrekan@gmail.com</span></p>
           </div>
         </div>
 
@@ -934,3 +938,36 @@
 
   <!-- Preloader -->
   <div id="preloader"></div>
+
+
+<!-- Popup HTML -->
+<div class="popup-overlay" id="popup">
+    <div class="popup-content">
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8l_hTDoX1fG6G5MhsTuzd5ODtJjDGztUdhQ&s" alt="Popup Gambar">
+        <h2>Selamat Datang!</h2>
+        <p>Terima kasih telah mengunjungi website kami.</p>
+        <button class="close-btn" onclick="closePopup()">Tutup</button>
+    </div>
+</div>
+
+<script>
+// Tampilkan popup otomatis dengan animasi lembut
+window.onload = function() {
+    const popup = document.getElementById('popup');
+    popup.style.display = 'flex';
+    
+    // Tambahkan kelas 'show' agar animasi CSS berjalan
+    setTimeout(() => {
+        popup.classList.add('show');
+    }, 100); // delay kecil agar transition terlihat
+}
+
+// Tutup popup
+function closePopup() {
+    const popup = document.getElementById('popup');
+    popup.classList.remove('show'); // animasi keluar
+    setTimeout(() => {
+        popup.style.display = 'none';
+    }, 600); // sesuai durasi transition
+}
+</script>
