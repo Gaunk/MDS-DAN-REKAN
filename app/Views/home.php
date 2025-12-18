@@ -943,9 +943,7 @@
 <!-- Popup HTML -->
 <div class="popup-overlay" id="popup">
     <div class="popup-content">
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT8l_hTDoX1fG6G5MhsTuzd5ODtJjDGztUdhQ&s" alt="Popup Gambar">
-        <h2>Selamat Datang!</h2>
-        <p>Terima kasih telah mengunjungi website kami.</p>
+        <img src="<?= base_url('temp_home/') ?>assets/img/popup.png" alt="Popup Gambar">
         <button class="close-btn" onclick="closePopup()">Tutup</button>
     </div>
 </div>
