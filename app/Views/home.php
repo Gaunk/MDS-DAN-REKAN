@@ -58,50 +58,44 @@
         </div>
 
         <!-- Hero Slider -->
-        <div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
-          <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
+<div class="col-lg-6 order-4 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="200">
+  <div id="heroCarousel" class="carousel slide" data-bs-ride="carousel">
 
-            <div class="carousel-inner">
-              <!-- Slide 1 -->
-              <div class="carousel-item active">
-                <img 
-                  src="<?= base_url('uploads/logo/' . ($pengaturan['logo'] ?? 'default-logo.png')) ?>" 
-                  class="d-block w-100 img-fluid animated" 
-                  alt="<?= esc($pengaturan['nama_perusahaan'] ?? 'Logo Perusahaan') ?>"
-                >
-              </div>
+    <div class="carousel-inner">
 
-              <!-- Slide 2 -->
-              <div class="carousel-item">
-                <img 
-                  src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
-                  class="d-block w-100 img-fluid animated" 
-                  alt="Slider Image 1"
-                >
-              </div>
+      <!-- Slide 1 (jadi active) -->
+      <div class="carousel-item active">
+        <img 
+          src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-3-1024x683.png" 
+          class="d-block w-100 img-fluid animated" 
+          alt="Slider Image 1"
+        >
+      </div>
 
-              <!-- Slide 3 -->
-              <div class="carousel-item">
-                <img 
-                  src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
-                  class="d-block w-100 img-fluid animated" 
-                  alt="Slider Image 2"
-                >
-              </div>
-            </div>
+      <!-- Slide 2 -->
+      <div class="carousel-item">
+        <img 
+          src="https://adcolaw.com/wp-content/uploads/2022/01/Law-Firm-2-1024x683.png" 
+          class="d-block w-100 img-fluid animated" 
+          alt="Slider Image 2"
+        >
+      </div>
 
-            <!-- Controls -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
+    </div>
 
-          </div>
-        </div>
+    <!-- Controls -->
+    <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+
+    <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+</div>
 
       </div>
     </div>
